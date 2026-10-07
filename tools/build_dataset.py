@@ -116,6 +116,12 @@ RU_TEXTS: dict[str, dict[str, str]] = {
         "t2": "При попадании по герою: восстанавливает 2 единицы выносливости",
         "t3": "+80 к дополнительному урону; получившие пинок враги наносят -35% урона в течение 5 с",
     },
+    "ability_drifter_hunger": {
+        "desc": (
+            "Когда у вражеских героев мало здоровья, вы наносите им усиленный урон. Такие враги "
+            "оставляют за собой кровавый след, пока двигаются."
+        ),
+    },
 }
 
 # ---------------------------------------------------------------------------
@@ -124,6 +130,56 @@ RU_TEXTS: dict[str, dict[str, str]] = {
 # Значения игровых токенов вида {g:citadel_inline_attribute:'SpiritDamage'}.
 # Точные числа остаются в блоке «характеристики», поэтому в тексте достаточно
 # названия эффекта.
+ATTR_GENITIVES_RU: dict[str, str] = {
+    "AbilityCooldown": "перезарядки",
+    "BonusFireRate": "повышенной скорострельности",
+    "BonusMoveSpeed": "увеличенной скорости передвижения",
+    "BonusSpiritDamage": "доп. спиритического урона",
+    "BonusSprintSpeed": "бонусной скорости бега",
+    "BonusWeaponDamage": "доп. урона от оружия",
+    "BulletDamage": "урона от пуль",
+    "BulletResist": "сопротивляемости пулям",
+    "CombatBarrier": "барьера",
+    "Courage": "храбрости",
+    "DamageAmp": "повышенного урона",
+    "FireRate": "скорострельности",
+    "Fortitude": "стойкости",
+    "Heal": "лечения",
+    "Healing": "лечения",
+    "Heals": "лечения",
+    "Health": "здоровья",
+    "Immobilize": "обездвиживания",
+    "KnockBack": "отбрасывания",
+    "KnockUp": "подбрасывания",
+    "MaxHealth": "макс. здоровья",
+    "MeleeDamage": "урона ближнего боя",
+    "MoveSpeed": "скорости передвижения",
+    "Pull": "притягивания",
+    "Pulling": "притягивания",
+    "Pulls": "притягивания",
+    "PureDamage": "чистого урона",
+    "ReducedFireRate": "уменьшения скорострельности",
+    "Regen": "восстановления",
+    "Silence": "безмолвия",
+    "Sleep": "сна",
+    "Slow": "замедления",
+    "SlowResistance": "сопротивляемости замедлению",
+    "Spirit": "спиритической мощи",
+    "SpiritDPS": "постепенного спиритического урона",
+    "SpiritDamage": "спиритического урона",
+    "SpiritResist": "сопротивляемости спиритизму",
+    "StaminaRegenPerSecond": "восстановления выносливости",
+    "Stun": "оглушения",
+    "WeaponDPS": "постепенного урона от оружия",
+    "WeaponDamage": "урона от оружия",
+}
+
+
+ATTR_NAMES_RU: dict[str, str] = {}  # заполняется из локализации: InlineAttribute_*
+ATTR_GEN_RU: dict[str, str] = {}    # официальное имя → форма при числительном
+HERO_NAME_RU = ""                   # имя героя для токена {s:hero_name}
+CURRENT_ATTRS: dict[str, tuple[str, str]] = {}  # ключ атрибута → (имя, форма при числительном)
+
 INLINE_ATTR_RU: dict[str, str] = {
     "spiritdamage": "спиритический урон",
     "spiritdps": "спиритический урон в секунду",
@@ -151,6 +207,11 @@ INLINE_ATTR_RU: dict[str, str] = {
     "combatbarrier": "боевой барьер",
     "barrier": "барьер",
     "reducedfirerate": "снижение скорости стрельбы",
+    "firerate": "скорострельность",
+    "bonusfirerate": "дополнительная скорострельность",
+    "immobilize": "обездвиживание",
+    "slowresistance": "сопротивление замедлению",
+    "spirit": "спиритическая мощь",
     "knockup": "подбрасывание",
     "debuffresist": "сопротивление отрицательным эффектам",
     "stamina": "выносливость",
@@ -189,6 +250,24 @@ BINDINGS_RU = {
     "Ability2": "умение 2",
     "Ability3": "умение 3",
     "Ability4": "умение 4",
+    "MoveForward": "движение вперёд",
+    "MoveBackward": "движение назад",
+    "MoveLeft": "движение влево",
+    "MoveRight": "движение вправо",
+    "Interact": "взаимодействие",
+    "Zoom": "приближение",
+    "Scoreboard": "таблица счёта",
+    "Shop": "магазин",
+    "Attack": "атака",
+    "AbilityMelee": "ближний бой",
+    "AltCast": "альтернативное применение",
+    "Mantle": "перелезание",
+    "Roll": "перекат",
+    "HeldItem": "использование предмета",
+    "Zipline": "зиплайн",
+    "OpenHeroSheet": "лист героя",
+    "Ping": "метка",
+    "PurchaseQuickbuy": "быстрая покупка",
 }
 
 HERO_TYPE_RU = {
@@ -225,6 +304,11 @@ PUNCT_RE = re.compile(r"\s+([,.;:!?])")
 # ---------------------------------------------------------------------------
 # Текст
 # ---------------------------------------------------------------------------
+def attr_key(text: str) -> str:
+    """Ключ для русских названий атрибутов: сохраняет кириллицу."""
+    return re.sub(r"[^0-9a-zа-яё]+", "", (text or "").lower())
+
+
 def normalize_key(text: str) -> str:
     return re.sub(r"[^a-z0-9]", "", (text or "").lower())
 
@@ -243,17 +327,52 @@ def strip_html(text: str) -> str:
     return text.strip()
 
 
+UNIT_RU = {"m": " м", "m/s": " м/с", "s": " с.", "%": "%"}
+
+
 def measure(value, postfix: str | None) -> str:
     """Приводит значение свойства к виду «28%», «20 м», «4 с.»."""
+    postfix = PROPERTY_LABELS_RU.get(postfix or "", postfix) or ""
     if isinstance(value, str):
         match = UNIT_RE.match(value.strip())
         if match:
             number, unit = match.groups()
-            unit_map = {"m": " м", "m/s": " м/с", "s": " с.", "%": "%"}
-            return f"{number}{unit_map[unit]}"
+            return f"{number}{postfix or UNIT_RU[unit]}"
     text = f"{value:g}" if isinstance(value, float) else str(value)
-    postfix = PROPERTY_LABELS_RU.get(postfix or "", postfix)
     return f"{text}{postfix}" if postfix else text
+
+
+def format_bonus(bonus, postfix: str | None) -> str:
+    """Улучшение предмета: «+45%», «-4 с.», «+3 м/с»."""
+    postfix = PROPERTY_LABELS_RU.get(postfix or "", postfix) or ""
+    if isinstance(bonus, str):
+        match = UNIT_RE.match(bonus.strip())
+        if match:
+            number, unit = match.groups()
+            sign = "" if number.startswith("-") else "+"
+            return f"{sign}{number}{postfix or UNIT_RU[unit]}"
+    try:
+        number = float(bonus)
+    except (TypeError, ValueError):
+        return str(bonus)
+    return f"{number:+g}{postfix}"
+
+
+# Свойства, у которых ноль или минус означает «эффекта нет».
+EMPTY_WHEN_ZERO = {
+    "AbilityCooldown",
+    "AbilityDuration",
+    "AbilityCastRange",
+    "AbilityCastDelay",
+    "AbilityChannelTime",
+    "AbilityPostCastDuration",
+    "AbilityCharges",
+    "AbilityCooldownBetweenCharge",
+    "AbilityResourceCost",
+    "ChannelMoveSpeed",
+    "TechPower",
+    "WeaponPower",
+}
 
 
 def stat_list(properties: dict) -> list[dict]:
@@ -264,42 +383,76 @@ def stat_list(properties: dict) -> list[dict]:
         if not label:
             continue  # у служебных свойств нет подписи
         value = prop.get("value")
-        if value in (None, "", 0, "0", 0.0, "0.0", -1, "-1"):
+        if value in (None, "", 0, "0", 0.0, "0.0", -1, "-1","-1.0"):
             continue
+        if name in EMPTY_WHEN_ZERO:
+            try:
+                if float(value) <= 0:
+                    continue
+            except (TypeError, ValueError):
+                pass
         result.append({"label": label, "value": measure(value, prop.get("postfix"))})
     return result
 
 
-def attribute_value(name: str, properties: dict) -> tuple[str, bool]:
-    """Значение свойства по имени из токена. Возвращает (текст, найдено ли свойство)."""
+def attribute_text(name: str, properties: dict) -> str:
+    """Подпись атрибута: «значение + название (в форме при числительном)»."""
     target = normalize_key(name)
+    value = ""
     for key, prop in (properties or {}).items():
         if normalize_key(key) == target:
-            value = prop.get("value")
-            if value in (None, "", 0, "0", 0.0, "0.0", -1, "-1"):
-                break
-            return measure(value, prop.get("postfix")), True
-    return INLINE_ATTR_RU.get(target, ""), False
+            raw = prop.get("value")
+            if raw not in (None, "", 0, "0", 0.0, "0.0", -1, "-1"):
+                value = measure(raw, prop.get("postfix"))
+            break
+    pair = CURRENT_ATTRS.get(target)
+    label = pair[0] if pair else INLINE_ATTR_RU.get(target, "")
+    if value:
+        if pair and pair[1]:
+            return f"{value} {pair[1]}"
+        return f"{value} {label}".strip() if label else value
+    return label
 
 
 def resolve_tokens(text: str, properties: dict) -> str:
     """Подставляет русские названия эффектов вместо игровых токенов."""
+
+    def spaced(match: re.Match, text: str) -> str:
+        if not text:
+            return text
+        if match.start() > 0:
+            previous = match.string[match.start() - 1]
+            if (previous.isalnum() and text[0].isalnum()) or (
+                previous == "%" and text[0].isdigit()
+            ):
+                return " " + text
+        return text
 
     def replace(match: re.Match) -> str:
         args = TOKEN_ARG_RE.findall(match.group(2))
         if not args:
             return ""
         key = args[0]
-        if "inline_attribute" in match.group(2):
-            return attribute_value(key, properties)[0]
-        if "binding" in match.group(2):
-            return BINDINGS_RU.get(key, key)
-        return ""
+        kind = match.group(1)
+        body = match.group(2)
+        if "inline_attribute" in body:
+            return spaced(match, attribute_text(key, properties))
+        if "binding" in body:
+            cleaned = key.split(".")[-1]
+            return spaced(match, BINDINGS_RU.get(key, BINDINGS_RU.get(cleaned, cleaned)))
+        if kind == "s":
+            if key.lower() == "hero_name":
+                return HERO_NAME_RU
+            return spaced(match, attribute_text(key, properties))
+        return ""  # {i:...} — динамическое число, подставляется движком
 
     return TOKEN_RE.sub(replace, text)
 
 
 def tidy(text: str) -> str:
+    text = re.sub(r"(%)\s*%", r"\1", text)
+    text = re.sub(r"(с\.)\s*s\b", r"\1", text)
+    text = re.sub(r"(\d)\s+(%|с\.)", r"\1\2", text)
     text = PUNCT_RE.sub(r"\1", text)
     text = re.sub(r"\(\s*\)", "", text)
     text = re.sub(r"\s{2,}", " ", text)
@@ -330,6 +483,33 @@ def localize_names(text: str, pairs: list[tuple[re.Pattern, str]]) -> str:
     for pattern, russian in pairs:
         text = pattern.sub(russian, text)
     return text
+
+
+def has_cyrillic(text: str) -> bool:
+    return bool(re.search("[а-яА-Я]", text or ""))
+
+
+def compose_description(item: dict, upgrades: list[dict], stats: list[dict]) -> str:
+    """Описание предмета из его улучшений, если у Valve нет готового текста."""
+    bonuses = upgrades[0]["bonuses"] if upgrades else []
+    parts = []
+    for bonus in bonuses:
+        label = (bonus.get("label") or "").strip()
+        value = (bonus.get("value") or "").strip()
+        if not label or not value:
+            continue
+        parts.append(f"{label[0].lower() + label[1:]} {value}")
+    if not parts:
+        for stat in stats[:5]:
+            label = (stat.get("label") or "").strip()
+            if label and stat.get("value"):
+                parts.append(f"{label[0].lower() + label[1:]} {stat['value']}")
+    if not parts:
+        return ""
+    prefix = "Активно" if item.get("is_active_item") else "Пассивно"
+    if len(parts) == 1:
+        return f"{prefix}: {parts[0]}."
+    return f"{prefix}: " + ", ".join(parts) + "."
 
 
 def load_json(path: str, default=None):
@@ -365,6 +545,17 @@ def main() -> int:
     snapshot = load_json(os.path.join(raw, "meta.json"), {})
     patches = load_json(os.path.join(raw, "patches.json"), [])
 
+    # Официальные названия встроенных атрибутов («Спиритический урон» и т. п.).
+    for key, value in loc_ru.items():
+        if key.startswith("InlineAttribute_") and isinstance(value, str):
+            ATTR_NAMES_RU[normalize_key(key[len("InlineAttribute_"):])] = value
+    for token, gent in ATTR_GENITIVES_RU.items():
+        name = ATTR_NAMES_RU.get(normalize_key(token))
+        if name:
+            ATTR_GEN_RU[attr_key(name)] = gent
+    for token, name in ATTR_NAMES_RU.items():
+        CURRENT_ATTRS[token] = (name, ATTR_GEN_RU.get(attr_key(name), ""))
+
     snapshot_date = (snapshot.get("fetched_at") or datetime.now(timezone.utc).isoformat())[:10]
     client_version = max(client_versions) if client_versions else None
 
@@ -396,12 +587,7 @@ def main() -> int:
                     continue
                 prop = properties.get(name) or {}
                 label = PROPERTY_LABELS_RU.get(prop.get("label") or "", prop.get("label")) or name
-                try:
-                    text = f"{float(bonus):+g}"
-                except (TypeError, ValueError):
-                    text = str(bonus)
-                postfix = PROPERTY_LABELS_RU.get(prop.get("postfix") or "", prop.get("postfix")) or ""
-                bonuses.append({"label": label, "value": f"{text}{postfix}"})
+                bonuses.append({"label": label, "value": format_bonus(bonus, prop.get("postfix"))})
             if bonuses:
                 tiers.append({"tier": index, "bonuses": bonuses})
         return tiers
@@ -412,12 +598,12 @@ def main() -> int:
         official = loc_ru.get(f"{class_name}_desc")
         if official:
             text = clean_text(official, properties)
-            if text:
+            if text and has_cyrillic(text):
                 return localize_names(text, name_pairs), "official"
         api_desc = (item.get("description") or {}).get("desc")
         if api_desc:
             text = clean_text(api_desc, properties)
-            if text:
+            if text and has_cyrillic(text):
                 return localize_names(text, name_pairs), "official"
         return "", ""
 
@@ -428,17 +614,7 @@ def main() -> int:
         stats = stat_list(item.get("properties") or {})
         upgrades = tier_upgrades(item)
         if not description:
-            if upgrades:
-                effects = ", ".join(
-                    f"{bonus['label']} {bonus['value']}"
-                    for bonus in upgrades[0]["bonuses"][:5]
-                    if bonus["label"]
-                )
-                description = f"Пассивно: {effects}." if effects else ""
-            elif stats:
-                description = "Пассивно: " + ", ".join(
-                    f"{stat['label']} {stat['value']}" for stat in stats[:5]
-                ) + "."
+            description = compose_description(item, upgrades, stats)
             description_source = "generated" if description else ""
         items.append(
             {
@@ -493,7 +669,9 @@ def main() -> int:
             if not tier_text:
                 tier_text = clean_text(loc_ru.get(f"{class_name}_t{tier}_desc") or "", properties)
             if not tier_text:
-                tier_text = strip_html((entry.get("description") or {}).get(f"t{tier}_desc") or "")
+                tier_text = clean_text(
+                    (entry.get("description") or {}).get(f"t{tier}_desc") or "", properties
+                )
             if tier_text:
                 upgrades.append({"tier": tier, "text": localize_names(tier_text, name_pairs)})
 
@@ -540,11 +718,13 @@ def main() -> int:
         }
 
     heroes = []
+    global HERO_NAME_RU
     for hero in api_heroes:
         hero_id = hero["id"]
         details = load_json(os.path.join(raw, f"hero_{hero_id}.json"), [])
         starting = hero.get("starting_stats") or {}
         hero_items = hero.get("items") or {}
+        HERO_NAME_RU = hero.get("name") or loc_ru.get(hero.get("class_name") or "") or ""
 
         def stat(key: str):
             return (starting.get(key) or {}).get("value")

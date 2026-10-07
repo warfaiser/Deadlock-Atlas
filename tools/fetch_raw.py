@@ -8,13 +8,15 @@
     items.json                 — предметы магазина с русскими названиями и описаниями
     hero_<id>.json             — предметы и способности конкретного героя (русский)
     hero_<id>_en.json          — то же на английском (для героев без русской локализации)
-    builds.json                — словарь {hero_id: [самые популярные сборки сообщества]}
+    builds.json                — словарь {hero_id: [самые популярные и свежие сборки сообщества]}
+    localizations/russian.json — официальная русская локализация игры
+    localizations/english.json — английская локализация (для сверки названий)
     patches.json               — лента патчей
     client_versions.json       — версии клиента игры
     meta.json                  — дата снимка, версия игры и счётчики
 
 Запуск:
-    python3 tools/fetch_raw.py [--lang russian] [--out data/raw] [--builds-per-hero 25]
+    python3 tools/fetch_raw.py [--lang russian] [--out data/raw] [--builds-distinct 8]
 """
 
 from __future__ import annotations
@@ -31,6 +33,12 @@ from datetime import datetime, timezone
 
 API = "https://api.deadlock-api.com"
 USER_AGENT = "Deadlock-Atlas/1.0 (+https://github.com/warfaiser/Deadlock-Atlas)"
+LOCALIZATION_URL = (
+    "https://raw.githubusercontent.com/deadlock-wiki/deadlock-data/master"
+    "/data/localizations/{lang}.json"
+)
+# Порядок выдачи сборок: сначала самые популярные за неделю, затем недавно обновлённые.
+BUILDS_POOL_SORTS = ("weekly_favorites", "updated_at")
 
 # Герои, которых ещё не выпустили: русская локализация способностей для них
 # может появиться позже, поэтому дополнительно тянем английский вариант.
@@ -68,6 +76,31 @@ def save(out_dir: str, name: str, payload: object) -> int:
     return size_kb
 
 
+def download_json(url: str) -> object:
+    """Прямая загрузка JSON (локализации игры из deadlock-data)."""
+    request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "application/json"})
+    with urllib.request.urlopen(request, timeout=120) as response:
+        return json.loads(response.read().decode("utf-8"))
+
+
+def dedup_builds(rows: list, keep: int) -> list:
+    """Оставляет по одной (самой свежей) версии каждой сборки — не больше keep штук."""
+    newest: dict[int, dict] = {}
+    order: list[int] = []
+    for row in rows:
+        hero_build = row.get("hero_build") or {}
+        build_id = hero_build.get("hero_build_id")
+        if build_id is None:
+            continue
+        known = newest.get(build_id)
+        if known is None:
+            order.append(build_id)
+            newest[build_id] = row
+        elif (hero_build.get("version") or 0) > ((known.get("hero_build") or {}).get("version") or 0):
+            newest[build_id] = row
+    return [newest[build_id] for build_id in order[:keep]]
+
+
 def as_list(payload: object) -> list:
     """API отдаёт героев списком, но подстрахуемся от словаря."""
     if isinstance(payload, list):
@@ -81,30 +114,31 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Снимок данных Deadlock из Deadlock API")
     parser.add_argument("--lang", default="russian", help="язык локализации (по умолчанию russian)")
     parser.add_argument("--out", default="data/raw", help="куда складывать сырые JSON")
-    parser.add_argument("--builds-per-hero", type=int, default=25, help="сколько строк сборок запрашивать на героя")
+    parser.add_argument("--builds-distinct", type=int, default=8, help="сколько разных сборок брать на героя")
+    parser.add_argument("--builds-pages", type=int, default=2, help="сколько страниц по 100 строк листать")
     parser.add_argument("--skip-hero-details", action="store_true", help="не тянуть предметы и способности по героям")
     args = parser.parse_args()
 
     os.makedirs(args.out, exist_ok=True)
 
-    print("1/7 версии клиента …")
+    print("1/8 версии клиента …")
     save(args.out, "client_versions", api_get("/v1/assets/client-versions"))
 
-    print("2/7 все герои из файлов игры …")
+    print("2/8 все герои из файлов игры …")
     heroes_all = as_list(api_get("/v1/assets/heroes", language=args.lang))
     save(args.out, "heroes_all", heroes_all)
 
-    print("3/7 выпущенные герои …")
+    print("3/8 выпущенные герои …")
     heroes = as_list(api_get("/v1/assets/heroes", language=args.lang, only_active="true"))
     save(args.out, "heroes", heroes)
 
-    print("4/7 предметы магазина …")
+    print("4/8 предметы магазина …")
     items = as_list(api_get("/v1/assets/items", language=args.lang))
     save(args.out, "items", items)
 
     hero_details: dict[str, int] = {}
     if not args.skip_hero_details:
-        print("5/7 способности и предметы по каждому герою …")
+        print("5/8 способности и предметы по каждому герою …")
         for hero in heroes:
             hero_id = hero.get("id")
             class_name = hero.get("class_name")
@@ -119,30 +153,61 @@ def main() -> int:
             print(f"   • {str(hero.get('name')):<24} {len(details):>2} записей")
             time.sleep(0.15)
     else:
-        print("5/7 способности и предметы по героям — пропущено")
+        print("5/8 способности и предметы по героям — пропущено")
 
-    print(f"6/7 сборки: до {args.builds_per_hero} строк на героя (версии одной сборки повторяются) …")
+    print(f"6/8 сборки: до {args.builds_distinct} разных сборок на героя (популярные и свежие) …")
     builds: dict[str, list] = {}
     for hero in heroes:
         hero_id = hero.get("id")
         if hero_id is None:
             continue
-        found = as_list(
-            api_get(
-                "/v1/builds",
-                hero_id=hero_id,
-                limit=args.builds_per_hero,
-                sort_by="weekly_favorites",
-                sort_direction="desc",
-            )
-        )
-        builds[str(hero_id)] = found
-        weekly = [build.get("num_weekly_favorites") or 0 for build in found]
-        print(f"   • {str(hero.get('name')):<24} {len(found):>2} сборок, избранное за неделю: {weekly}")
+        rows: list = []
+        seen: set[int] = set()
+        for sort_by in BUILDS_POOL_SORTS:
+            for page in range(args.builds_pages):
+                chunk = as_list(
+                    api_get(
+                        "/v1/builds",
+                        hero_id=hero_id,
+                        limit=100,
+                        start=page * 100,
+                        sort_by=sort_by,
+                        sort_direction="desc",
+                    )
+                )
+                if not chunk:
+                    break
+                rows.extend(chunk)
+                for build in chunk:
+                    build_id = (build.get("hero_build") or {}).get("hero_build_id")
+                    if build_id is not None:
+                        seen.add(build_id)
+                if len(seen) >= args.builds_distinct:
+                    break
+                time.sleep(0.2)
+        picked = dedup_builds(rows, args.builds_distinct)
+        builds[str(hero_id)] = picked
+        weekly = [build.get("num_weekly_favorites") or 0 for build in picked]
+        print(f"   • {str(hero.get('name')):<24} {len(picked):>2} сборок, избранное за неделю: {weekly}")
         time.sleep(0.2)
     save(args.out, "builds", builds)
 
-    print("7/7 патчи …")
+    print("7/8 локализации игры (официальный русский текст) …")
+    loc_dir = os.path.join(args.out, "localizations")
+    os.makedirs(loc_dir, exist_ok=True)
+    for lang in ("russian", "english"):
+        try:
+            payload = download_json(LOCALIZATION_URL.format(lang=lang))
+        except Exception as error:  # noqa: BLE001 — без локализаций снимок тоже полезен
+            print(f"  ! локализация {lang} недоступна: {error}", file=sys.stderr)
+            continue
+        path = os.path.join(loc_dir, f"{lang}.json")
+        with open(path, "w", encoding="utf-8") as handle:
+            json.dump(payload, handle, ensure_ascii=False, indent=1)
+            handle.write("\n")
+        print(f"  → localizations/{lang}.json ({os.path.getsize(path) // 1024} КБ)")
+
+    print("8/8 патчи …")
     try:
         save(args.out, "patches", api_get("/v1/patches"))
     except SystemExit as error:
@@ -151,7 +216,7 @@ def main() -> int:
     meta = {
         "fetched_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "language": args.lang,
-        "builds_per_hero": args.builds_per_hero,
+        "builds_distinct": args.builds_distinct,
         "source": "Deadlock API (https://deadlock-api.com/)",
         "counts": {
             "heroes_all": len(heroes_all),
