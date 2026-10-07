@@ -882,12 +882,23 @@ def main() -> int:
         }
 
     def pick_builds(candidates: list[dict]) -> list[dict]:
-        """Три сборки на героя: сначала свежие и с разными названиями, потом любые."""
+        """Три сборки на героя: две самые популярные и одна самая свежая."""
         picked: list[dict] = []
         used_ids: set[int] = set()
         used_names: set[str] = set()
 
-        def fill(pool: list[dict], unique_names: bool) -> None:
+        by_popularity = sorted(
+            candidates,
+            key=lambda build: (build["weekly_favorites"], build["updated_timestamp"]),
+            reverse=True,
+        )
+        fresh = sorted(
+            (build for build in candidates if build["updated_timestamp"] >= fresh_after),
+            key=lambda build: (build["weekly_favorites"], build["updated_timestamp"]),
+            reverse=True,
+        )
+
+        def take(pool: list[dict], unique_names: bool) -> None:
             for build in pool:
                 if len(picked) >= args.builds_per_hero:
                     return
@@ -896,15 +907,15 @@ def main() -> int:
                 key = normalize_key(build["name"])
                 if unique_names and key and key in used_names:
                     continue
+                build["fresh"] = build["updated_timestamp"] >= fresh_after
                 picked.append(build)
                 used_ids.add(build["id"])
                 used_names.add(key)
 
-        fresh = [build for build in candidates if build["updated_timestamp"] >= fresh_after]
-        fill(fresh, True)
-        fill(candidates, True)
-        fill(fresh, False)
-        fill(candidates, False)
+        take(by_popularity[: max(1, args.builds_per_hero - 1)], True)
+        take(fresh, True)
+        take(by_popularity, False)
+        take(candidates, False)
         return picked[: args.builds_per_hero]
 
     builds: dict[str, list] = {}
