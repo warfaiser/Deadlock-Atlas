@@ -282,12 +282,9 @@ NEW_HEROES = {
     "hero_ratking": {"released_at": "2026-10-02", "note": "Победитель первого голосования"},
     "hero_baba": {"released_at": "2026-10-06", "note": "Победитель второго голосования"},
 }
-VOTE_SCHEDULE = [
-    {"slot": 3, "date": "2026-10-09", "state": "голосование"},
-    {"slot": 4, "date": "2026-10-13", "state": "голосование"},
-    {"slot": 5, "date": "2026-10-16", "state": "голосование"},
-    {"slot": 6, "date": "2026-10-20", "state": "голосование"},
-]
+# Даты релизов оставшихся героев известны, а порядок определяет голосование игроков,
+# поэтому дату нельзя привязать к конкретному герою.
+RELEASE_DATES = ["2026-10-09", "2026-10-13", "2026-10-16", "2026-10-20"]
 
 PATCH_NAME = "City Never Sleeps"
 
@@ -806,12 +803,14 @@ def main() -> int:
                 "class_name": class_name,
                 "name": loc_ru.get(class_name) or hero.get("name"),
                 "name_en": loc_en.get(class_name) or hero.get("name"),
-                "hero_type": HERO_TYPE_RU.get(hero.get("hero_type"), hero.get("hero_type")),
+                "hero_type": HERO_TYPE_RU.get(hero.get("hero_type")) or None,
+                "tags": hero.get("tags") or [],
+                "complexity": hero.get("complexity"),
                 "images": hero.get("images") or {},
-                "vote": VOTE_SCHEDULE[len(upcoming) % len(VOTE_SCHEDULE)],
+                "vote": {"state": "голосование", "date": None},
             }
         )
-    upcoming.sort(key=lambda hero: hero["vote"]["date"])
+    upcoming.sort(key=lambda hero: hero["name"] or "")
 
     # -----------------------------------------------------------------
     # Сборки
@@ -964,7 +963,10 @@ def main() -> int:
             "Способности и предметы без официального русского текста переведены проектом Atlas "
             "(поле description_source: translated / generated).",
             "Сборки — работы игроков из мастерской Deadlock: порядок покупок, заметки и "
-            "идентификатор для копирования сохранены.",
+            "идентификатор для копирования сохранены. На каждого героя выбраны две самые "
+            "популярные за неделю и одна самая свежая.",
+            "Оставшиеся герои City Never Sleeps выходят 9, 13, 16 и 20 октября — порядок "
+            "определяет голосование игроков.",
         ],
     }
 
@@ -978,7 +980,15 @@ def main() -> int:
     write("heroes.json", {"snapshot": snapshot_date, "source": meta["source"], "heroes": heroes})
     write("items.json", {"snapshot": snapshot_date, "source": meta["source"], "items": items})
     write("builds.json", {"snapshot": snapshot_date, "source": meta["source"], "builds": builds})
-    write("upcoming.json", {"snapshot": snapshot_date, "source": meta["source"], "heroes": upcoming})
+    write(
+        "upcoming.json",
+        {
+            "snapshot": snapshot_date,
+            "source": meta["source"],
+            "releases": RELEASE_DATES,
+            "heroes": upcoming,
+        },
+    )
     write("meta.json", meta)
     print("Готово:", json.dumps(counts, ensure_ascii=False))
     return 0
