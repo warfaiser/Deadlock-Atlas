@@ -16,7 +16,7 @@ on:
       builds_per_hero:
         description: 'Сколько сборок брать на героя'
         required: false
-        default: '6'
+        default: '25'
 
 permissions:
   contents: write
@@ -39,7 +39,7 @@ jobs:
         run: |
           python3 tools/fetch_raw.py \
             --out data/raw \
-            --builds-per-hero "${{ github.event.inputs.builds_per_hero || '6' }}"
+            --builds-per-hero "${{ github.event.inputs.builds_per_hero || '25' }}"
 
       - name: Итоговые счётчики
         run: |

@@ -14,7 +14,7 @@
     meta.json                  — дата снимка, версия игры и счётчики
 
 Запуск:
-    python3 tools/fetch_raw.py [--lang russian] [--out data/raw] [--builds-per-hero 6]
+    python3 tools/fetch_raw.py [--lang russian] [--out data/raw] [--builds-per-hero 25]
 """
 
 from __future__ import annotations
@@ -81,7 +81,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Снимок данных Deadlock из Deadlock API")
     parser.add_argument("--lang", default="russian", help="язык локализации (по умолчанию russian)")
     parser.add_argument("--out", default="data/raw", help="куда складывать сырые JSON")
-    parser.add_argument("--builds-per-hero", type=int, default=6, help="сколько сборок брать на героя")
+    parser.add_argument("--builds-per-hero", type=int, default=25, help="сколько строк сборок запрашивать на героя")
     parser.add_argument("--skip-hero-details", action="store_true", help="не тянуть предметы и способности по героям")
     args = parser.parse_args()
 
@@ -121,7 +121,7 @@ def main() -> int:
     else:
         print("5/7 способности и предметы по героям — пропущено")
 
-    print(f"6/7 сборки: до {args.builds_per_hero} самых популярных на героя …")
+    print(f"6/7 сборки: до {args.builds_per_hero} строк на героя (версии одной сборки повторяются) …")
     builds: dict[str, list] = {}
     for hero in heroes:
         hero_id = hero.get("id")
