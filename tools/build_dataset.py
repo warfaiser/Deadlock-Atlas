@@ -509,6 +509,25 @@ def compose_description(item: dict, upgrades: list[dict], stats: list[dict]) -> 
     return f"{prefix}: " + ", ".join(parts) + "."
 
 
+BUILD_LABEL_RE = re.compile(r"^#([A-Za-z][A-Za-z0-9]*(?:_[A-Za-z0-9]+)+)$")
+
+
+def build_label(text: str, loc_ru: dict, loc_en: dict) -> str:
+    """Подписи сборок вида «#Citadel_HeroBuilds_EarlyGame» превращает в русский текст."""
+    text = (text or "").strip()
+    match = BUILD_LABEL_RE.match(text)
+    if not match:
+        return text
+    key = match.group(1)
+    local = loc_ru.get(key)
+    if isinstance(local, str) and local.strip():
+        return local.strip()
+    english = loc_en.get(key)
+    if isinstance(english, str) and english.strip():
+        return english.strip()
+    return re.sub(r"(?<!^)(?=[A-Z])", " ", key).replace("_", " ").strip()
+
+
 def load_json(path: str, default=None):
     if not os.path.exists(path):
         if default is None:
@@ -765,8 +784,8 @@ def main() -> int:
                 "type": HERO_TYPE_RU.get(hero.get("hero_type"), hero.get("hero_type")),
                 "hero_type": hero.get("hero_type"),
                 "complexity": hero.get("complexity"),
-                "role": hero.get("description", {}).get("role"),
-                "playstyle": hero.get("description", {}).get("playstyle"),
+                "role": hero.get("description", {}).get("role") or None,
+                "playstyle": hero.get("description", {}).get("playstyle") or None,
                 "lore": localize_names(hero.get("description", {}).get("lore") or "", name_pairs),
                 "tags": hero.get("tags") or [],
                 "gun_tag": hero.get("gun_tag"),
@@ -836,7 +855,7 @@ def main() -> int:
                         "cost": item.get("cost"),
                         "tier": item.get("item_tier"),
                         "slot": item.get("item_slot_type"),
-                        "annotation": mod.get("annotation") or None,
+                        "annotation": build_label(mod.get("annotation"), loc_ru, loc_en) or None,
                         "imbue_target": mod.get("imbue_target_ability_id") or None,
                     }
                 )
@@ -844,8 +863,10 @@ def main() -> int:
                 continue
             groups.append(
                 {
-                    "title": (category.get("name") or "").strip(),
-                    "note": clean_text(category.get("description") or ""),
+                    "title": build_label(category.get("name"), loc_ru, loc_en),
+                    "note": clean_text(
+                        build_label(category.get("description"), loc_ru, loc_en)
+                    ),
                     "optional": bool(category.get("optional")),
                     "items": entries,
                 }

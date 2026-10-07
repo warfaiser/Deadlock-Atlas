@@ -5,6 +5,24 @@ function repository(host,path){if(config.repository&&repoPattern.test(config.rep
 const repo=repository(location.hostname,location.pathname);
 const download=document.querySelector('#download-link'),release=document.querySelector('#release-link'),note=document.querySelector('#publish-note');
 if(repo){const base='https://github.com/'+repo+'/releases';download.href=base+'/latest/download/Deadlock-Atlas.exe';release.href=base+'/latest';release.target='_blank';release.rel='noopener noreferrer';release.hidden=false;note.hidden=true}else if(location.hostname==='localhost'||location.hostname==='127.0.0.1'||location.hostname.endsWith('.e2b.app')){download.href='/download';note.textContent='Предпросмотр: кнопка скачивает подготовленный EXE. Публичный сайт появится после публикации в твоём GitHub.'}else{download.href='#publish-note';note.textContent='Для включения скачивания опубликуй сайт на GitHub Pages или укажи repository в config.js.'}
+const STAGED_VERSION='1.0.2';
+const checksum=document.querySelector('#checksum');
+if(repo){
+  fetch('https://api.github.com/repos/'+repo+'/releases/latest',{headers:{Accept:'application/vnd.github+json'}})
+    .then(response=>response.ok?response.json():null)
+    .then(data=>{
+      if(!data)return;
+      const tag=String(data.tag_name||'').replace(/^v/,'');
+      const asset=(data.assets||[]).find(item=>item.name==='Deadlock-Atlas.exe')||{};
+      const digest=typeof asset.digest==='string'?asset.digest.replace(/^sha256:/i,''):'';
+      if(tag)document.querySelectorAll('[data-release-version]').forEach(node=>{node.textContent=tag});
+      if(checksum&&digest){
+        checksum.textContent=digest;
+        if(tag&&tag!==STAGED_VERSION)checksum.title='Контрольная сумма опубликованного релиза v'+tag;
+      }
+    })
+    .catch(()=>{});
+}
 const descriptions={heroes:'Скриншот: каталог героев Deadlock Atlas',build:'Скриншот: сборка Инфернуса, предметы и порядок покупок'};
 const tabs=[...document.querySelectorAll('[data-view]')];
 function activate(tab,focus=false){tabs.forEach(t=>{t.setAttribute('aria-selected',String(t===tab));t.tabIndex=t===tab?0:-1});const image=document.querySelector('#app-screen');image.src='assets/app-'+tab.dataset.view+'.webp';image.alt=descriptions[tab.dataset.view];document.querySelector('#app-panel').setAttribute('aria-labelledby',tab.id);if(focus)tab.focus()}
