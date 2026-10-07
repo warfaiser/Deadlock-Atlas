@@ -16,7 +16,7 @@ on:
       builds_distinct:
         description: 'Сколько разных сборок брать на героя'
         required: false
-        default: '8'
+        default: '10'
 
 permissions:
   contents: write
@@ -39,7 +39,7 @@ jobs:
         run: |
           python3 tools/fetch_raw.py \
             --out data/raw \
-            --builds-distinct "${{ github.event.inputs.builds_distinct || '8' }}"
+            --builds-distinct "${{ github.event.inputs.builds_distinct || '10' }}"
 
       - name: Итоговые счётчики
         run: |

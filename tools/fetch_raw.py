@@ -114,7 +114,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Снимок данных Deadlock из Deadlock API")
     parser.add_argument("--lang", default="russian", help="язык локализации (по умолчанию russian)")
     parser.add_argument("--out", default="data/raw", help="куда складывать сырые JSON")
-    parser.add_argument("--builds-distinct", type=int, default=8, help="сколько разных сборок брать на героя")
+    parser.add_argument("--builds-distinct", type=int, default=10, help="сколько разных сборок брать на героя")
     parser.add_argument("--builds-pages", type=int, default=2, help="сколько страниц по 100 строк листать")
     parser.add_argument("--skip-hero-details", action="store_true", help="не тянуть предметы и способности по героям")
     args = parser.parse_args()
@@ -156,36 +156,53 @@ def main() -> int:
         print("5/8 способности и предметы по героям — пропущено")
 
     print(f"6/8 сборки: до {args.builds_distinct} разных сборок на героя (популярные и свежие) …")
+    popular_quota = max(1, args.builds_distinct // 2)
+
+    def build_pool(hero_id: int, sort_by: str, wanted: int) -> list:
+        """Страницы выдачи /v1/builds по одному герою и критерию сортировки."""
+        rows: list = []
+        seen: set[int] = set()
+        for page in range(args.builds_pages):
+            chunk = as_list(
+                api_get(
+                    "/v1/builds",
+                    hero_id=hero_id,
+                    limit=100,
+                    start=page * 100,
+                    sort_by=sort_by,
+                    sort_direction="desc",
+                )
+            )
+            if not chunk:
+                break
+            rows.extend(chunk)
+            for build in chunk:
+                build_id = (build.get("hero_build") or {}).get("hero_build_id")
+                if build_id is not None:
+                    seen.add(build_id)
+            if len(seen) >= wanted:
+                break
+            time.sleep(0.2)
+        return rows
+
     builds: dict[str, list] = {}
     for hero in heroes:
         hero_id = hero.get("id")
         if hero_id is None:
             continue
-        rows: list = []
-        seen: set[int] = set()
-        for sort_by in BUILDS_POOL_SORTS:
-            for page in range(args.builds_pages):
-                chunk = as_list(
-                    api_get(
-                        "/v1/builds",
-                        hero_id=hero_id,
-                        limit=100,
-                        start=page * 100,
-                        sort_by=sort_by,
-                        sort_direction="desc",
-                    )
-                )
-                if not chunk:
-                    break
-                rows.extend(chunk)
-                for build in chunk:
-                    build_id = (build.get("hero_build") or {}).get("hero_build_id")
-                    if build_id is not None:
-                        seen.add(build_id)
-                if len(seen) >= args.builds_distinct:
-                    break
-                time.sleep(0.2)
-        picked = dedup_builds(rows, args.builds_distinct)
+        picked = dedup_builds(
+            build_pool(hero_id, "weekly_favorites", popular_quota), popular_quota
+        )
+        have = {(row.get("hero_build") or {}).get("hero_build_id") for row in picked}
+        fresh = dedup_builds(build_pool(hero_id, "updated_at", args.builds_distinct), args.builds_distinct)
+        for row in fresh:
+            if len(picked) >= args.builds_distinct:
+                break
+            build_id = (row.get("hero_build") or {}).get("hero_build_id")
+            if build_id is None or build_id in have:
+                continue
+            picked.append(row)
+            have.add(build_id)
         builds[str(hero_id)] = picked
         weekly = [build.get("num_weekly_favorites") or 0 for build in picked]
         print(f"   • {str(hero.get('name')):<24} {len(picked):>2} сборок, избранное за неделю: {weekly}")
