@@ -1,0 +1,67 @@
+name: atlas-data
+
+# Служебный воркфлоу: снимает свежий снимок игровых данных Deadlock через Deadlock API
+# и складывает его в служебную ветку `atlas-data-raw` (каталог data/raw).
+#
+# Запускается при изменениях в tools/ и вручную из вкладки Actions (Run workflow).
+# Ветку `atlas-data-raw` можно затем скачать: git fetch origin atlas-data-raw
+
+on:
+  push:
+    paths:
+      - 'tools/**'
+      - '.github/workflows/atlas-data.yml'
+  workflow_dispatch:
+    inputs:
+      builds_distinct:
+        description: 'Сколько разных сборок брать на героя'
+        required: false
+        default: '10'
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Скачать снимок данных
+        run: |
+          python3 tools/fetch_raw.py \
+            --out data/raw \
+            --builds-distinct "${{ github.event.inputs.builds_distinct || '10' }}"
+
+      - name: Итоговые счётчики
+        run: |
+          cat data/raw/meta.json
+          du -sh data/raw
+
+      - name: Собрать готовый набор данных
+        run: |
+          if [ -f tools/build_dataset.py ]; then
+            python3 tools/build_dataset.py --raw data/raw --out data
+            du -sh data/*.json || true
+          fi
+
+      - name: Выложить снимок в служебную ветку
+        run: |
+          git config user.name "Deadlock Atlas"
+          git config user.email "maxim.mishunov2017@yandex.ru"
+          git checkout -B atlas-data-raw
+          git add -f data
+          if git diff --cached --quiet; then
+            echo "Изменений нет"
+            exit 0
+          fi
+          git commit -m "Снимок игровых данных Deadlock API"
+          git push -f origin atlas-data-raw
