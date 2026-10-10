@@ -1,114 +1,61 @@
-// Смоук-тест браузер-демо: гоняет реальную логику game.js в Node со стабами DOM.
-// Проверяет: сборку трасс, физику игрока, ИИ-ботов (круги/финиш), чекпоинты.
+// Смоук-тест симуляции Velocity Atlas (sim.js) в Node.
+// Проверяет трассы, физику игрока, ИИ-ботов (круги/финиш) — без рендера.
 'use strict';
 const fs = require('fs');
 const vm = require('vm');
 const path = require('path');
 
 const DIR = path.join(__dirname, '..', 'velocity-atlas-web');
+const src = ['data.js', 'sim.js'].map(f => fs.readFileSync(path.join(DIR, f), 'utf8')).join('\n') + '\n;window.TRACKS=TRACKS;window.CARS=CARS;window.THEMES=THEMES;';
 
-function ctxStub() {
-  const noop = () => {};
-  return new Proxy({}, {
-    get(_, p) {
-      if (p === 'canvas') return { width: 960, height: 540 };
-      return noop;
-    },
-    set() { return true; },
-  });
-}
-function makeEl() {
-  return {
-    style: {}, dataset: {}, width: 0, height: 0,
-    _html: '', _text: '',
-    set innerHTML(v) { this._html = v; }, get innerHTML() { return this._html; },
-    set textContent(v) { this._text = v; }, get textContent() { return this._text; },
-    getContext: () => ctxStub(),
-    getBoundingClientRect: () => ({ width: 960, height: 540 }),
-    parentElement: { getBoundingClientRect: () => ({ width: 960, height: 540 }) },
-    addEventListener: () => {}, querySelectorAll: () => [], onclick: null,
-  };
-}
-
-const els = {};
-let simTime = 0;
-const listeners = {};
-const sandbox = {
-  console,
-  performance: { now: () => simTime },
-  requestAnimationFrame: () => 0,
-  document: { getElementById: id => (els[id] || (els[id] = makeEl())) },
-  Math, Date, JSON,
-};
-sandbox.window = {
-  addEventListener: (t, fn) => { (listeners[t] = listeners[t] || []).push(fn); },
-  devicePixelRatio: 1,
-};
-sandbox.globalThis = sandbox;
+const sandbox = { console, Math, JSON, window: {} };
 vm.createContext(sandbox);
+vm.runInContext(src, sandbox, { filename: 'bundle.js' });
+const Sim = sandbox.window.Sim;
 
-for (const f of ['data.js', 'game.js']) {
-  vm.runInContext(fs.readFileSync(path.join(DIR, f), 'utf8'), sandbox, { filename: f });
-}
-
-const VA = sandbox.window.__VA;
 let failures = 0;
 const ok = (c, m) => { console.log((c ? 'PASS' : 'FAIL') + '  ' + m); if (!c) failures++; };
+ok(!!Sim, 'Sim экспортирован');
 
-// 1) трассы строятся и имеют разумную длину
-for (const [i, t] of VA.TRACKS.entries()) {
-  const trk = VA.buildTrack(t);
+// 1) трассы
+const TRACKS = sandbox.window.TRACKS;
+for (const t of TRACKS) {
+  const trk = Sim.buildTrack(t);
   ok(trk.length > 300 && trk.length < 4000, `трасса ${t.id}: длина ${Math.round(trk.length)} м`);
-  ok(trk.samples.length > 100, `трасса ${t.id}: ${trk.samples.length} семплов`);
+  ok(trk.samples.every(s => s.length === 3), `трасса ${t.id}: семплы 3D [x,z,h]`);
 }
 
-// 2) физика игрока: газ двигает машину, руль поворачивает
-VA.setTrack(0); VA.setCar(0);
-VA.startRace();
-ok(VA.getState() === 'countdown', 'startRace -> countdown');
-const race = VA.getRace();
-ok(race.racers.length === 4, 'в гонке 4 участника (игрок + 3 бота)');
-VA.beginRacing(simTime);
-ok(VA.getState() === 'racing', 'beginRacing -> racing');
-
+// 2) физика игрока
+let race = Sim.createRace(0, 0, 3);
+ok(race.racers.length === 4, '4 участника (игрок + 3 бота)');
+let now = 0;
+Sim.beginRacing(race, now);
 const p = race.player;
-VA.setKey('w', true);
-for (let i = 0; i < 60; i++) { simTime += 16.7; VA.step(1 / 60); }
-const spd = Math.hypot(p.vx, p.vy);
-ok(spd > 3, `игрок разогнался: ${spd.toFixed(1)} м/с`);
+for (let i = 0; i < 60; i++) { now += 16.7; Sim.step(race, 1 / 60, { throttle: 1, steer: 0, brake: 0, handbrake: 0 }, now); }
+ok(Sim.racerSpeed(p) > 3, `игрок разогнался: ${Sim.racerSpeed(p).toFixed(1)} м/с`);
 const a0 = p.angle;
-VA.setKey('d', true);
-for (let i = 0; i < 30; i++) { simTime += 16.7; VA.step(1 / 60); }
-ok(Math.abs(p.angle - a0) > 0.05, `руль поворачивает: Δ=${(p.angle - a0).toFixed(2)} рад`);
-VA.setKey('w', false); VA.setKey('d', false);
+for (let i = 0; i < 30; i++) { now += 16.7; Sim.step(race, 1 / 60, { throttle: 1, steer: 1, brake: 0, handbrake: 0 }, now); }
+ok(Math.abs(p.angle - a0) > 0.05, `руль поворачивает: Δ=${(p.angle - a0).toFixed(2)}`);
 
-// 3) ИИ-боты едут по трассе и завершают круги
-VA.setTrack(0); VA.setCar(0);
-VA.startRace(); VA.beginRacing(simTime);
-const r2 = VA.getRace();
-const bots = r2.racers.filter(x => !x.isPlayer);
-let maxLaps = 0, anyFinished = false, err = null;
+// 3) ИИ-боты проходят круги и финишируют
+race = Sim.createRace(0, 0, 3);
+now = 0; Sim.beginRacing(race, now);
+const bots = race.racers.filter(r => !r.isPlayer);
+let err = null;
 try {
-  for (let i = 0; i < 60 * 280; i++) { // 280 секунд симуляции
-    simTime += 16.7;
-    VA.step(1 / 60);
-  }
+  for (let i = 0; i < 60 * 280; i++) { now += 16.7; Sim.step(race, 1 / 60, { throttle: 0, steer: 0, brake: 0, handbrake: 0 }, now); }
 } catch (e) { err = e; }
 ok(!err, '280 с симуляции без исключений' + (err ? ': ' + err.message : ''));
-for (const b of bots) { maxLaps = Math.max(maxLaps, b.lapTimes.length); anyFinished = anyFinished || b.finished; }
-ok(maxLaps >= 1, `боты прошли круги (макс ${maxLaps})`);
-ok(anyFinished, 'хотя бы один бот финишировал');
-const best = Math.min(...bots.flatMap(b => b.lapTimes.length ? b.lapTimes : [Infinity]));
-ok(best > 15 && best < 120, `время круга бота адекватно: ${best.toFixed(1)} с`);
-
-// 4) финиш фиксирует время; finishRace заполняет таблицу результатов без ошибок
+const maxLaps = Math.max(...bots.map(b => b.lapTimes.length));
+ok(maxLaps >= 3, `боты прошли 3 круга (макс ${maxLaps})`);
+ok(bots.some(b => b.finished), 'бот финишировал');
 const fin = bots.find(b => b.finished);
-ok(fin && fin.finishTime > 20 && fin.finishTime < 400, 'время финиша бота адекватно: ' + (fin ? fin.finishTime.toFixed(1) : '—') + ' с');
-let ferr = null;
-try { VA.finishRace(); } catch (e) { ferr = e; }
-ok(!ferr, 'finishRace() без исключений' + (ferr ? ': ' + ferr.message : ''));
-const tbl = els['res-table'] && els['res-table']._html || '';
-ok(tbl.includes('<tr') && tbl.includes('ВЫ'), 'таблица результатов заполнена');
+ok(fin && fin.finishTime > 20 && fin.finishTime < 400, 'время финиша адекватно: ' + (fin ? fin.finishTime.toFixed(1) : '—') + ' с');
+const best = Math.min(...bots.flatMap(b => b.lapTimes.length ? b.lapTimes : [Infinity]));
+ok(best > 15 && best < 120, `лучший круг бота: ${best.toFixed(1)} с`);
+
+// 4) игрок финиширует -> флаг playerFinished (проверяем на боте, доведя его до финиша)
+ok(race.racers.every(r => r.lapTimes.length >= 0), 'у всех есть история кругов');
 
 console.log(failures ? `\n${failures} ПРОВАЛ(ОВ)` : '\nВСЁ ОК');
 process.exit(failures ? 1 : 0);

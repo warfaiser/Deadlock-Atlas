@@ -37,6 +37,12 @@ main { max-width: 1040px; margin: 0 auto; padding: 8px 16px 40px; }
 .minimap { position: absolute; right: 12px; bottom: 12px; background: rgba(10,14,18,.7);
   border: 1px solid var(--line); border-radius: 10px; backdrop-filter: blur(4px); }
 
+/* Отсчёт */
+.cd { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font: 800 140px/1 system-ui; color: var(--acc); text-shadow: 0 6px 30px rgba(0,0,0,.6);
+  pointer-events: none; }
+.cd.go { color: var(--acc2); }
+
 /* Overlays */
 .overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
   background: rgba(8,11,15,.82); backdrop-filter: blur(3px); }

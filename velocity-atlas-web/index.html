@@ -32,6 +32,9 @@
         <canvas id="minimap" class="minimap" width="170" height="130"></canvas>
       </div>
 
+      <!-- Отсчёт 3-2-1-GO -->
+      <div id="countdown" class="cd" style="display:none"></div>
+
       <!-- Результаты -->
       <div id="results" class="overlay results" style="display:none">
         <div class="panel">
@@ -71,11 +74,10 @@
 
   <section class="about">
     <h2>Полная 3D-версия на Godot 4.7</h2>
-    <p>Это браузер-демо повторяет правила и контент полной игры (те же 3 трассы, 5 машин,
-       чекпоинты, круги, штраф +5 сек, боты), но в лёгком 2D-виде, чтобы игру можно было
-       проверить без установки движка. Полноценная 3D-версия лежит в
-       <code>racing-game/</code> (VehicleBody3D, Path3D-ИИ, SSAO/SDFGI/SSR, motion blur,
-       спидометр, мини-карта, рекорды в <code>user://records.cfg</code>).</p>
+    <p>Это 3D-версия на Three.js (WebGL) с теми же правилами и контентом, что и полная
+       игра на Godot: те же 3 трассы, 5 машин, чекпоинты, круги, штраф +5 сек и боты.
+       Полноценная версия на движке лежит в <code>racing-game/</code> (VehicleBody3D,
+       Path3D-ИИ, SSAO/SDFGI/SSR, motion blur, рекорды в <code>user://records.cfg</code>).</p>
     <div class="cols3">
       <div><h4>Режимы</h4><p>Time Trial (заезд на время) и Race (игрок + 3 бота, позиции в реальном времени).</p></div>
       <div><h4>Контент</h4><p>5 машин (Roadster, V8 Muscle, Street Kart, Aurora GT, Tundra Rally) и 3 трассы (City, Desert, Snow).</p></div>
@@ -86,7 +88,9 @@
 
 <footer class="foot">Velocity Atlas · демо-прототип · Godot-проект в <code>racing-game/</code></footer>
 
+<script src="vendor/three.min.js"></script>
 <script src="data.js"></script>
-<script src="game.js"></script>
+<script src="sim.js"></script>
+<script src="game3d.js"></script>
 </body>
 </html>
