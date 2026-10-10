@@ -42,6 +42,8 @@ function initThree() {
   G.renderer.shadowMap.enabled = true;
   G.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   G.renderer.outputEncoding = THREE.sRGBEncoding;
+  G.renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  G.renderer.toneMappingExposure = 1.12;
   G.scene = new THREE.Scene();
   G.camera = new THREE.PerspectiveCamera(70, 1, 0.3, 3000);
   G.world = new THREE.Group();
@@ -90,6 +92,45 @@ function checkerTexture() {
   const t = new THREE.CanvasTexture(c); t.encoding = THREE.sRGBEncoding; return t;
 }
 
+// --- Доп. текстуры ----------------------------------------------------------
+function buildingTexture() {
+  const c = document.createElement('canvas'); c.width = 128; c.height = 256;
+  const g = c.getContext('2d');
+  g.fillStyle = '#787e86'; g.fillRect(0, 0, 128, 256);
+  g.fillStyle = 'rgba(0,0,0,0.12)'; for (let y = 0; y < 256; y += 32) g.fillRect(0, y, 128, 3);
+  for (let y = 10; y < 246; y += 26) for (let x = 10; x < 118; x += 22) {
+    g.fillStyle = Math.random() < 0.25 ? 'rgba(255,214,130,0.9)' : 'rgba(18,28,40,0.9)';
+    g.fillRect(x, y, 14, 16);
+  }
+  const t = new THREE.CanvasTexture(c); t.wrapS = t.wrapT = THREE.RepeatWrapping;
+  t.encoding = THREE.sRGBEncoding; t.anisotropy = 4; return t;
+}
+function rockTexture() {
+  const c = document.createElement('canvas'); c.width = c.height = 128;
+  const g = c.getContext('2d');
+  g.fillStyle = '#8a6b3a'; g.fillRect(0, 0, 128, 128);
+  for (let i = 0; i < 2600; i++) {
+    const v = (Math.random() * 60 - 30) | 0;
+    g.fillStyle = `rgba(${140 + v},${105 + v},${55 + v},0.5)`;
+    g.fillRect(Math.random() * 128, Math.random() * 128, 2, 2);
+  }
+  g.strokeStyle = 'rgba(60,40,20,0.5)';
+  for (let i = 0; i < 8; i++) { g.beginPath(); g.moveTo(Math.random()*128,0); g.lineTo(Math.random()*128,128); g.stroke(); }
+  const t = new THREE.CanvasTexture(c); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.encoding = THREE.sRGBEncoding; return t;
+}
+function groundTexture(theme, idx) {
+  const c = document.createElement('canvas'); c.width = c.height = 256;
+  const g = c.getContext('2d');
+  g.fillStyle = theme.ground; g.fillRect(0, 0, 256, 256);
+  for (let i = 0; i < 6000; i++) {
+    const v = (Math.random() * 40 - 20) | 0;
+    g.fillStyle = `rgba(${128 + v},${128 + v},${128 + v},0.08)`;
+    g.fillRect(Math.random() * 256, Math.random() * 256, 3, 3);
+  }
+  if (idx === 1) { g.strokeStyle = 'rgba(0,0,0,0.08)'; for (let i=0;i<10;i++){g.beginPath();g.arc(Math.random()*256,Math.random()*256,20+Math.random()*40,0,3);g.stroke();} }
+  const t = new THREE.CanvasTexture(c); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.encoding = THREE.sRGBEncoding; return t;
+}
+
 // --- Меши трассы ------------------------------------------------------------
 function buildRoad(trk, theme) {
   const s = trk.samples, n = s.length, hw = trk.roadWidth / 2;
@@ -133,8 +174,8 @@ function buildScenery(trk, theme) {
   const group = new THREE.Group();
   const s = trk.samples, n = s.length;
   let geo, mat, scaleH;
-  if (trk.theme === 0) { geo = new THREE.BoxGeometry(1, 1, 1); mat = new THREE.MeshStandardMaterial({ color: 0x6a7078, roughness: 0.9 }); scaleH = () => 6 + Math.random() * 22; }
-  else if (trk.theme === 1) { geo = new THREE.DodecahedronGeometry(1, 0); mat = new THREE.MeshStandardMaterial({ color: 0x8a6b3a, roughness: 1 }); scaleH = () => 1 + Math.random() * 2.5; }
+  if (trk.theme === 0) { geo = new THREE.BoxGeometry(1, 1, 1); mat = new THREE.MeshStandardMaterial({ map: buildingTexture(), roughness: 0.85 }); scaleH = () => 6 + Math.random() * 22; }
+  else if (trk.theme === 1) { geo = new THREE.DodecahedronGeometry(1, 0); mat = new THREE.MeshStandardMaterial({ map: rockTexture(), roughness: 1 }); scaleH = () => 1 + Math.random() * 2.5; }
   else { geo = new THREE.ConeGeometry(1, 1, 7); mat = new THREE.MeshStandardMaterial({ color: 0x2f5d3a, roughness: 1 }); scaleH = () => 4 + Math.random() * 5; }
 
   const spots = [];
@@ -159,6 +200,11 @@ function buildScenery(trk, theme) {
     m.compose(v, q, sc); inst.setMatrixAt(i, m);
   });
   inst.instanceMatrix.needsUpdate = true;
+  if (inst.setColorAt) {
+    const col = new THREE.Color();
+    for (let i = 0; i < spots.length; i++) { const v = 0.75 + Math.random() * 0.5; col.setRGB(v, v, v); inst.setColorAt(i, col); }
+    if (inst.instanceColor) inst.instanceColor.needsUpdate = true;
+  }
   group.add(inst);
   return group;
 }
@@ -168,7 +214,8 @@ function buildGround(trk, theme) {
   for (const q of trk.samples) { minx = Math.min(minx, q[0]); maxx = Math.max(maxx, q[0]); minz = Math.min(minz, q[1]); maxz = Math.max(maxz, q[1]); }
   const size = Math.max(maxx - minx, maxz - minz) * 2.4 + 400;
   const geo = new THREE.PlaneGeometry(size, size);
-  const mesh = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ color: theme.ground, roughness: 1 }));
+  const gt = groundTexture(theme, trk.theme); gt.repeat.set(size / 40, size / 40);
+  const mesh = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ map: gt, color: 0xffffff, roughness: 1 }));
   mesh.rotation.x = -Math.PI / 2;
   mesh.position.set((minx + maxx) / 2, -0.6, (minz + maxz) / 2);
   mesh.receiveShadow = true;
@@ -262,6 +309,16 @@ function buildWorld() {
   sun.shadow.bias = -0.0006;
   sun.target.position.set(cx, 0, cz);
   G.world.add(sun); G.world.add(sun.target);
+  const disc = new THREE.Mesh(new THREE.SphereGeometry(34, 16, 16), new THREE.MeshBasicMaterial({ color: 0xfff3c0, fog: false }));
+  disc.position.copy(sun.position);
+  G.world.add(disc);
+  // следы шин / пыль в 3D
+  G.skidMax = 1600; G.skidPos = new Float32Array(G.skidMax * 3);
+  G.skidGeo = new THREE.BufferGeometry();
+  G.skidGeo.setAttribute('position', new THREE.BufferAttribute(G.skidPos, 3));
+  G.skidGeo.setDrawRange(0, 0);
+  G.skidPts = new THREE.Points(G.skidGeo, new THREE.PointsMaterial({ color: 0x14161a, size: 0.9, transparent: true, opacity: 0.55 }));
+  G.world.add(G.skidPts);
   G.sun = sun;
 
   // машины
@@ -352,9 +409,16 @@ function animate() {
     acc += dt;
     while (acc >= SIM_STEP) { Sim.step(G.race, SIM_STEP, playerInput(), now); acc -= SIM_STEP; }
     if (G.race.playerFinished) finishRace();
+    const p = G.race.player, inp = playerInput();
+    const sr = Math.min(1, Sim.racerSpeed(p) / (p.car.topSpeed * SIM.SPEED_SCALE));
+    if (!G._wasOff && p.offroad && Sim.racerSpeed(p) > 8) Audio.crash();
+    G._wasOff = p.offroad;
+    Audio.update({ speed: sr, drift: p.drift, throttle: inp.throttle, handbrake: inp.handbrake });
+  } else {
+    Audio.update({ speed: 0, drift: 0, throttle: 0, handbrake: 0 });
   }
 
-  if (G.race) { syncCars(dt); updateCamera(dt); updateHud(); }
+  if (G.race) { syncCars(dt); updateSkids(); updateCamera(dt); updateHud(); }
   try { G.renderer.render(G.scene, G.camera); } catch (e) { showErr('⚠ render: ' + e.message); }
 }
 const SIM_STEP = 1 / 60;
@@ -373,6 +437,14 @@ function syncCars(dt) {
       if (w.front) w.holder.rotation.y = r.steerVis * 0.4;
     }
   }
+}
+
+function updateSkids() {
+  if (!G.skidGeo || !G.race) return;
+  const s = G.race.skid, n = Math.min(s.length, G.skidMax);
+  for (let i = 0; i < n; i++) { G.skidPos[i*3] = s[i].x; G.skidPos[i*3+1] = s[i].h + 0.06; G.skidPos[i*3+2] = s[i].y; }
+  G.skidGeo.attributes.position.needsUpdate = true;
+  G.skidGeo.setDrawRange(0, n);
 }
 
 function updateCamera(dt) {
@@ -428,21 +500,64 @@ function drawMinimap() {
 
 // --- Звук -------------------------------------------------------------------
 const Audio = {
-  ctx: null, eng: null, engGain: null,
+  ctx: null, eng: null, eng2: null, engGain: null,
+  screech: null, screechGain: null, wind: null, windGain: null, noiseBuf: null,
   ensure() { if (this.ctx) return; const AC = window.AudioContext || window.webkitAudioContext; if (AC) this.ctx = new AC(); },
+  noise() {
+    if (this.noiseBuf) return this.noiseBuf;
+    const len = this.ctx.sampleRate;
+    const buf = this.ctx.createBuffer(1, len, this.ctx.sampleRate);
+    const d = buf.getChannelData(0);
+    for (let i = 0; i < len; i++) d[i] = Math.random() * 2 - 1;
+    this.noiseBuf = buf; return buf;
+  },
   startEngine() {
     this.ensure(); if (!this.ctx || this.eng) return;
-    this.eng = this.ctx.createOscillator(); this.eng.type = 'sawtooth';
-    this.engGain = this.ctx.createGain(); this.engGain.gain.value = 0;
-    const lp = this.ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 1000;
-    this.eng.connect(lp); lp.connect(this.engGain); this.engGain.connect(this.ctx.destination); this.eng.start();
+    const dest = this.ctx.destination;
+    this.engGain = this.ctx.createGain(); this.engGain.gain.value = 0; this.engGain.connect(dest);
+    const lp = this.ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 950; lp.connect(this.engGain);
+    this.eng = this.ctx.createOscillator(); this.eng.type = 'sawtooth'; this.eng.connect(lp); this.eng.start();
+    this.eng2 = this.ctx.createOscillator(); this.eng2.type = 'square'; this.eng2.connect(lp); this.eng2.start();
+    // визг шин (шум через bandpass)
+    this.screechGain = this.ctx.createGain(); this.screechGain.gain.value = 0; this.screechGain.connect(dest);
+    const bp = this.ctx.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.value = 950; bp.Q.value = 7; bp.connect(this.screechGain);
+    this.screech = this.ctx.createBufferSource(); this.screech.buffer = this.noise(); this.screech.loop = true; this.screech.connect(bp); this.screech.start();
+    // ветер/шум дороги
+    this.windGain = this.ctx.createGain(); this.windGain.gain.value = 0; this.windGain.connect(dest);
+    const lp2 = this.ctx.createBiquadFilter(); lp2.type = 'lowpass'; lp2.frequency.value = 480; lp2.connect(this.windGain);
+    this.wind = this.ctx.createBufferSource(); this.wind.buffer = this.noise(); this.wind.loop = true; this.wind.connect(lp2); this.wind.start();
   },
-  engine(vF, maxS) {
-    if (!this.eng) return; const r = Math.min(1, Math.abs(vF) / maxS);
-    this.eng.frequency.setTargetAtTime(70 + r * 260, this.ctx.currentTime, 0.05);
-    this.engGain.gain.setTargetAtTime(0.03 + r * 0.05, this.ctx.currentTime, 0.1);
+  update(info) {
+    if (!this.ctx || !this.eng) return;
+    const t = this.ctx.currentTime;
+    const gear = Math.min(5, Math.floor(info.speed * 6));
+    const frac = info.speed * 6 - gear;
+    const f = 60 + frac * 120 + gear * 8;
+    this.eng.frequency.setTargetAtTime(f, t, 0.05);
+    this.eng2.frequency.setTargetAtTime(f * 0.5, t, 0.05);
+    this.engGain.gain.setTargetAtTime(0.02 + info.speed * 0.04 + info.throttle * 0.02, t, 0.1);
+    this.screechGain.gain.setTargetAtTime(Math.max(0, info.drift - 0.25) * 0.25 + (info.handbrake && info.speed > 0.2 ? 0.06 : 0), t, 0.06);
+    this.windGain.gain.setTargetAtTime(info.speed * 0.08, t, 0.1);
   },
-  stopEngine() { if (this.engGain) this.engGain.gain.setTargetAtTime(0, this.ctx.currentTime, 0.1); },
+  crash() {
+    this.ensure(); if (!this.ctx) return;
+    const t = this.ctx.currentTime;
+    const src = this.ctx.createBufferSource(); src.buffer = this.noise();
+    const g = this.ctx.createGain(); const lp = this.ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 420;
+    src.connect(lp); lp.connect(g); g.connect(this.ctx.destination);
+    g.gain.setValueAtTime(0.5, t); g.gain.exponentialRampToValueAtTime(0.001, t + 0.35);
+    src.start(t); src.stop(t + 0.4);
+    const o = this.ctx.createOscillator(); o.type = 'sine';
+    o.frequency.setValueAtTime(90, t); o.frequency.exponentialRampToValueAtTime(40, t + 0.3);
+    const og = this.ctx.createGain(); og.gain.setValueAtTime(0.4, t); og.gain.exponentialRampToValueAtTime(0.001, t + 0.3);
+    o.connect(og); og.connect(this.ctx.destination); o.start(t); o.stop(t + 0.35);
+  },
+  stopEngine() {
+    if (!this.ctx) return; const t = this.ctx.currentTime;
+    if (this.engGain) this.engGain.gain.setTargetAtTime(0, t, 0.1);
+    if (this.screechGain) this.screechGain.gain.setTargetAtTime(0, t, 0.1);
+    if (this.windGain) this.windGain.gain.setTargetAtTime(0, t, 0.1);
+  },
   blip(freq, dur) {
     this.ensure(); if (!this.ctx) return;
     const o = this.ctx.createOscillator(), g = this.ctx.createGain();
