@@ -109,7 +109,7 @@ function updateRacer(r, trk, dt, input, now, race) {
   r.offroad = offroad;
   const far = near.dist > trk.halfWidth + 8;
 
-  const maxS = car.topSpeed * SIM.SPEED_SCALE * r.skill * (offroad ? 0.55 : 1);
+  const maxS = car.topSpeed * SIM.SPEED_SCALE * r.skill * (offroad ? 0.5 : 1);
   const accel = car.accel * SIM.ACCEL_BASE * r.skill;
   const grip = car.grip * trk.grip * (offroad ? 0.55 : 1);
 
@@ -119,7 +119,8 @@ function updateRacer(r, trk, dt, input, now, race) {
     else vF -= accel * 0.6 * input.brake * dt;
   }
   if (input.handbrake) vF *= (1 - 0.8 * dt);
-  vF -= vF * SIM.DRAG * dt;
+  if (input.throttle === 0 && vF > 0) vF -= 1.4 * dt; // торможение двигателем
+  vF -= vF * (SIM.DRAG + (offroad ? 1.4 : 0)) * dt;
   vF -= Math.sign(vF) * SIM.ROLL * dt;
   vF = Math.max(-maxS * 0.4, Math.min(maxS, vF));
 
@@ -129,7 +130,7 @@ function updateRacer(r, trk, dt, input, now, race) {
 
   const sf = Math.min(1, Math.abs(vF) / 7);
   const dir = vF >= 0 ? 1 : -1;
-  const yaw = input.steer * car.handling * SIM.YAW_BASE * sf * (input.handbrake ? 1.5 : 1) * dir * (0.9 + r.skill * 0.2);
+  const yaw = input.steer * car.handling * SIM.YAW_BASE * sf * (input.handbrake ? 1.6 : 1) * dir * (0.9 + r.skill * 0.2) / (1 + Math.abs(vF) * 0.02);
   r.angle += yaw * dt;
   r.steerVis += (input.steer - r.steerVis) * Math.min(1, dt * 8);
 
@@ -175,25 +176,48 @@ function completeLap(r, now, race) {
   }
 }
 
-// --- ИИ ---------------------------------------------------------------------
-function aiInput(r, trk) {
-  const n = trk.samples.length;
-  const look = 10 + Math.floor(racerSpeed(r) * 0.6);
-  const t1 = trk.samples[(r.lastIdx + look) % n];
-  const t2 = trk.samples[(r.lastIdx + look * 2) % n];
-  const desired = Math.atan2(t1[1] - r.y, t1[0] - r.x);
-  let diff = desired - r.angle;
-  while (diff > Math.PI) diff -= Math.PI * 2;
-  while (diff < -Math.PI) diff += Math.PI * 2;
-  const steer = Math.max(-1, Math.min(1, diff * 2.2));
-  const turn = Math.abs(Math.atan2(t2[1] - r.y, t2[0] - r.x) - r.angle);
-  const maxS = r.car.topSpeed * SIM.SPEED_SCALE * r.skill;
-  const target = maxS * (1 - Math.min(1, turn) * 0.55);
-  const vF = forwardSpeed(r);
-  return { steer, throttle: vF < target ? 1 : 0, brake: vF > target * 1.2 ? 1 : 0, handbrake: 0 };
+function wrapAngle(a) {
+  while (a > Math.PI) a -= Math.PI * 2;
+  while (a < -Math.PI) a += Math.PI * 2;
+  return a;
 }
 
-// --- Гонка ------------------------------------------------------------------
+// --- ИИ ---------------------------------------------------------------------
+// Pure-pursuit: цель впереди по осевой + возврат к центру; скорость ограничивается
+// кривизной впереди, чтобы боты тормозили перед поворотами и не вылетали.
+function aiInput(r, trk) {
+  const n = trk.samples.length, i = r.lastIdx;
+  const speed = racerSpeed(r);
+  const tan = idx => {
+    const a = trk.samples[idx], b = trk.samples[(idx + 3) % n];
+    return Math.atan2(b[1] - a[1], b[0] - a[0]);
+  };
+  const t0 = tan(i);
+  // суммарный поворот трассы впереди (горизонт растёт со скоростью)
+  const H = Math.max(10, Math.floor(speed * 1.4));
+  const turn = Math.abs(wrapAngle(tan((i + H) % n) - t0));
+  // точка преследования
+  const look = Math.max(5, Math.floor(speed * 0.5));
+  const tp = trk.samples[(i + look) % n];
+  const desired = Math.atan2(tp[1] - r.y, tp[0] - r.x);
+  const diff = wrapAngle(desired - r.angle);
+  // боковое смещение от осевой — мягко возвращаем на дорогу
+  const cur = trk.samples[i];
+  const leftX = -Math.sin(t0), leftZ = Math.cos(t0);
+  const lat = (r.x - cur[0]) * leftX + (r.y - cur[1]) * leftZ;
+  const steer = Math.max(-1, Math.min(1, diff * 2.0 - lat * 0.12));
+  const maxS = r.car.topSpeed * SIM.SPEED_SCALE * r.skill;
+  const corner = maxS * (1 - Math.min(0.82, turn * 0.85));
+  const vF = forwardSpeed(r);
+  return {
+    steer,
+    throttle: vF < corner ? 1 : 0,
+    brake: vF > corner * 1.12 ? 1 : 0,
+    handbrake: 0,
+  };
+}
+
+// --- Гонка// --- Гонка ------------------------------------------------------------------
 function createRace(trackIndex, carIndex, botCount) {
   const trk = buildTrack(TRACKS[trackIndex]);
   const player = makeRacer(CARS[carIndex], trk, true, 1, 0);
@@ -230,6 +254,19 @@ function step(race, dt, playerInput, now) {
       const sx = -Math.sin(r.angle) * 0.9, sy = Math.cos(r.angle) * 0.9;
       race.skid.push({ x: bx - sx, y: by - sy, h: r.h, a: 0.6 });
       race.skid.push({ x: bx + sx, y: by + sy, h: r.h, a: 0.6 });
+    }
+  }
+  // простые столкновения машина-машина
+  const R = race.racers;
+  for (let a = 0; a < R.length; a++) for (let b = a + 1; b < R.length; b++) {
+    const A = R[a], B = R[b];
+    const dx = B.x - A.x, dy = B.y - A.y;
+    const d = Math.hypot(dx, dy), min = 2.5;
+    if (d < min && d > 1e-4) {
+      const nx = dx / d, ny = dy / d, push = (min - d) / 2;
+      A.x -= nx * push; A.y -= ny * push; B.x += nx * push; B.y += ny * push;
+      const rel = (B.vx - A.vx) * nx + (B.vy - A.vy) * ny;
+      if (rel < 0) { const j = -rel * 0.55; A.vx -= nx * j; A.vy -= ny * j; B.vx += nx * j; B.vy += ny * j; }
     }
   }
   for (let i = race.skid.length - 1; i >= 0; i--) { race.skid[i].a -= dt * 0.12; if (race.skid[i].a <= 0) race.skid.splice(i, 1); }

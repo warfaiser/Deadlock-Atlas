@@ -54,6 +54,17 @@ ok(fin && fin.finishTime > 20 && fin.finishTime < 400, 'время финиша 
 const best = Math.min(...bots.flatMap(b => b.lapTimes.length ? b.lapTimes : [Infinity]));
 ok(best > 15 && best < 120, `лучший круг бота: ${best.toFixed(1)} с`);
 
+// ИИ держится дороги
+let off = 0, tot = 0;
+for (const b of bots) { /* посчитаем по текущей позиции */ }
+{
+  const r2 = Sim.createRace(0, 0, 3); let t2 = 0; Sim.beginRacing(r2, t2);
+  const bs = r2.racers.filter(x => !x.isPlayer);
+  for (let i = 0; i < 60 * 120; i++) { t2 += 16.7; Sim.step(r2, 1 / 60, { throttle: 0, steer: 0, brake: 0, handbrake: 0 }, t2);
+    if (i % 20 === 0) for (const b of bs) { tot++; if (Sim.nearestSample(r2.track, b.x, b.y, b.lastIdx).dist > r2.track.halfWidth) off++; } }
+  ok(100 * off / tot < 15, `боты на дороге (офроад ${(100 * off / tot).toFixed(0)}%)`);
+}
+
 // 4) игрок финиширует -> флаг playerFinished (проверяем на боте, доведя его до финиша)
 ok(race.racers.every(r => r.lapTimes.length >= 0), 'у всех есть история кругов');
 

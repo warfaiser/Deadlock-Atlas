@@ -70,15 +70,25 @@ function asphaltTexture(theme) {
     g.fillStyle = `rgba(${120 + v},${120 + v},${125 + v},0.16)`;
     g.fillRect(Math.random() * 256, Math.random() * 256, 2, 2);
   }
-  // осевая прерывистая
+  // заплатки и пятна
+  for (let i = 0; i < 10; i++) {
+    g.fillStyle = `rgba(0,0,0,${0.05 + Math.random() * 0.1})`;
+    g.beginPath(); g.ellipse(Math.random() * 256, Math.random() * 256, 8 + Math.random() * 26, 6 + Math.random() * 18, Math.random() * 3, 0, 7); g.fill();
+  }
+  // трещины
+  g.strokeStyle = 'rgba(0,0,0,0.35)'; g.lineWidth = 1;
+  for (let i = 0; i < 6; i++) {
+    g.beginPath(); let x = Math.random() * 256, y = 0; g.moveTo(x, y);
+    while (y < 256) { x += (Math.random() - 0.5) * 14; y += 10 + Math.random() * 16; g.lineTo(x, y); }
+    g.stroke();
+  }
+  // износ у краёв
+  g.fillStyle = 'rgba(0,0,0,0.12)'; g.fillRect(0, 0, 20, 256); g.fillRect(236, 0, 20, 256);
   g.fillStyle = theme.line;
   for (let y = 0; y < 256; y += 42) g.fillRect(124, y, 8, 24);
-  // краевые линии
   g.fillRect(6, 0, 5, 256); g.fillRect(245, 0, 5, 256);
   const t = new THREE.CanvasTexture(c);
-  t.wrapS = t.wrapT = THREE.RepeatWrapping;
-  t.anisotropy = 4;
-  t.encoding = THREE.sRGBEncoding;
+  t.wrapS = t.wrapT = THREE.RepeatWrapping; t.anisotropy = 8; t.encoding = THREE.sRGBEncoding;
   return t;
 }
 
@@ -96,15 +106,25 @@ function checkerTexture() {
 function buildingTexture() {
   const c = document.createElement('canvas'); c.width = 128; c.height = 256;
   const g = c.getContext('2d');
-  g.fillStyle = '#787e86'; g.fillRect(0, 0, 128, 256);
-  g.fillStyle = 'rgba(0,0,0,0.12)'; for (let y = 0; y < 256; y += 32) g.fillRect(0, y, 128, 3);
-  for (let y = 10; y < 246; y += 26) for (let x = 10; x < 118; x += 22) {
-    g.fillStyle = Math.random() < 0.25 ? 'rgba(255,214,130,0.9)' : 'rgba(18,28,40,0.9)';
-    g.fillRect(x, y, 14, 16);
+  const grad = g.createLinearGradient(0, 0, 0, 256);
+  grad.addColorStop(0, '#868c94'); grad.addColorStop(1, '#5f656d');
+  g.fillStyle = grad; g.fillRect(0, 0, 128, 256);
+  g.fillStyle = 'rgba(0,0,0,0.25)'; g.fillRect(0, 0, 128, 6); // крыша
+  g.fillStyle = 'rgba(0,0,0,0.12)'; for (let y = 0; y < 256; y += 32) g.fillRect(0, y, 128, 3); // этажи
+  for (let y = 12; y < 220; y += 26) for (let x = 8; x < 120; x += 20) {
+    const lit = Math.random() < 0.3;
+    g.fillStyle = lit ? 'rgba(255,214,130,0.95)' : 'rgba(16,26,38,0.95)';
+    g.fillRect(x, y, 13, 16);
+    g.fillStyle = 'rgba(255,255,255,0.25)'; g.fillRect(x, y, 13, 2); // рама
   }
+  // первый этаж: витрина и дверь
+  g.fillStyle = 'rgba(20,30,42,0.9)'; g.fillRect(8, 226, 112, 26);
+  g.fillStyle = 'rgba(120,200,255,0.35)'; g.fillRect(10, 228, 70, 20);
+  g.fillStyle = '#2a2f36'; g.fillRect(88, 228, 24, 24);
   const t = new THREE.CanvasTexture(c); t.wrapS = t.wrapT = THREE.RepeatWrapping;
-  t.encoding = THREE.sRGBEncoding; t.anisotropy = 4; return t;
+  t.encoding = THREE.sRGBEncoding; t.anisotropy = 8; return t;
 }
+
 function rockTexture() {
   const c = document.createElement('canvas'); c.width = c.height = 128;
   const g = c.getContext('2d');
@@ -155,6 +175,40 @@ function buildRoad(trk, theme) {
   geo.setIndex(idx); geo.computeVertexNormals();
   const mat = new THREE.MeshStandardMaterial({ map: asphaltTexture(theme), roughness: 0.95, metalness: 0.0, side: THREE.DoubleSide });
   const mesh = new THREE.Mesh(geo, mat);
+  mesh.receiveShadow = true;
+  return mesh;
+}
+
+function kerbTexture(color) {
+  const c = document.createElement('canvas'); c.width = 32; c.height = 64;
+  const g = c.getContext('2d');
+  for (let y = 0; y < 64; y += 16) { g.fillStyle = (y / 16) % 2 ? '#e8e8e8' : color; g.fillRect(0, y, 32, 16); }
+  const t = new THREE.CanvasTexture(c); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.encoding = THREE.sRGBEncoding; return t;
+}
+
+function buildKerbs(trk, theme) {
+  const s = trk.samples, n = s.length, off = trk.halfWidth + 0.5, hw = 0.5;
+  const pos = [], uv = [], idx = [];
+  for (let i = 0; i < n; i++) {
+    const cur = s[i], nxt = s[(i + 1) % n], prv = s[(i - 1 + n) % n];
+    let tx = nxt[0] - prv[0], tz = nxt[1] - prv[1];
+    const L = Math.hypot(tx, tz) || 1; tx /= L; tz /= L;
+    const px = -tz, pz = tx, h = cur[2] + 0.04;
+    pos.push(cur[0] + px * (off - hw), h, cur[1] + pz * (off - hw));
+    pos.push(cur[0] + px * (off + hw), h, cur[1] + pz * (off + hw));
+    pos.push(cur[0] - px * (off - hw), h, cur[1] - pz * (off - hw));
+    pos.push(cur[0] - px * (off + hw), h, cur[1] - pz * (off + hw));
+    const v = trk.cum[i] / 2; uv.push(0, v, 1, v, 0, v, 1, v);
+  }
+  for (let i = 0; i < n; i++) {
+    const a = i * 4, b = ((i + 1) % n) * 4;
+    idx.push(a, a + 1, b, a + 1, b + 1, b, a + 2, b + 2, a + 3, a + 3, b + 2, b + 3);
+  }
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+  geo.setAttribute('uv', new THREE.Float32BufferAttribute(uv, 2));
+  geo.setIndex(idx); geo.computeVertexNormals();
+  const mesh = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ map: kerbTexture(theme.kerb), roughness: 0.8, side: THREE.DoubleSide }));
   mesh.receiveShadow = true;
   return mesh;
 }
@@ -290,7 +344,18 @@ function buildWorld() {
   G.world.add(buildGround(trk, theme));
   G.world.add(buildRoad(trk, theme));
   G.world.add(buildStartLine(trk));
+  G.world.add(buildKerbs(trk, theme));
   G.world.add(buildScenery(trk, theme));
+  // окружение для отражений (IBL)
+  try {
+    const pmrem = new THREE.PMREMGenerator(G.renderer);
+    const envScene = new THREE.Scene();
+    envScene.add(buildSky(theme));
+    if (G.envTex) G.envTex.dispose();
+    G.envTex = pmrem.fromScene(envScene, 0.05, 0.1, 2000).texture;
+    G.scene.environment = G.envTex;
+    pmrem.dispose();
+  } catch (e) { /* без IBL тоже ок */ }
 
   // свет
   const hemi = new THREE.HemisphereLight(0xbfd4ff, new THREE.Color(theme.ground).getHex(), 0.7);
