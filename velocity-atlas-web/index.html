@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Velocity Atlas — гонки</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="logo">VELOCITY <span>ATLAS</span></div>
+  <p class="tag">Аркадные гонки: Time Trial и Race с ботами. Ниже — играбельное демо,
+     которое можно проверить прямо в браузере.</p>
+</header>
+
+<main>
+  <section class="stage-wrap">
+    <div id="stage">
+      <canvas id="game"></canvas>
+
+      <!-- HUD -->
+      <div id="hud" class="hud" style="display:none">
+        <div class="hud-left">
+          <div class="bigbox"><span id="h-speed">0</span><i>км/ч</i><b id="h-gear">1</b></div>
+        </div>
+        <div class="hud-top">
+          <div class="pill">Круг <b id="h-lap">1/3</b></div>
+          <div class="pill">Позиция <b id="h-pos">1/4</b></div>
+          <div class="pill">Круг <b id="h-time">—</b></div>
+          <div class="pill">Рекорд <b id="h-best">—</b></div>
+        </div>
+        <canvas id="minimap" class="minimap" width="170" height="130"></canvas>
+      </div>
+
+      <!-- Результаты -->
+      <div id="results" class="overlay results" style="display:none">
+        <div class="panel">
+          <h2 id="res-title">ФИНИШ</h2>
+          <p id="res-total"></p>
+          <p id="res-best"></p>
+          <table id="res-table" class="restab"></table>
+          <div class="row">
+            <button id="btn-retry" class="btn primary">Заново</button>
+            <button id="btn-next" class="btn">След. трасса</button>
+            <button id="btn-menu" class="btn">В меню</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Меню выбора -->
+      <div id="menu" class="overlay menu">
+        <div class="menu-grid">
+          <div class="col">
+            <h3>Машина</h3>
+            <div id="car-list" class="list"></div>
+            <p id="car-desc" class="desc"></p>
+          </div>
+          <div class="col">
+            <h3>Трасса</h3>
+            <div id="track-list" class="list"></div>
+            <p id="track-desc" class="desc"></p>
+            <button id="btn-start" class="btn primary big">СТАРТ ГОНКИ</button>
+          </div>
+        </div>
+        <div class="controls">
+          <b>Управление:</b> W/↑ газ · S/↓ тормоз · A/D или ←/→ руль · Space ручник · R вернуться на трассу
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <h2>Полная 3D-версия на Godot 4.7</h2>
+    <p>Это браузер-демо повторяет правила и контент полной игры (те же 3 трассы, 5 машин,
+       чекпоинты, круги, штраф +5 сек, боты), но в лёгком 2D-виде, чтобы игру можно было
+       проверить без установки движка. Полноценная 3D-версия лежит в
+       <code>racing-game/</code> (VehicleBody3D, Path3D-ИИ, SSAO/SDFGI/SSR, motion blur,
+       спидометр, мини-карта, рекорды в <code>user://records.cfg</code>).</p>
+    <div class="cols3">
+      <div><h4>Режимы</h4><p>Time Trial (заезд на время) и Race (игрок + 3 бота, позиции в реальном времени).</p></div>
+      <div><h4>Контент</h4><p>5 машин (Roadster, V8 Muscle, Street Kart, Aurora GT, Tundra Rally) и 3 трассы (City, Desert, Snow).</p></div>
+      <div><h4>Запустить 3D</h4><p>Откройте <code>racing-game/project.godot</code> в Godot 4.7 и нажмите F5.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">Velocity Atlas · демо-прототип · Godot-проект в <code>racing-game/</code></footer>
+
+<script src="data.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
