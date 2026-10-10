@@ -1,0 +1,107 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/track_select.gd" id="1_track"]
+
+[node name="TrackSelect" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_track")
+
+[node name="Header" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -400.0
+offset_top = 24.0
+offset_right = 400.0
+offset_bottom = 80.0
+grow_horizontal = 2
+text = "ВЫБОР ТРАССЫ"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 38
+
+[node name="CardsPanel" type="PanelContainer" parent="."]
+anchor_right = 1.0
+offset_left = 40.0
+offset_top = 100.0
+offset_right = -40.0
+offset_bottom = 380.0
+grow_horizontal = 2
+
+[node name="CardsScroll" type="ScrollContainer" parent="CardsPanel"]
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 0
+
+[node name="CardsBox" type="HBoxContainer" parent="CardsPanel/CardsScroll"]
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+
+[node name="DetailPanel" type="PanelContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 400.0
+offset_right = -40.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DetailBox" type="HBoxContainer" parent="DetailPanel"]
+theme_override_constants/separation = 24
+
+[node name="PreviewRect" type="TextureRect" parent="DetailPanel/DetailBox"]
+custom_minimum_size = Vector2(340, 200)
+expand_mode = 1
+stretch_mode = 5
+
+[node name="InfoBox" type="VBoxContainer" parent="DetailPanel/DetailBox"]
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="TrackNameLabel" type="Label" parent="DetailPanel/DetailBox/InfoBox"]
+text = "—"
+theme_override_font_sizes/font_size = 28
+
+[node name="DifficultyLabel" type="Label" parent="DetailPanel/DetailBox/InfoBox"]
+text = "Сложность: —"
+
+[node name="LengthLabel" type="Label" parent="DetailPanel/DetailBox/InfoBox"]
+text = "Длина круга: —"
+
+[node name="LapsLabel" type="Label" parent="DetailPanel/DetailBox/InfoBox"]
+text = "Кругов: —"
+
+[node name="RecordLabel" type="Label" parent="DetailPanel/DetailBox/InfoBox"]
+text = "Рекорд: —"
+theme_override_colors/font_color = Color(1, 0.85, 0.35, 1)
+
+[node name="DescLabel" type="Label" parent="DetailPanel/DetailBox/InfoBox"]
+text = ""
+autowrap_mode = 3
+theme_override_font_sizes/font_size = 14
+
+[node name="BottomBar" type="HBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -80.0
+offset_right = -40.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="BackButton" type="Button" parent="BottomBar"]
+custom_minimum_size = Vector2(170, 0)
+text = "В меню"
+
+[node name="ResetButton" type="Button" parent="BottomBar"]
+custom_minimum_size = Vector2(240, 0)
+text = "Сбросить рекорды трассы"
+
+[node name="StartButton" type="Button" parent="BottomBar"]
+custom_minimum_size = Vector2(220, 0)
+text = "На старт!"

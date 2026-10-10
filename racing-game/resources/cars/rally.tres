@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="CarStats" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/car_stats.gd" id="1_stats"]
+
+[resource]
+script = ExtResource("1_stats")
+id = &"rally"
+display_name = "Tundra Rally"
+icon_path = "res://assets/ui/icons/car_rally.png"
+description = "Раллийный полноприводник с цепкой подвеской. Не самый быстрый, зато стабильнее всех на снегу и в грязи."
+bar_speed = 0.55
+bar_acceleration = 0.62
+bar_handling = 0.78
+bar_brakes = 0.68
+bar_grip = 0.9
+mass = 1400.0
+max_engine_force = 800.0
+engine_force_multiplier = 3.4
+brake_force = 40.0
+brake_multiplier = 0.85
+max_steering = 0.55
+max_speed = 50.0
+drivetrain = 2
+suspension_stiffness = 40.0
+suspension_travel = 0.3
+damping_compression = 0.6
+damping_relaxation = 0.9
+wheel_friction_front = 3.3
+wheel_friction_rear = 3.1
+wheel_roll_influence = 0.1
+wheel_radius = 0.35
+wheel_rest_length = 0.12
+drag_coefficient = 0.45
+health_max = 100.0
+damage_speed_loss = 0.4
+body_color = Color(0.1, 0.45, 0.3, 1)
+accent_color = Color(0.9, 0.9, 0.85, 1)
+light_color = Color(1, 0.93, 0.75, 1)

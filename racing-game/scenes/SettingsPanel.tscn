@@ -1,0 +1,125 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/settings_panel.gd" id="1_settings"]
+
+[node name="SettingsPanel" type="Control"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_settings")
+
+[node name="Panel" type="PanelContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -320.0
+offset_right = 280.0
+offset_bottom = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+theme_override_constants/separation = 10
+
+[node name="TitleLabel" type="Label" parent="Panel/VBox"]
+text = "НАСТРОЙКИ"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 28
+
+[node name="MasterRow" type="HBoxContainer" parent="Panel/VBox"]
+
+[node name="MasterName" type="Label" parent="Panel/VBox/MasterRow"]
+custom_minimum_size = Vector2(190, 0)
+text = "Общая громкость"
+
+[node name="MasterSlider" type="HSlider" parent="Panel/VBox/MasterRow"]
+custom_minimum_size = Vector2(200, 0)
+size_flags_horizontal = 3
+max_value = 100.0
+value = 100.0
+
+[node name="MasterValue" type="Label" parent="Panel/VBox/MasterRow"]
+custom_minimum_size = Vector2(56, 0)
+text = "100%"
+horizontal_alignment = 2
+
+[node name="MusicRow" type="HBoxContainer" parent="Panel/VBox"]
+
+[node name="MusicName" type="Label" parent="Panel/VBox/MusicRow"]
+custom_minimum_size = Vector2(190, 0)
+text = "Музыка"
+
+[node name="MusicSlider" type="HSlider" parent="Panel/VBox/MusicRow"]
+custom_minimum_size = Vector2(200, 0)
+size_flags_horizontal = 3
+max_value = 100.0
+value = 75.0
+
+[node name="MusicValue" type="Label" parent="Panel/VBox/MusicRow"]
+custom_minimum_size = Vector2(56, 0)
+text = "75%"
+horizontal_alignment = 2
+
+[node name="SfxRow" type="HBoxContainer" parent="Panel/VBox"]
+
+[node name="SfxName" type="Label" parent="Panel/VBox/SfxRow"]
+custom_minimum_size = Vector2(190, 0)
+text = "Звуки"
+
+[node name="SfxSlider" type="HSlider" parent="Panel/VBox/SfxRow"]
+custom_minimum_size = Vector2(200, 0)
+size_flags_horizontal = 3
+max_value = 100.0
+value = 100.0
+
+[node name="SfxValue" type="Label" parent="Panel/VBox/SfxRow"]
+custom_minimum_size = Vector2(56, 0)
+text = "100%"
+horizontal_alignment = 2
+
+[node name="QualityRow" type="HBoxContainer" parent="Panel/VBox"]
+
+[node name="QualityName" type="Label" parent="Panel/VBox/QualityRow"]
+custom_minimum_size = Vector2(190, 0)
+text = "Качество графики"
+
+[node name="QualityOption" type="OptionButton" parent="Panel/VBox/QualityRow"]
+size_flags_horizontal = 3
+
+[node name="MsaaRow" type="HBoxContainer" parent="Panel/VBox"]
+
+[node name="MsaaName" type="Label" parent="Panel/VBox/MsaaRow"]
+custom_minimum_size = Vector2(190, 0)
+text = "Сглаживание (MSAA)"
+
+[node name="MsaaOption" type="OptionButton" parent="Panel/VBox/MsaaRow"]
+size_flags_horizontal = 3
+
+[node name="ShadowsCheck" type="CheckButton" parent="Panel/VBox"]
+button_pressed = true
+text = "Тени (DirectionalLight3D)"
+
+[node name="SsrCheck" type="CheckButton" parent="Panel/VBox"]
+button_pressed = true
+text = "SSR — отражения на кузове"
+
+[node name="FogCheck" type="CheckButton" parent="Panel/VBox"]
+button_pressed = true
+text = "Туман и объёмный туман"
+
+[node name="BlurCheck" type="CheckButton" parent="Panel/VBox"]
+button_pressed = true
+text = "Motion blur после 100 км/ч"
+
+[node name="FullscreenCheck" type="CheckButton" parent="Panel/VBox"]
+text = "Полный экран"
+
+[node name="ResetButton" type="Button" parent="Panel/VBox"]
+text = "Сбросить все рекорды"
+
+[node name="CloseButton" type="Button" parent="Panel/VBox"]
+text = "Закрыть"

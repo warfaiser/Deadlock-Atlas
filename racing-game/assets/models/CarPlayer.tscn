@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://assets/models/Car.tscn" id="1_car"]
+[ext_resource type="Script" path="res://scripts/car_player.gd" id="2_player"]
+
+[node name="CarPlayer" instance=ExtResource("1_car")]
+script = ExtResource("2_player")
+
+[node name="ChaseRig" type="SpringArm3D" parent="."]
+position = Vector3(0, 2.6, 0)
+spring_length = 7.5
+margin = 0.4
+
+[node name="Camera3D" type="Camera3D" parent="ChaseRig"]
+fov = 75.0
+near = 0.15
+far = 900.0
+current = true

@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="TrackData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/track_data.gd" id="1_track"]
+
+[resource]
+script = ExtResource("1_track")
+id = &"snow"
+display_name = "Snow Pass"
+preview_path = "res://assets/ui/icons/track_snow.png"
+description = "Заснеженный перевал: постоянные перепады высот, шпильки и очень скользкое покрытие. Лучший круг здесь стоит дорого."
+control_points = PackedVector3Array(0, 0, -160, 80, 4, -140, 140, 10, -60, 100, 16, 20, 160, 22, 90, 80, 26, 160, -20, 20, 150, -90, 12, 180, -150, 6, 100, -180, 2, 10, -140, -2, -80, -60, -4, -140)
+road_width = 10.0
+bake_interval = 2.0
+tangent_scale = 0.25
+barrier_height = 1.0
+laps = 3
+difficulty = 4
+checkpoint_count = 6
+bots_min = 3
+bots_max = 7
+surface_grip = 0.7
+theme = 2
+scenery_count = 340
+scenery_min_distance = 12.0
+scenery_max_distance = 90.0
+time_of_day = 9.5
+asphalt_color = Color(0.16, 0.17, 0.2, 1)
+marking_color = Color(0.92, 0.92, 0.88, 1)
+ground_color = Color(0.82, 0.86, 0.92, 1)
+fog_color = Color(0.86, 0.89, 0.96, 1)
+fog_density = 0.032
+sky_top_color = Color(0.38, 0.54, 0.78, 1)
+sky_horizon_color = Color(0.86, 0.89, 0.93, 1)
+sun_energy = 1.0

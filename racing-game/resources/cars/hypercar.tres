@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="CarStats" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/car_stats.gd" id="1_stats"]
+
+[resource]
+script = ExtResource("1_stats")
+id = &"hypercar"
+display_name = "Aurora GT"
+icon_path = "res://assets/ui/icons/car_hypercar.png"
+description = "Гиперкар с полным приводом: рекордная скорость и разгон, но требует аккуратной траектории — ошибки стоят секунд."
+bar_speed = 0.95
+bar_acceleration = 0.86
+bar_handling = 0.7
+bar_brakes = 0.76
+bar_grip = 0.8
+mass = 1350.0
+max_engine_force = 800.0
+engine_force_multiplier = 3.1
+brake_force = 40.0
+brake_multiplier = 0.9
+max_steering = 0.44
+max_speed = 72.0
+drivetrain = 2
+suspension_stiffness = 40.0
+suspension_travel = 0.3
+damping_compression = 0.6
+damping_relaxation = 0.9
+wheel_friction_front = 3.4
+wheel_friction_rear = 3.0
+wheel_roll_influence = 0.1
+wheel_radius = 0.35
+wheel_rest_length = 0.12
+drag_coefficient = 0.3
+health_max = 100.0
+damage_speed_loss = 0.4
+body_color = Color(0.88, 0.88, 0.9, 1)
+accent_color = Color(0.06, 0.07, 0.1, 1)
+light_color = Color(1, 0.93, 0.75, 1)

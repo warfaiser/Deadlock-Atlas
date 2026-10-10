@@ -1,0 +1,157 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/race_manager.gd" id="1_race"]
+[ext_resource type="Script" path="res://scripts/ui/hud.gd" id="2_hud"]
+[ext_resource type="Script" path="res://scripts/ui/speedometer.gd" id="3_speedo"]
+[ext_resource type="PackedScene" path="res://scenes/PauseMenu.tscn" id="4_pause"]
+
+[node name="Race" type="Node3D"]
+script = ExtResource("1_race")
+
+[node name="TrackRoot" type="Node3D" parent="."]
+
+[node name="Cars" type="Node3D" parent="."]
+
+[node name="LapTimers" type="Node" parent="."]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+layer = 10
+script = ExtResource("2_hud")
+
+[node name="Root" type="Control" parent="HUD"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MotionBlur" type="ColorRect" parent="HUD/Root"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 1)
+
+[node name="TopLeft" type="PanelContainer" parent="HUD/Root"]
+offset_left = 24.0
+offset_top = 20.0
+offset_right = 340.0
+offset_bottom = 196.0
+
+[node name="InfoBox" type="VBoxContainer" parent="HUD/Root/TopLeft"]
+theme_override_constants/separation = 4
+
+[node name="PositionLabel" type="Label" parent="HUD/Root/TopLeft/InfoBox"]
+text = "Место  - / -"
+theme_override_font_sizes/font_size = 22
+
+[node name="LapLabel" type="Label" parent="HUD/Root/TopLeft/InfoBox"]
+text = "Круг  - / -"
+theme_override_font_sizes/font_size = 22
+
+[node name="TimeLabel" type="Label" parent="HUD/Root/TopLeft/InfoBox"]
+text = "Круг  --:--.---"
+
+[node name="BestLabel" type="Label" parent="HUD/Root/TopLeft/InfoBox"]
+text = "Лучший  --:--.---"
+
+[node name="PenaltyLabel" type="Label" parent="HUD/Root/TopLeft/InfoBox"]
+text = "Штраф  +0 сек"
+theme_override_colors/font_color = Color(1, 0.85, 0.6, 1)
+
+[node name="RivalsPanel" type="PanelContainer" parent="HUD/Root"]
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -330.0
+offset_top = 20.0
+offset_right = -24.0
+offset_bottom = 280.0
+grow_horizontal = 0
+
+[node name="RivalsBox" type="VBoxContainer" parent="HUD/Root/RivalsPanel"]
+theme_override_constants/separation = 2
+
+[node name="CountdownLabel" type="Label" parent="HUD/Root"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -120.0
+offset_right = 200.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 120
+
+[node name="MessageLabel" type="Label" parent="HUD/Root"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -340.0
+offset_top = 130.0
+offset_right = 340.0
+offset_bottom = 190.0
+grow_horizontal = 2
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 30
+
+[node name="Speedo" type="Control" parent="HUD/Root"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -306.0
+offset_top = -306.0
+offset_right = -26.0
+offset_bottom = -26.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+script = ExtResource("3_speedo")
+
+[node name="ProgressBar" type="ProgressBar" parent="HUD/Root"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -48.0
+offset_right = -330.0
+offset_bottom = -26.0
+grow_vertical = 0
+max_value = 3.0
+show_percentage = false
+
+[node name="MinimapPanel" type="PanelContainer" parent="HUD/Root"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -322.0
+offset_right = 278.0
+offset_bottom = -60.0
+grow_vertical = 0
+
+[node name="MinimapView" type="SubViewportContainer" parent="HUD/Root/MinimapPanel"]
+custom_minimum_size = Vector2(250, 250)
+stretch = true
+
+[node name="MinimapViewport" type="SubViewport" parent="HUD/Root/MinimapPanel/MinimapView"]
+handle_input_locally = false
+size = Vector2i(250, 250)
+msaa_3d = 0
+render_target_update_mode = 4
+
+[node name="MinimapCamera" type="Camera3D" parent="HUD/Root/MinimapPanel/MinimapView/MinimapViewport"]
+projection = 1
+size = 190.0
+near = 1.0
+far = 600.0
+
+[node name="PauseMenu" parent="." instance=ExtResource("4_pause")]

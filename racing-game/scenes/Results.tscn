@@ -1,0 +1,99 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/results_screen.gd" id="1_results"]
+
+[node name="Results" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_results")
+
+[node name="HeaderPanel" type="PanelContainer" parent="."]
+anchor_right = 1.0
+offset_left = 40.0
+offset_top = 24.0
+offset_right = -40.0
+offset_bottom = 96.0
+grow_horizontal = 2
+
+[node name="HeaderBox" type="VBoxContainer" parent="HeaderPanel"]
+
+[node name="TitleLabel" type="Label" parent="HeaderPanel/HeaderBox"]
+text = "РЕЗУЛЬТАТЫ"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 34
+
+[node name="SummaryPanel" type="PanelContainer" parent="."]
+anchor_right = 1.0
+offset_left = 40.0
+offset_top = 112.0
+offset_right = -40.0
+offset_bottom = 268.0
+grow_horizontal = 2
+
+[node name="SummaryBox" type="VBoxContainer" parent="SummaryPanel"]
+theme_override_constants/separation = 6
+
+[node name="PositionLabel" type="Label" parent="SummaryPanel/SummaryBox"]
+text = "Место: —"
+theme_override_font_sizes/font_size = 26
+theme_override_colors/font_color = Color(1, 0.85, 0.35, 1)
+
+[node name="TotalLabel" type="Label" parent="SummaryPanel/SummaryBox"]
+text = "Общее время: —"
+
+[node name="BestLabel" type="Label" parent="SummaryPanel/SummaryBox"]
+text = "Лучший круг: —"
+
+[node name="PenaltyLabel" type="Label" parent="SummaryPanel/SummaryBox"]
+visible = false
+text = "Штрафы: +0 сек"
+theme_override_colors/font_color = Color(1, 0.6, 0.5, 1)
+
+[node name="RecordLabel" type="Label" parent="SummaryPanel/SummaryBox"]
+visible = false
+text = "Достижение: —"
+theme_override_colors/font_color = Color(0.5, 1, 0.6, 1)
+
+[node name="TablePanel" type="PanelContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 284.0
+offset_right = -40.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TableScroll" type="ScrollContainer" parent="TablePanel"]
+horizontal_scroll_mode = 0
+
+[node name="TableBox" type="VBoxContainer" parent="TablePanel/TableScroll"]
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="BottomBar" type="HBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -80.0
+offset_right = -40.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="ReplayButton" type="Button" parent="BottomBar"]
+custom_minimum_size = Vector2(200, 0)
+text = "Replay — ещё раз"
+
+[node name="NextButton" type="Button" parent="BottomBar"]
+custom_minimum_size = Vector2(220, 0)
+text = "Next Track — следующая"
+
+[node name="MenuButton" type="Button" parent="BottomBar"]
+custom_minimum_size = Vector2(200, 0)
+text = "В главное меню"

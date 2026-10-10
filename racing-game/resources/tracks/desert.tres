@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="TrackData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/track_data.gd" id="1_track"]
+
+[resource]
+script = ExtResource("1_track")
+id = &"desert"
+display_name = "Desert Run"
+preview_path = "res://assets/ui/icons/track_desert.png"
+description = "Широкая пустынная трасса с длинными дугами и плавными подъёмами. Максимальная скорость решает, но песок держит хуже асфальта."
+control_points = PackedVector3Array(0, 0, -220, 140, 2, -200, 240, 6, -120, 260, 10, 20, 200, 14, 120, 60, 10, 180, -80, 6, 200, -200, 2, 140, -260, 0, 20, -220, -2, -120, -120, 0, -200)
+road_width = 14.0
+bake_interval = 2.0
+tangent_scale = 0.25
+barrier_height = 1.0
+laps = 2
+difficulty = 2
+checkpoint_count = 5
+bots_min = 3
+bots_max = 6
+surface_grip = 0.95
+theme = 1
+scenery_count = 190
+scenery_min_distance = 18.0
+scenery_max_distance = 150.0
+time_of_day = 12.5
+asphalt_color = Color(0.2, 0.18, 0.16, 1)
+marking_color = Color(0.92, 0.92, 0.88, 1)
+ground_color = Color(0.55, 0.44, 0.28, 1)
+fog_color = Color(0.86, 0.78, 0.62, 1)
+fog_density = 0.008
+sky_top_color = Color(0.24, 0.46, 0.78, 1)
+sky_horizon_color = Color(0.86, 0.8, 0.68, 1)
+sun_energy = 1.4

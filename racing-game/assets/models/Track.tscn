@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/track_builder.gd" id="1_track"]
+[ext_resource type="Script" path="res://scripts/world/environment_controller.gd" id="2_env"]
+
+[node name="Track" type="Node3D"]
+script = ExtResource("1_track")
+
+[node name="Road" type="MeshInstance3D" parent="."]
+
+[node name="RoadCollision" type="StaticBody3D" parent="."]
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoadCollision"]
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+
+[node name="RacePath" type="Path3D" parent="."]
+
+[node name="Checkpoints" type="Node3D" parent="."]
+
+[node name="Scenery" type="MultiMeshInstance3D" parent="."]
+
+[node name="StartLine" type="MeshInstance3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-45, -35, 0)
+light_energy = 1.1
+shadow_enabled = true
+directional_shadow_mode = 1
+directional_shadow_max_distance = 200
+
+[node name="EnvironmentController" type="Node" parent="."]
+script = ExtResource("2_env")

@@ -1,0 +1,180 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_menu"]
+[ext_resource type="PackedScene" path="res://assets/models/Car.tscn" id="2_car"]
+[ext_resource type="PackedScene" path="res://scenes/SettingsPanel.tscn" id="3_settings"]
+
+[sub_resource type="ProceduralSkyMaterial" id="SkyMat_menu"]
+sky_top_color = Color(0.07, 0.09, 0.17, 1)
+sky_horizon_color = Color(0.34, 0.27, 0.36, 1)
+ground_bottom_color = Color(0.04, 0.04, 0.07, 1)
+ground_horizon_color = Color(0.18, 0.16, 0.22, 1)
+
+[sub_resource type="Sky" id="Sky_menu"]
+sky_material = SubResource("SkyMat_menu")
+
+[sub_resource type="Environment" id="Env_menu"]
+background_mode = 2
+sky = SubResource("Sky_menu")
+ambient_light_source = 3
+ambient_light_energy = 0.9
+tonemap_mode = 3
+glow_enabled = true
+glow_intensity = 0.5
+glow_bloom = 0.1
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_menu")
+
+[node name="Background" type="SubViewportContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stretch = true
+
+[node name="PreviewViewport" type="SubViewport" parent="Background"]
+size = Vector2i(1280, 720)
+render_target_update_mode = 4
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Background/PreviewViewport"]
+environment = SubResource("Env_menu")
+
+[node name="KeyLight" type="DirectionalLight3D" parent="Background/PreviewViewport"]
+rotation_degrees = Vector3(-28, -35, 0)
+light_energy = 1.4
+shadow_enabled = true
+
+[node name="FillLight" type="OmniLight3D" parent="Background/PreviewViewport"]
+position = Vector3(-5, 3.5, 5)
+light_color = Color(0.6, 0.75, 1, 1)
+light_energy = 1.4
+omni_range = 22
+
+[node name="PreviewCamera" type="Camera3D" parent="Background/PreviewViewport"]
+position = Vector3(6.0, 2.6, 6.8)
+rotation_degrees = Vector3(-15, 41, 0)
+fov = 45.0
+
+[node name="ShowCar" parent="Background/PreviewViewport" instance=ExtResource("2_car")]
+collision_layer = 0
+collision_mask = 0
+gravity_scale = 0.0
+freeze = true
+
+[node name="TitleLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -460.0
+offset_top = 36.0
+offset_right = 460.0
+offset_bottom = 130.0
+grow_horizontal = 2
+text = "VELOCITY ATLAS"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 64
+
+[node name="SubtitleLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -460.0
+offset_top = 128.0
+offset_right = 460.0
+offset_bottom = 160.0
+grow_horizontal = 2
+text = "Time Trial и гонки с ботами · Godot 4.7"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 16
+
+[node name="Panel" type="PanelContainer" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = -190.0
+offset_right = 420.0
+offset_bottom = 190.0
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+theme_override_constants/separation = 12
+
+[node name="PlayButton" type="Button" parent="Panel/VBox"]
+custom_minimum_size = Vector2(0, 52)
+text = "Play — начать заезд"
+
+[node name="CarSelectButton" type="Button" parent="Panel/VBox"]
+custom_minimum_size = Vector2(0, 46)
+text = "Car Select — выбор машины"
+
+[node name="TrackSelectButton" type="Button" parent="Panel/VBox"]
+custom_minimum_size = Vector2(0, 46)
+text = "Track Select — выбор трассы"
+
+[node name="SettingsButton" type="Button" parent="Panel/VBox"]
+custom_minimum_size = Vector2(0, 46)
+text = "Settings — настройки"
+
+[node name="ExitButton" type="Button" parent="Panel/VBox"]
+custom_minimum_size = Vector2(0, 46)
+text = "Exit — выход"
+
+[node name="ModePanel" type="PanelContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -460.0
+offset_top = -230.0
+offset_right = -60.0
+offset_bottom = 230.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="ModeBox" type="VBoxContainer" parent="ModePanel"]
+theme_override_constants/separation = 6
+
+[node name="ModeLabel" type="Label" parent="ModePanel/ModeBox"]
+text = "Режим"
+
+[node name="ModeOption" type="OptionButton" parent="ModePanel/ModeBox"]
+
+[node name="DifficultyLabel" type="Label" parent="ModePanel/ModeBox"]
+text = "Сложность ботов"
+
+[node name="DifficultyOption" type="OptionButton" parent="ModePanel/ModeBox"]
+
+[node name="BotsLabel" type="Label" parent="ModePanel/ModeBox"]
+text = "Количество соперников"
+
+[node name="BotsOption" type="OptionButton" parent="ModePanel/ModeBox"]
+
+[node name="Spacer" type="Control" parent="ModePanel/ModeBox"]
+custom_minimum_size = Vector2(0, 12)
+
+[node name="TrackInfoLabel" type="Label" parent="ModePanel/ModeBox"]
+text = "Трасса: —"
+autowrap_mode = 3
+
+[node name="CarInfoLabel" type="Label" parent="ModePanel/ModeBox"]
+text = "Машина: —"
+autowrap_mode = 3
+
+[node name="VersionLabel" type="Label" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -34.0
+offset_right = -24.0
+offset_bottom = -10.0
+grow_vertical = 0
+text = "v1.0.0 · W/↑ газ · S/↓ тормоз · A/D руль · Space ручник · R сброс · Esc пауза"
+theme_override_font_sizes/font_size = 14
+
+[node name="SettingsPanel" parent="." instance=ExtResource("3_settings")]

@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="TrackData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/track_data.gd" id="1_track"]
+
+[resource]
+script = ExtResource("1_track")
+id = &"city"
+display_name = "City Sprint"
+preview_path = "res://assets/ui/icons/track_city.png"
+description = "Короткая городская трасса с узкими поворотами, отбойниками вплотную и вечерним солнцем между зданий."
+control_points = PackedVector3Array(0, 0, -120, 60, 0, -120, 120, 0, -80, 120, 0, 0, 80, 0, 40, 140, 0, 80, 140, 0, 140, 60, 0, 180, -20, 0, 160, -80, 0, 120, -140, 0, 100, -160, 0, 20, -120, 0, -60, -60, 0, -100)
+road_width = 11.0
+bake_interval = 2.0
+tangent_scale = 0.25
+barrier_height = 1.0
+laps = 3
+difficulty = 3
+checkpoint_count = 6
+bots_min = 4
+bots_max = 7
+surface_grip = 1.0
+theme = 0
+scenery_count = 260
+scenery_min_distance = 14.0
+scenery_max_distance = 110.0
+time_of_day = 17.5
+asphalt_color = Color(0.12, 0.12, 0.14, 1)
+marking_color = Color(0.92, 0.92, 0.88, 1)
+ground_color = Color(0.16, 0.17, 0.2, 1)
+fog_color = Color(0.58, 0.55, 0.6, 1)
+fog_density = 0.018
+sky_top_color = Color(0.14, 0.2, 0.4, 1)
+sky_horizon_color = Color(0.74, 0.52, 0.42, 1)
+sun_energy = 1.0

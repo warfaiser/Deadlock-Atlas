@@ -1,0 +1,219 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/car_select.gd" id="1_select"]
+[ext_resource type="PackedScene" path="res://assets/models/Car.tscn" id="2_car"]
+
+[sub_resource type="ProceduralSkyMaterial" id="SkyMat_garage"]
+sky_top_color = Color(0.1, 0.12, 0.18, 1)
+sky_horizon_color = Color(0.28, 0.3, 0.36, 1)
+ground_bottom_color = Color(0.06, 0.06, 0.08, 1)
+ground_horizon_color = Color(0.16, 0.17, 0.2, 1)
+
+[sub_resource type="Sky" id="Sky_garage"]
+sky_material = SubResource("SkyMat_garage")
+
+[sub_resource type="Environment" id="Env_garage"]
+background_mode = 2
+sky = SubResource("Sky_garage")
+ambient_light_source = 3
+ambient_light_energy = 1.0
+tonemap_mode = 3
+glow_enabled = true
+glow_intensity = 0.4
+
+[node name="CarSelect" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_select")
+
+[node name="Header" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -400.0
+offset_top = 26.0
+offset_right = 400.0
+offset_bottom = 82.0
+grow_horizontal = 2
+text = "ВЫБОР МАШИНЫ"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 38
+
+[node name="StatsPanel" type="PanelContainer" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 40.0
+offset_top = -250.0
+offset_right = 430.0
+offset_bottom = 250.0
+grow_vertical = 2
+
+[node name="StatsBox" type="VBoxContainer" parent="StatsPanel"]
+theme_override_constants/separation = 8
+
+[node name="CarNameLabel" type="Label" parent="StatsPanel/StatsBox"]
+text = "—"
+theme_override_font_sizes/font_size = 28
+
+[node name="CarDescLabel" type="Label" parent="StatsPanel/StatsBox"]
+text = ""
+autowrap_mode = 3
+theme_override_font_sizes/font_size = 14
+
+[node name="SpeedRow" type="HBoxContainer" parent="StatsPanel/StatsBox"]
+
+[node name="RowName" type="Label" parent="StatsPanel/StatsBox/SpeedRow"]
+custom_minimum_size = Vector2(130, 0)
+text = "Скорость"
+
+[node name="Bar" type="ProgressBar" parent="StatsPanel/StatsBox/SpeedRow"]
+custom_minimum_size = Vector2(0, 18)
+size_flags_horizontal = 3
+max_value = 100.0
+value = 50.0
+show_percentage = false
+
+[node name="AccelRow" type="HBoxContainer" parent="StatsPanel/StatsBox"]
+
+[node name="RowName" type="Label" parent="StatsPanel/StatsBox/AccelRow"]
+custom_minimum_size = Vector2(130, 0)
+text = "Разгон"
+
+[node name="Bar" type="ProgressBar" parent="StatsPanel/StatsBox/AccelRow"]
+custom_minimum_size = Vector2(0, 18)
+size_flags_horizontal = 3
+max_value = 100.0
+value = 50.0
+show_percentage = false
+
+[node name="HandlingRow" type="HBoxContainer" parent="StatsPanel/StatsBox"]
+
+[node name="RowName" type="Label" parent="StatsPanel/StatsBox/HandlingRow"]
+custom_minimum_size = Vector2(130, 0)
+text = "Управление"
+
+[node name="Bar" type="ProgressBar" parent="StatsPanel/StatsBox/HandlingRow"]
+custom_minimum_size = Vector2(0, 18)
+size_flags_horizontal = 3
+max_value = 100.0
+value = 50.0
+show_percentage = false
+
+[node name="BrakesRow" type="HBoxContainer" parent="StatsPanel/StatsBox"]
+
+[node name="RowName" type="Label" parent="StatsPanel/StatsBox/BrakesRow"]
+custom_minimum_size = Vector2(130, 0)
+text = "Тормоза"
+
+[node name="Bar" type="ProgressBar" parent="StatsPanel/StatsBox/BrakesRow"]
+custom_minimum_size = Vector2(0, 18)
+size_flags_horizontal = 3
+max_value = 100.0
+value = 50.0
+show_percentage = false
+
+[node name="GripRow" type="HBoxContainer" parent="StatsPanel/StatsBox"]
+
+[node name="RowName" type="Label" parent="StatsPanel/StatsBox/GripRow"]
+custom_minimum_size = Vector2(130, 0)
+text = "Сцепление"
+
+[node name="Bar" type="ProgressBar" parent="StatsPanel/StatsBox/GripRow"]
+custom_minimum_size = Vector2(0, 18)
+size_flags_horizontal = 3
+max_value = 100.0
+value = 50.0
+show_percentage = false
+
+[node name="MassLabel" type="Label" parent="StatsPanel/StatsBox"]
+text = "Масса — кг"
+theme_override_font_sizes/font_size = 15
+
+[node name="PreviewArea" type="PanelContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -235.0
+offset_right = 320.0
+offset_bottom = 235.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PreviewView" type="SubViewportContainer" parent="PreviewArea"]
+custom_minimum_size = Vector2(640, 470)
+stretch = true
+
+[node name="PreviewViewport" type="SubViewport" parent="PreviewArea/PreviewView"]
+size = Vector2i(640, 470)
+render_target_update_mode = 4
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="PreviewArea/PreviewView/PreviewViewport"]
+environment = SubResource("Env_garage")
+
+[node name="KeyLight" type="DirectionalLight3D" parent="PreviewArea/PreviewView/PreviewViewport"]
+rotation_degrees = Vector3(-32, -40, 0)
+light_energy = 1.5
+shadow_enabled = true
+
+[node name="FillLight" type="OmniLight3D" parent="PreviewArea/PreviewView/PreviewViewport"]
+position = Vector3(-6, 4, 6)
+light_color = Color(0.65, 0.8, 1, 1)
+light_energy = 1.6
+omni_range = 24
+
+[node name="PreviewCamera" type="Camera3D" parent="PreviewArea/PreviewView/PreviewViewport"]
+position = Vector3(6.4, 2.8, 7.0)
+rotation_degrees = Vector3(-16, 42, 0)
+fov = 42.0
+
+[node name="ShowCar" parent="PreviewArea/PreviewView/PreviewViewport" instance=ExtResource("2_car")]
+collision_layer = 0
+collision_mask = 0
+gravity_scale = 0.0
+freeze = true
+
+[node name="ListPanel" type="PanelContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -380.0
+offset_top = -250.0
+offset_right = -40.0
+offset_bottom = 250.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="ListBox" type="VBoxContainer" parent="ListPanel"]
+theme_override_constants/separation = 8
+
+[node name="BottomBar" type="HBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -74.0
+offset_right = -40.0
+offset_bottom = -24.0
+grow_vertical = 0
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="PrevButton" type="Button" parent="BottomBar"]
+custom_minimum_size = Vector2(120, 0)
+text = "◀ Назад"
+
+[node name="BackButton" type="Button" parent="BottomBar"]
+custom_minimum_size = Vector2(160, 0)
+text = "В меню"
+
+[node name="NextButton" type="Button" parent="BottomBar"]
+custom_minimum_size = Vector2(120, 0)
+text = "Вперёд ▶"
+
+[node name="SelectButton" type="Button" parent="BottomBar"]
+custom_minimum_size = Vector2(180, 0)
+text = "Выбрать машину"
