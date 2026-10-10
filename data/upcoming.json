@@ -1,5 +1,5 @@
 {
- "snapshot": "2026-10-07",
+ "snapshot": "2026-10-10",
  "source": "Deadlock API (https://deadlock-api.com/)",
  "releases": [
   "2026-10-09",
@@ -80,32 +80,6 @@
     "name_image": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/heroes/hero_names/nurse.svg",
     "vote_sticker": "https://assets-bucket.deadlock-api.com/assets-api-res/images/events/voting_sept2026/sticker_nurse.png",
     "vote_sticker_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/events/voting_sept2026/sticker_nurse.webp"
-   },
-   "vote": {
-    "state": "голосование",
-    "date": null
-   }
-  },
-  {
-   "id": 85,
-   "class_name": "hero_chessmaster",
-   "name": "Соломон",
-   "name_en": "Solomon",
-   "hero_type": null,
-   "tags": [
-    "Стратег",
-    "Сосредоточенный",
-    "Вдумчивый"
-   ],
-   "complexity": 3,
-   "images": {
-    "top_bar_vertical_image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chessmaster_vertical.png",
-    "top_bar_vertical_image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chessmaster_vertical.webp",
-    "background_image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/backgrounds/chessmaster_bg.png",
-    "background_image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/backgrounds/chessmaster_bg.webp",
-    "name_image": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/heroes/hero_names/solomon.svg",
-    "vote_sticker": "https://assets-bucket.deadlock-api.com/assets-api-res/images/events/voting_sept2026/sticker_chessmaster.png",
-    "vote_sticker_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/events/voting_sept2026/sticker_chessmaster.webp"
    },
    "vote": {
     "state": "голосование",

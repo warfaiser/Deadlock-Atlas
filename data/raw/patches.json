@@ -1,0 +1,342 @@
+[
+ {
+  "title": "09-29-2026",
+  "pub_date": "2026-10-05T23:00:12Z",
+  "link": "https://forums.playdeadlock.com/threads/09-29-2026.166726/",
+  "guid": {
+   "is_perma_link": false,
+   "text": "urn:xenforo:thread:166726"
+  },
+  "author": "invalid@example.com (Yoshi)",
+  "category": {
+   "domain": "https://forums.playdeadlock.com/forums/changelog.10/",
+   "text": "Changelog"
+  },
+  "dc_creator": "Yoshi",
+  "content_encoded": "<div class=\"bbWrapper\"><div class=\"bbCodeBlock bbCodeBlock--unfurl    js-unfurl fauxBlockLink\"\n\t\tdata-unfurl=\"true\" data-result-id=\"11817\" data-result-token=\"1791666854:3cfa82a48b7cf6dc1ac4fa271955658d9ea7177ae27b7e8f44fc6accc6754388\" data-url=\"https://store.steampowered.com/news/app/1422450/view/694273194214819790\" data-host=\"store.steampowered.com\" data-pending=\"false\">\n\t\t<div class=\"contentRow\">\n\t\t\t\n\t\t\t\t<div class=\"contentRow-figure contentRow-figure--fixedSmall js-unfurl-figure\">\n\t\t\t\t\t\n\t\t\t\t\t\t<img src=\"https://clan.akamai.steamstatic.com/images/45164767/58160deebbd1c61d525f4e516690161858d1e95f.png\" loading=\"lazy\" alt=\"store.steampowered.com\" class=\"bbCodeBlockUnfurl-image\" data-onerror=\"hide-parent\"/>\n\t\t\t\t\t\n\t\t\t\t</div>\n\t\t\t\n\t\t\t<div class=\"contentRow-main\">\n\t\t\t\t<h3 class=\"contentRow-header js-unfurl-title\">\n\t\t\t\t\t<a href=\"https://store.steampowered.com/news/app/1422450/view/694273194214819790\"\n\t\t\t\t\t\tclass=\"link link--external fauxBlockLink-blockLink\"\n\t\t\t\t\t\ttarget=\"_blank\"\n\t\t\t\t\t\trel=\"noopener\"\n\t\t\t\t\t\tdata-proxy-href=\"\">\n\t\t\t\t\t\tDeadlock - City Never Sleeps - Steam News\n\t\t\t\t\t</a>\n\t\t\t\t</h3>\n\n\t\t\t\t<div class=\"contentRow-snippet js-unfurl-desc\">The Cursed Apple is ever changing, and these streets are nothing like you remember.</div>\n\n\t\t\t\t<div class=\"contentRow-minor contentRow-minor--hideLinks\">\n\t\t\t\t\t<span class=\"js-unfurl-favicon\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t<img src=\"https://store.steampowered.com/favicon.ico\" loading=\"lazy\" alt=\"store.steampowered.com\" class=\"bbCodeBlockUnfurl-icon\"\n\t\t\t\t\t\t\t\tdata-onerror=\"hide-parent\"/>\n\t\t\t\t\t\t\n\t\t\t\t\t</span>\n\t\t\t\t\tstore.steampowered.com\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div></div>",
+  "slash_comments": "2"
+ },
+ {
+  "title": "09-16-2026 Update",
+  "pub_date": "2026-09-16T22:41:46Z",
+  "link": "https://forums.playdeadlock.com/threads/09-16-2026-update.162572/",
+  "guid": {
+   "is_perma_link": false,
+   "text": "urn:xenforo:thread:162572"
+  },
+  "author": "invalid@example.com (Yoshi)",
+  "category": {
+   "domain": "https://forums.playdeadlock.com/forums/changelog.10/",
+   "text": "Changelog"
+  },
+  "dc_creator": "Yoshi",
+  "content_encoded": "<div class=\"bbWrapper\"><div class=\"bbCodeBlock bbCodeBlock--unfurl    js-unfurl fauxBlockLink\"\n\t\tdata-unfurl=\"true\" data-result-id=\"11569\" data-result-token=\"1791666854:6d0ebcf7a44125a46e86afff3985a435d748d9b24ad26529b84a85722e3819f5\" data-url=\"https://store.steampowered.com/news/app/1422450/view/698776157349216434\" data-host=\"store.steampowered.com\" data-pending=\"false\">\n\t\t<div class=\"contentRow\">\n\t\t\t\n\t\t\t\t<div class=\"contentRow-figure contentRow-figure--fixedSmall js-unfurl-figure\">\n\t\t\t\t\t\n\t\t\t\t\t\t<img src=\"https://clan.akamai.steamstatic.com/images/45164767/568ff640318c8a81e2b5b4a22bf29e100ee144d9.png\" loading=\"lazy\" alt=\"store.steampowered.com\" class=\"bbCodeBlockUnfurl-image\" data-onerror=\"hide-parent\"/>\n\t\t\t\t\t\n\t\t\t\t</div>\n\t\t\t\n\t\t\t<div class=\"contentRow-main\">\n\t\t\t\t<h3 class=\"contentRow-header js-unfurl-title\">\n\t\t\t\t\t<a href=\"https://store.steampowered.com/news/app/1422450/view/698776157349216434\"\n\t\t\t\t\t\tclass=\"link link--external fauxBlockLink-blockLink\"\n\t\t\t\t\t\ttarget=\"_blank\"\n\t\t\t\t\t\trel=\"noopener\"\n\t\t\t\t\t\tdata-proxy-href=\"\">\n\t\t\t\t\t\tDeadlock -  Minor Update - 09-16-2026 - Steam News\n\t\t\t\t\t</a>\n\t\t\t\t</h3>\n\n\t\t\t\t<div class=\"contentRow-snippet js-unfurl-desc\">[ General ] - Unstable Rift comeback resist max values now scale over the course of the game. Previously the max values were 35%. Now it is 10% + 1% per minute (around ~20% for the first one), with an upper limit of 40% at 30 minutes. - Removed a fixed amount of extra bonus souls you would get...</div>\n\n\t\t\t\t<div class=\"contentRow-minor contentRow-minor--hideLinks\">\n\t\t\t\t\t<span class=\"js-unfurl-favicon\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t<img src=\"https://store.steampowered.com/favicon.ico\" loading=\"lazy\" alt=\"store.steampowered.com\" class=\"bbCodeBlockUnfurl-icon\"\n\t\t\t\t\t\t\t\tdata-onerror=\"hide-parent\"/>\n\t\t\t\t\t\t\n\t\t\t\t\t</span>\n\t\t\t\t\tstore.steampowered.com\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div></div>",
+  "slash_comments": "0"
+ },
+ {
+  "title": "08-22-2026 Update",
+  "pub_date": "2026-09-16T22:41:28Z",
+  "link": "https://forums.playdeadlock.com/threads/08-22-2026-update.162571/",
+  "guid": {
+   "is_perma_link": false,
+   "text": "urn:xenforo:thread:162571"
+  },
+  "author": "invalid@example.com (Yoshi)",
+  "category": {
+   "domain": "https://forums.playdeadlock.com/forums/changelog.10/",
+   "text": "Changelog"
+  },
+  "dc_creator": "Yoshi",
+  "content_encoded": "<div class=\"bbWrapper\"><div class=\"bbCodeBlock bbCodeBlock--unfurl    js-unfurl fauxBlockLink\"\n\t\tdata-unfurl=\"true\" data-result-id=\"11580\" data-result-token=\"1791666854:0d15a2be9cf23297e8606a9bc5fc1444374411095d3c048c76c54399ca97c5bc\" data-url=\"https://store.steampowered.com/news/app/1422450/view/676255623445218601\" data-host=\"store.steampowered.com\" data-pending=\"false\">\n\t\t<div class=\"contentRow\">\n\t\t\t\n\t\t\t\t<div class=\"contentRow-figure contentRow-figure--fixedSmall js-unfurl-figure\">\n\t\t\t\t\t\n\t\t\t\t\t\t<img src=\"https://clan.akamai.steamstatic.com/images/45164767/568ff640318c8a81e2b5b4a22bf29e100ee144d9.png\" loading=\"lazy\" alt=\"store.steampowered.com\" class=\"bbCodeBlockUnfurl-image\" data-onerror=\"hide-parent\"/>\n\t\t\t\t\t\n\t\t\t\t</div>\n\t\t\t\n\t\t\t<div class=\"contentRow-main\">\n\t\t\t\t<h3 class=\"contentRow-header js-unfurl-title\">\n\t\t\t\t\t<a href=\"https://store.steampowered.com/news/app/1422450/view/676255623445218601\"\n\t\t\t\t\t\tclass=\"link link--external fauxBlockLink-blockLink\"\n\t\t\t\t\t\ttarget=\"_blank\"\n\t\t\t\t\t\trel=\"noopener\"\n\t\t\t\t\t\tdata-proxy-href=\"\">\n\t\t\t\t\t\tDeadlock -  Minor Update - 08-22-2026 - Steam News\n\t\t\t\t\t</a>\n\t\t\t\t</h3>\n\n\t\t\t\t<div class=\"contentRow-snippet js-unfurl-desc\">- Radiant Regeneration: Heal on cast reduced from 70 to 65 - Restorative Locket: Spirit Resistance reduced from 10% to 8% - Celeste: Dazzling Trick cooldown increased from 32s to 34s - Celeste: Dazzling Trick T2 barrier rescaled from &quot;+80 and +0.7 scaling&quot; to &quot;+70 and +0.76&quot; - Celeste: Dazzling...</div>\n\n\t\t\t\t<div class=\"contentRow-minor contentRow-minor--hideLinks\">\n\t\t\t\t\t<span class=\"js-unfurl-favicon\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t<img src=\"https://store.steampowered.com/favicon.ico\" loading=\"lazy\" alt=\"store.steampowered.com\" class=\"bbCodeBlockUnfurl-icon\"\n\t\t\t\t\t\t\t\tdata-onerror=\"hide-parent\"/>\n\t\t\t\t\t\t\n\t\t\t\t\t</span>\n\t\t\t\t\tstore.steampowered.com\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div></div>",
+  "slash_comments": "0"
+ },
+ {
+  "title": "08-12-2026 Update",
+  "pub_date": "2026-09-16T22:41:13Z",
+  "link": "https://forums.playdeadlock.com/threads/08-12-2026-update.162570/",
+  "guid": {
+   "is_perma_link": false,
+   "text": "urn:xenforo:thread:162570"
+  },
+  "author": "invalid@example.com (Yoshi)",
+  "category": {
+   "domain": "https://forums.playdeadlock.com/forums/changelog.10/",
+   "text": "Changelog"
+  },
+  "dc_creator": "Yoshi",
+  "content_encoded": "<div class=\"bbWrapper\"><div class=\"bbCodeBlock bbCodeBlock--unfurl    js-unfurl fauxBlockLink\"\n\t\tdata-unfurl=\"true\" data-result-id=\"11267\" data-result-token=\"1791666854:d18cf572043979ed3cf5eade304f71dcd6c06d56527340c07c21a93e540edb43\" data-url=\"https://store.steampowered.com/news/app/1422450/view/708906085669405228\" data-host=\"store.steampowered.com\" data-pending=\"false\">\n\t\t<div class=\"contentRow\">\n\t\t\t\n\t\t\t\t<div class=\"contentRow-figure contentRow-figure--fixedSmall js-unfurl-figure\">\n\t\t\t\t\t\n\t\t\t\t\t\t<img src=\"https://clan.akamai.steamstatic.com/images/45164767/568ff640318c8a81e2b5b4a22bf29e100ee144d9.png\" loading=\"lazy\" alt=\"store.steampowered.com\" class=\"bbCodeBlockUnfurl-image\" data-onerror=\"hide-parent\"/>\n\t\t\t\t\t\n\t\t\t\t</div>\n\t\t\t\n\t\t\t<div class=\"contentRow-main\">\n\t\t\t\t<h3 class=\"contentRow-header js-unfurl-title\">\n\t\t\t\t\t<a href=\"https://store.steampowered.com/news/app/1422450/view/708906085669405228\"\n\t\t\t\t\t\tclass=\"link link--external fauxBlockLink-blockLink\"\n\t\t\t\t\t\ttarget=\"_blank\"\n\t\t\t\t\t\trel=\"noopener\"\n\t\t\t\t\t\tdata-proxy-href=\"\">\n\t\t\t\t\t\tDeadlock -  Minor Update - 08-12-2026 - Steam News\n\t\t\t\t\t</a>\n\t\t\t\t</h3>\n\n\t\t\t\t<div class=\"contentRow-snippet js-unfurl-desc\">- Apollo: Riposte melee resist reduction increased from -22% to -25% - Apollo: Riposte T2 changed from &quot;-30% Melee Resist&quot; to &quot;-25% Melee Resist and +0.4s Stun Duration&quot; - Apollo: Riposte T3 increased from 60% Lifesteal for 7s to 75% Lifesteal for 13s - Apollo: Fixed Itani Lo Sahn being canceled...</div>\n\n\t\t\t\t<div class=\"contentRow-minor contentRow-minor--hideLinks\">\n\t\t\t\t\t<span class=\"js-unfurl-favicon\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t<img src=\"https://store.steampowered.com/favicon.ico\" loading=\"lazy\" alt=\"store.steampowered.com\" class=\"bbCodeBlockUnfurl-icon\"\n\t\t\t\t\t\t\t\tdata-onerror=\"hide-parent\"/>\n\t\t\t\t\t\t\n\t\t\t\t\t</span>\n\t\t\t\t\tstore.steampowered.com\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div></div>",
+  "slash_comments": "0"
+ },
+ {
+  "title": "06-30-2026 Update",
+  "pub_date": "2026-07-28T20:28:07Z",
+  "link": "https://forums.playdeadlock.com/threads/06-30-2026-update.146261/",
+  "guid": {
+   "is_perma_link": false,
+   "text": "urn:xenforo:thread:146261"
+  },
+  "author": "invalid@example.com (Yoshi)",
+  "category": {
+   "domain": "https://forums.playdeadlock.com/forums/changelog.10/",
+   "text": "Changelog"
+  },
+  "dc_creator": "Yoshi",
+  "content_encoded": "<div class=\"bbWrapper\"><div class=\"bbCodeBlock bbCodeBlock--unfurl    js-unfurl fauxBlockLink\"\n\t\tdata-unfurl=\"true\" data-result-id=\"10834\" data-result-token=\"1791666854:bf6d2782290624a1e1373754034e36083a33ae2f1e826d930102ce77636b58e6\" data-url=\"https://store.steampowered.com/news/app/1422450/view/688635449342692003\" data-host=\"store.steampowered.com\" data-pending=\"false\">\n\t\t<div class=\"contentRow\">\n\t\t\t\n\t\t\t\t<div class=\"contentRow-figure contentRow-figure--fixedSmall js-unfurl-figure\">\n\t\t\t\t\t\n\t\t\t\t\t\t<img src=\"https://clan.akamai.steamstatic.com/images/45164767/568ff640318c8a81e2b5b4a22bf29e100ee144d9.png\" loading=\"lazy\" alt=\"store.steampowered.com\" class=\"bbCodeBlockUnfurl-image\" data-onerror=\"hide-parent\"/>\n\t\t\t\t\t\n\t\t\t\t</div>\n\t\t\t\n\t\t\t<div class=\"contentRow-main\">\n\t\t\t\t<h3 class=\"contentRow-header js-unfurl-title\">\n\t\t\t\t\t<a href=\"https://store.steampowered.com/news/app/1422450/view/688635449342692003\"\n\t\t\t\t\t\tclass=\"link link--external fauxBlockLink-blockLink\"\n\t\t\t\t\t\ttarget=\"_blank\"\n\t\t\t\t\t\trel=\"noopener\"\n\t\t\t\t\t\tdata-proxy-href=\"\">\n\t\t\t\t\t\tDeadlock -  Minor Update - 06-30-2026 - Steam News\n\t\t\t\t\t</a>\n\t\t\t\t</h3>\n\n\t\t\t\t<div class=\"contentRow-snippet js-unfurl-desc\">[ Urn / King of the Hill ] - King of the Hill objective has been rethemed and renamed to &quot;Unstable Rift&quot; - Unstable Rift no longer requires an Urn delivery to trigger the start of the event. It now has a variable start time of +/- 1 minute. There is a global announcement 25s before it spawns...</div>\n\n\t\t\t\t<div class=\"contentRow-minor contentRow-minor--hideLinks\">\n\t\t\t\t\t<span class=\"js-unfurl-favicon\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t<img src=\"https://store.steampowered.com/favicon.ico\" loading=\"lazy\" alt=\"store.steampowered.com\" class=\"bbCodeBlockUnfurl-icon\"\n\t\t\t\t\t\t\t\tdata-onerror=\"hide-parent\"/>\n\t\t\t\t\t\t\n\t\t\t\t\t</span>\n\t\t\t\t\tstore.steampowered.com\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div></div>",
+  "slash_comments": "3"
+ },
+ {
+  "title": "05-22-2026 Update",
+  "pub_date": "2026-06-12T00:59:45Z",
+  "link": "https://forums.playdeadlock.com/threads/05-22-2026-update.135477/",
+  "guid": {
+   "is_perma_link": false,
+   "text": "urn:xenforo:thread:135477"
+  },
+  "author": "invalid@example.com (Yoshi)",
+  "category": {
+   "domain": "https://forums.playdeadlock.com/forums/changelog.10/",
+   "text": "Changelog"
+  },
+  "dc_creator": "Yoshi",
+  "content_encoded": "<div class=\"bbWrapper\"><div class=\"bbCodeBlock bbCodeBlock--unfurl    js-unfurl fauxBlockLink\"\n\t\tdata-unfurl=\"true\" data-result-id=\"9973\" data-result-token=\"1791666854:5a7aa618a8bfc740ea2b5951304605c4787954844f1a6884b0e87d1d81a37324\" data-url=\"https://store.steampowered.com/news/app/1422450/view/670617878982034052\" data-host=\"store.steampowered.com\" data-pending=\"false\">\n\t\t<div class=\"contentRow\">\n\t\t\t\n\t\t\t\t<div class=\"contentRow-figure contentRow-figure--fixedSmall js-unfurl-figure\">\n\t\t\t\t\t\n\t\t\t\t\t\t<img src=\"https://clan.akamai.steamstatic.com/images/45164767/686d522ba79a25d36cf53ef92f7b0499501f7d2f.png\" loading=\"lazy\" alt=\"store.steampowered.com\" class=\"bbCodeBlockUnfurl-image\" data-onerror=\"hide-parent\"/>\n\t\t\t\t\t\n\t\t\t\t</div>\n\t\t\t\n\t\t\t<div class=\"contentRow-main\">\n\t\t\t\t<h3 class=\"contentRow-header js-unfurl-title\">\n\t\t\t\t\t<a href=\"https://store.steampowered.com/news/app/1422450/view/670617878982034052\"\n\t\t\t\t\t\tclass=\"link link--external fauxBlockLink-blockLink\"\n\t\t\t\t\t\ttarget=\"_blank\"\n\t\t\t\t\t\trel=\"noopener\"\n\t\t\t\t\t\tdata-proxy-href=\"\">\n\t\t\t\t\t\tDeadlock -  Gameplay Update - 05-22-2026 - Steam News\n\t\t\t\t\t</a>\n\t\t\t\t</h3>\n\n\t\t\t\t<div class=\"contentRow-snippet js-unfurl-desc\">[ General ] - Base HP reduced by 10 for all heroes - HP per boon reduced by 3 - Guardians scaling resistance from +75%-&gt;-50% over 12 minutes to +50%-&gt;-50% (takes more damage early) - Medium neutrals initial spawn time reduced from 6 minutes to 5 minutes - Breakables spawn time increased from 2...</div>\n\n\t\t\t\t<div class=\"contentRow-minor contentRow-minor--hideLinks\">\n\t\t\t\t\t<span class=\"js-unfurl-favicon\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t<img src=\"https://store.steampowered.com/favicon.ico\" loading=\"lazy\" alt=\"store.steampowered.com\" class=\"bbCodeBlockUnfurl-icon\"\n\t\t\t\t\t\t\t\tdata-onerror=\"hide-parent\"/>\n\t\t\t\t\t\t\n\t\t\t\t\t</span>\n\t\t\t\t\tstore.steampowered.com\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div></div>",
+  "slash_comments": "5"
+ },
+ {
+  "title": "04-30-2026 Update",
+  "pub_date": "2026-05-01T23:49:47Z",
+  "link": "https://forums.playdeadlock.com/threads/04-30-2026-update.129989/",
+  "guid": {
+   "is_perma_link": false,
+   "text": "urn:xenforo:thread:129989"
+  },
+  "author": "invalid@example.com (Yoshi)",
+  "category": {
+   "domain": "https://forums.playdeadlock.com/forums/changelog.10/",
+   "text": "Changelog"
+  },
+  "dc_creator": "Yoshi",
+  "content_encoded": "<div class=\"bbWrapper\"><div class=\"bbCodeBlock bbCodeBlock--unfurl    js-unfurl fauxBlockLink\"\n\t\tdata-unfurl=\"true\" data-result-id=\"8806\" data-result-token=\"1791666854:ba423a86a953cdc5cd09f8c8b1a9b6b877ef73a19b9624db72d42415b0301ebe\" data-url=\"https://store.steampowered.com/news/app/1422450/view/664986477286916766\" data-host=\"store.steampowered.com\" data-pending=\"false\">\n\t\t<div class=\"contentRow\">\n\t\t\t\n\t\t\t\t<div class=\"contentRow-figure contentRow-figure--fixedSmall js-unfurl-figure\">\n\t\t\t\t\t\n\t\t\t\t\t\t<img src=\"https://clan.akamai.steamstatic.com/images/45164767/2f1e2c67cde9458bbf49114f0059f3fbf9bca89a.png\" loading=\"lazy\" alt=\"store.steampowered.com\" class=\"bbCodeBlockUnfurl-image\" data-onerror=\"hide-parent\"/>\n\t\t\t\t\t\n\t\t\t\t</div>\n\t\t\t\n\t\t\t<div class=\"contentRow-main\">\n\t\t\t\t<h3 class=\"contentRow-header js-unfurl-title\">\n\t\t\t\t\t<a href=\"https://store.steampowered.com/news/app/1422450/view/664986477286916766\"\n\t\t\t\t\t\tclass=\"link link--external fauxBlockLink-blockLink\"\n\t\t\t\t\t\ttarget=\"_blank\"\n\t\t\t\t\t\trel=\"noopener\"\n\t\t\t\t\t\tdata-proxy-href=\"\">\n\t\t\t\t\t\tDeadlock - Gameplay Update - 04-30-2026 - Steam News\n\t\t\t\t\t</a>\n\t\t\t\t</h3>\n\n\t\t\t\t<div class=\"contentRow-snippet js-unfurl-desc\">[ General ] - Base health per boon reduced by 7 - Vitality Investment bonus increased from 8/10/13/17/34/39/44/48/52/56% to 9/12/15/20/38/42/46/50/56/62% - Weapon Investments bonus rescaled from 7/9/13/20/49/60/80/95/115/135% to 9/12/15/18/46/55/70/85/100/115% - Reduced bullet damage growth by...</div>\n\n\t\t\t\t<div class=\"contentRow-minor contentRow-minor--hideLinks\">\n\t\t\t\t\t<span class=\"js-unfurl-favicon\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t<img src=\"https://store.steampowered.com/favicon.ico\" loading=\"lazy\" alt=\"store.steampowered.com\" class=\"bbCodeBlockUnfurl-icon\"\n\t\t\t\t\t\t\t\tdata-onerror=\"hide-parent\"/>\n\t\t\t\t\t\t\n\t\t\t\t\t</span>\n\t\t\t\t\tstore.steampowered.com\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div></div>",
+  "slash_comments": "1"
+ },
+ {
+  "title": "04-10-2026 Update",
+  "pub_date": "2026-04-11T04:03:53Z",
+  "link": "https://forums.playdeadlock.com/threads/04-10-2026-update.125825/",
+  "guid": {
+   "is_perma_link": false,
+   "text": "urn:xenforo:thread:125825"
+  },
+  "author": "invalid@example.com (Yoshi)",
+  "category": {
+   "domain": "https://forums.playdeadlock.com/forums/changelog.10/",
+   "text": "Changelog"
+  },
+  "dc_creator": "Yoshi",
+  "content_encoded": "<div class=\"bbWrapper\"><b>[ General ]</b><br />\n<br />\n- Parrying is now allowed while ground dashing in order to bring it in-line with air dashing<br />\n<br />\n- Parry anti mash protection previously would last for 0.25s after the parry success (so you couldn&#039;t parry again for that duration). It is now for 0.25s only after the initial parry input is provided, irrespective of when the parry success happens (this means there is less delay before you can do a back to back parry when parry success is done later in the duration)<br />\n<br />\n- Medic...<br />\n<br />\n<a href=\"https://forums.playdeadlock.com/threads/04-10-2026-update.125825/\" class=\"link link--internal\">Read more</a></div>",
+  "slash_comments": "0"
+ },
+ {
+  "title": "03-25-2026 Update",
+  "pub_date": "2026-03-31T01:35:20Z",
+  "link": "https://forums.playdeadlock.com/threads/03-25-2026-update.121766/",
+  "guid": {
+   "is_perma_link": false,
+   "text": "urn:xenforo:thread:121766"
+  },
+  "author": "invalid@example.com (Yoshi)",
+  "category": {
+   "domain": "https://forums.playdeadlock.com/forums/changelog.10/",
+   "text": "Changelog"
+  },
+  "dc_creator": "Yoshi",
+  "content_encoded": "<div class=\"bbWrapper\">- Bebop: Base health regen increased from 1.5 to 2.5<br />\n<br />\n- Calico: Leaping Slash base damage increased from 50 to 60<br />\n<br />\n- Celeste: Base regen reduced from 2 to 1<br />\n- Celeste: Dazzling Trick T3 silence duration reduced from +2s to +1.5s<br />\n<br />\n- Doorman: Call Bell slow increased from 30% to 35%<br />\n- Doorman: Call Bell radius increased from 5m to 6m<br />\n- Doorman: Doorway Distance increased from 60m to 70m<br />\n- Doorman: Luggage Cart T2 now deals 75 bonus damage (0.6 spirit scaling) when hitting a wall<br />\n- Doorman...<br />\n<br />\n<a href=\"https://forums.playdeadlock.com/threads/03-25-2026-update.121766/\" class=\"link link--internal\">Read more</a></div>",
+  "slash_comments": "1"
+ },
+ {
+  "title": "03-21-2026 Update",
+  "pub_date": "2026-03-21T19:34:30Z",
+  "link": "https://forums.playdeadlock.com/threads/03-21-2026-update.120256/",
+  "guid": {
+   "is_perma_link": false,
+   "text": "urn:xenforo:thread:120256"
+  },
+  "author": "invalid@example.com (Yoshi)",
+  "category": {
+   "domain": "https://forums.playdeadlock.com/forums/changelog.10/",
+   "text": "Changelog"
+  },
+  "dc_creator": "Yoshi",
+  "content_encoded": "<div class=\"bbWrapper\">- Vitality investment tree bonus reverted back to % base hp increase rather than raw constant bonus (back to how it was set up in december)<br />\n- Hero health growth increased by +3 and 4%<br />\n- Spirit investment rescaled from 7/11/15/19/38/52/64/76/89/101 to 7/11/15/19/38/48/57/66/75/100<br />\n- Small neutrals spirit resist increased from 35% to 45%<br />\n<br />\n- Greater Expansion: Ability Range reduced from 35% to 30%<br />\n- Guardian Ward: Ability Range reduced from 10% to 8%<br />\n- Ballistic Enchantment: Ability Range...<br />\n<br />\n<a href=\"https://forums.playdeadlock.com/threads/03-21-2026-update.120256/\" class=\"link link--internal\">Read more</a></div>",
+  "slash_comments": "0"
+ },
+ {
+  "title": "03-06-2026 Update",
+  "pub_date": "2026-03-11T04:39:40Z",
+  "link": "https://forums.playdeadlock.com/threads/03-06-2026-update.114328/",
+  "guid": {
+   "is_perma_link": false,
+   "text": "urn:xenforo:thread:114328"
+  },
+  "author": "invalid@example.com (Yoshi)",
+  "category": {
+   "domain": "https://forums.playdeadlock.com/forums/changelog.10/",
+   "text": "Changelog"
+  },
+  "dc_creator": "Yoshi",
+  "content_encoded": "<div class=\"bbWrapper\"><div class=\"bbCodeBlock bbCodeBlock--unfurl    js-unfurl fauxBlockLink\"\n\t\tdata-unfurl=\"true\" data-result-id=\"7726\" data-result-token=\"1791666854:94da35ffb5169992b189ef0c3176c085d2bd4f342f52701cdccfcaa1c5755b54\" data-url=\"https://store.steampowered.com/news/app/1422450/view/519740319207522795\" data-host=\"store.steampowered.com\" data-pending=\"false\">\n\t\t<div class=\"contentRow\">\n\t\t\t\n\t\t\t\t<div class=\"contentRow-figure contentRow-figure--fixedSmall js-unfurl-figure\">\n\t\t\t\t\t\n\t\t\t\t\t\t<img src=\"https://clan.akamai.steamstatic.com/images/45164767/1a200778c94a048c5b2580a1e1a36071679ff19e.png\" loading=\"lazy\" alt=\"store.steampowered.com\" class=\"bbCodeBlockUnfurl-image\" data-onerror=\"hide-parent\"/>\n\t\t\t\t\t\n\t\t\t\t</div>\n\t\t\t\n\t\t\t<div class=\"contentRow-main\">\n\t\t\t\t<h3 class=\"contentRow-header js-unfurl-title\">\n\t\t\t\t\t<a href=\"https://store.steampowered.com/news/app/1422450/view/519740319207522795\"\n\t\t\t\t\t\tclass=\"link link--external fauxBlockLink-blockLink\"\n\t\t\t\t\t\ttarget=\"_blank\"\n\t\t\t\t\t\trel=\"noopener\"\n\t\t\t\t\t\tdata-proxy-href=\"\">\n\t\t\t\t\t\tDeadlock - Gameplay Update - 03-06-2026 - Steam News\n\t\t\t\t\t</a>\n\t\t\t\t</h3>\n\n\t\t\t\t<div class=\"contentRow-snippet js-unfurl-desc\">[ General ] - Can now jump during slide - Dash jump grants a very brief period with increased air control (30% for 0.25s) - Shrine is now easier to kill for the first one and harder for the second. HP from 8100 to 5000/10000 (HP updates after the first one dies, like Walkers) - Shrines attack no...</div>\n\n\t\t\t\t<div class=\"contentRow-minor contentRow-minor--hideLinks\">\n\t\t\t\t\t<span class=\"js-unfurl-favicon\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t<img src=\"https://store.steampowered.com/favicon.ico\" loading=\"lazy\" alt=\"store.steampowered.com\" class=\"bbCodeBlockUnfurl-icon\"\n\t\t\t\t\t\t\t\tdata-onerror=\"hide-parent\"/>\n\t\t\t\t\t\t\n\t\t\t\t\t</span>\n\t\t\t\t\tstore.steampowered.com\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div></div>",
+  "slash_comments": "2"
+ },
+ {
+  "title": "01-30-2026 Update",
+  "pub_date": "2026-02-17T23:35:49Z",
+  "link": "https://forums.playdeadlock.com/threads/01-30-2026-update.102822/",
+  "guid": {
+   "is_perma_link": false,
+   "text": "urn:xenforo:thread:102822"
+  },
+  "author": "invalid@example.com (Yoshi)",
+  "category": {
+   "domain": "https://forums.playdeadlock.com/forums/changelog.10/",
+   "text": "Changelog"
+  },
+  "dc_creator": "Yoshi",
+  "content_encoded": "<div class=\"bbWrapper\">- Added hero banning to Standard Mode and Street Brawl. You can now select one hero in your roster screen (using middle click) to tell the matchmaker that you prefer to avoid that hero. When the game starts, it will tell you which heroes were banned. We are doing just 2 total bans for now. This does not affect new heroes in the initial release window.<br />\n<br />\n- Parties of 3+ players now need to have an additional hero in their roster (from 3 to 4)<br />\n<br />\n- Fire Rate increases and reductions from most...<br />\n<br />\n<a href=\"https://forums.playdeadlock.com/threads/01-30-2026-update.102822/\" class=\"link link--internal\">Read more</a></div>",
+  "slash_comments": "5"
+ },
+ {
+  "title": "12-29-2025 Update",
+  "pub_date": "2026-01-21T02:10:58Z",
+  "link": "https://forums.playdeadlock.com/threads/12-29-2025-update.95233/",
+  "guid": {
+   "is_perma_link": false,
+   "text": "urn:xenforo:thread:95233"
+  },
+  "author": "invalid@example.com (Yoshi)",
+  "category": {
+   "domain": "https://forums.playdeadlock.com/forums/changelog.10/",
+   "text": "Changelog"
+  },
+  "dc_creator": "Yoshi",
+  "content_encoded": "<div class=\"bbWrapper\">- Bebop: Stamina increased from 2 to 3<br />\n- Bebop: Stamina regeneration cooldown increased from 4.55s to 6s<br />\n- Bebop: Bebop Health per boon increased from +46 to +52<br />\n- Bebop: Sticky Bomb base damage reduced from 100 to 75<br />\n- Bebop: Sticky Bomb T2 damage reduced from 63 to 60<br />\n- Bebop: Sticky Bomb Spirit Scaling increased from 1.1 to 1.5<br />\n- Bebop: Sticky Bomb per hero hit from 1.5% to 1% + 0.0025% Spirit Scaling<br />\n- Bebop: Sticky Bomb per hero kill from 4% to 2.5% + 0.015% Spirit Scaling<br />\n- Grey Talon...<br />\n<br />\n<a href=\"https://forums.playdeadlock.com/threads/12-29-2025-update.95233/\" class=\"link link--internal\">Read more</a></div>",
+  "slash_comments": "3"
+ },
+ {
+  "title": "12-16-2025 Update",
+  "pub_date": "2025-12-17T20:33:46Z",
+  "link": "https://forums.playdeadlock.com/threads/12-16-2025-update.93983/",
+  "guid": {
+   "is_perma_link": false,
+   "text": "urn:xenforo:thread:93983"
+  },
+  "author": "invalid@example.com (Yoshi)",
+  "category": {
+   "domain": "https://forums.playdeadlock.com/forums/changelog.10/",
+   "text": "Changelog"
+  },
+  "dc_creator": "Yoshi",
+  "content_encoded": "<div class=\"bbWrapper\">- The 10% move speed slow from taking damage is now a 20% slow only for the portion over the hero&#039;s base move speed<br />\n- Move Speed bonuses now stack diminishingly<br />\n- Base move speed reduced by 0.1 (except for heroes lower than 6.5)<br />\n- Heroes with move speed spirit scaling have the values reduced by 40%<br />\n- Updated move speed values on items:<br />\n<div style=\"margin-left: 20px\">- Active Reload: Move speed reduced from 1 to 0.75&#8203;</div><div style=\"margin-left: 20px\">- Backstabber: Move speed reduced from 1.75 to 1.5&#8203;</div><div style=\"margin-left: 20px\">- Fleetfoot: Move speed reduced from 3.5...&#8203;</div><br />\n<a href=\"https://forums.playdeadlock.com/threads/12-16-2025-update.93983/\" class=\"link link--internal\">Read more</a></div>",
+  "slash_comments": "1"
+ },
+ {
+  "title": "11-21-2025 Update",
+  "pub_date": "2025-12-04T00:34:27Z",
+  "link": "https://forums.playdeadlock.com/threads/11-21-2025-update.90383/",
+  "guid": {
+   "is_perma_link": false,
+   "text": "urn:xenforo:thread:90383"
+  },
+  "author": "invalid@example.com (Yoshi)",
+  "category": {
+   "domain": "https://forums.playdeadlock.com/forums/changelog.10/",
+   "text": "Changelog"
+  },
+  "dc_creator": "Yoshi",
+  "content_encoded": "<div class=\"bbWrapper\"><b>[ General ]</b><br />\n<br />\n- Trooper bounty mechanics have been reworked. The first half of the souls still fly out as deniable orb, however rather than the other half being instantly given to nearby players it will fall to the ground as an orb that you need to get near to pick up. It has a 18m capture radius where it&#039;ll travel to you once you get within. Only one player needs to claim it, share rules remain the same as before.<br />\n- They last for 18s on the ground. Duration increases by 2s per minute...<br />\n<br />\n<a href=\"https://forums.playdeadlock.com/threads/11-21-2025-update.90383/\" class=\"link link--internal\">Read more</a></div>",
+  "slash_comments": "5"
+ },
+ {
+  "title": "10-24-2025 Update",
+  "pub_date": "2025-10-24T23:54:51Z",
+  "link": "https://forums.playdeadlock.com/threads/10-24-2025-update.87198/",
+  "guid": {
+   "is_perma_link": false,
+   "text": "urn:xenforo:thread:87198"
+  },
+  "author": "invalid@example.com (Yoshi)",
+  "category": {
+   "domain": "https://forums.playdeadlock.com/forums/changelog.10/",
+   "text": "Changelog"
+  },
+  "dc_creator": "Yoshi",
+  "content_encoded": "<div class=\"bbWrapper\">* Getting damaged during the initial launch window (0.6s) after using a Jump Pad will cause you to be stunned (similar to ziplines having an initial knockoff period). When you are stunned, you will lose control and continue towards the landing destination. The stun will wear off 0.2s after landing, and then a 30% slow for 2s will apply. Damage over time does not trigger this (same damage rules as ziplines).<br />\n<br />\n<br />\n* Mystic Shot: Base damage reduced from 55 to 45<br />\n* Mystic Shot: Spirit scaling...<br />\n<br />\n<a href=\"https://forums.playdeadlock.com/threads/10-24-2025-update.87198/\" class=\"link link--internal\">Read more</a></div>",
+  "slash_comments": "0"
+ },
+ {
+  "title": "10-02-2025 Update",
+  "pub_date": "2025-10-05T18:05:47Z",
+  "link": "https://forums.playdeadlock.com/threads/10-02-2025-update.84332/",
+  "guid": {
+   "is_perma_link": false,
+   "text": "urn:xenforo:thread:84332"
+  },
+  "author": "invalid@example.com (Yoshi)",
+  "category": {
+   "domain": "https://forums.playdeadlock.com/forums/changelog.10/",
+   "text": "Changelog"
+  },
+  "dc_creator": "Yoshi",
+  "content_encoded": "<div class=\"bbWrapper\"><b>[ General ]</b><br />\n<br />\n* Weapon Investment bonus increased from 7/9/13/20/29/40/58/72/83/93% to 7/9/13/20/29/40/60/75/95/115 (for 0.8/1.6/2.4/3.2/4.8/7.2/9.6/16/22.4/28.8k spent)<br />\n<br />\n* Applying a CC to an enemy is reduced in duration when affected by other CCs in a short interval. Each previously applied CC reduces the duration by 7% up to a max of 21% over the past 7 seconds. CC is defined as the same set of debuffs that affect Reactive Barrier (stun, sleep, immobilize, tether, etc). Note that...<br />\n<br />\n<a href=\"https://forums.playdeadlock.com/threads/10-02-2025-update.84332/\" class=\"link link--internal\">Read more</a></div>",
+  "slash_comments": "2"
+ },
+ {
+  "title": "09-04-2025 Update",
+  "pub_date": "2025-09-04T23:33:38Z",
+  "link": "https://forums.playdeadlock.com/threads/09-04-2025-update.80693/",
+  "guid": {
+   "is_perma_link": false,
+   "text": "urn:xenforo:thread:80693"
+  },
+  "author": "invalid@example.com (Yoshi)",
+  "category": {
+   "domain": "https://forums.playdeadlock.com/forums/changelog.10/",
+   "text": "Changelog"
+  },
+  "dc_creator": "Yoshi",
+  "content_encoded": "<div class=\"bbWrapper\">- Rejuv only heals the person hitting the crystal<br />\n- Dying to a non-player (when there is no bounty/assists) now increases the respawn time for that death by 10 seconds<br />\n- Patron 1st death time is now a constant 12s instead of being variable between 8 and 15 seconds<br />\n<br />\n- Abrams: Infernal Resilience damage regenerated increased from 12% to 13%<br />\n<br />\n- Bebop: Weapon Range growth per boon increased from 1.2 to 1.5<br />\n- Bebop: Bullet damage growth per boon increased from 0.13 to 0.14<br />\n- Bebop: Exploding...<br />\n<br />\n<a href=\"https://forums.playdeadlock.com/threads/09-04-2025-update.80693/\" class=\"link link--internal\">Read more</a></div>",
+  "slash_comments": "0"
+ },
+ {
+  "title": "08-18-2025 Update",
+  "pub_date": "2025-08-30T00:36:28Z",
+  "link": "https://forums.playdeadlock.com/threads/08-18-2025-update.75046/",
+  "guid": {
+   "is_perma_link": false,
+   "text": "urn:xenforo:thread:75046"
+  },
+  "author": "invalid@example.com (Yoshi)",
+  "category": {
+   "domain": "https://forums.playdeadlock.com/forums/changelog.10/",
+   "text": "Changelog"
+  },
+  "dc_creator": "Yoshi",
+  "content_encoded": "<div class=\"bbWrapper\"><div class=\"bbCodeBlock bbCodeBlock--unfurl    js-unfurl fauxBlockLink\"\n\t\tdata-unfurl=\"true\" data-result-id=\"5426\" data-result-token=\"1791666854:fab7ab181dabed19236746812cac97451aac43d829b3da56edd30fbf42bd7432\" data-url=\"https://store.steampowered.com/news/app/1422450/view/669466707009471267\" data-host=\"store.steampowered.com\" data-pending=\"false\">\n\t\t<div class=\"contentRow\">\n\t\t\t\n\t\t\t\t<div class=\"contentRow-figure contentRow-figure--fixedSmall js-unfurl-figure\">\n\t\t\t\t\t\n\t\t\t\t\t\t<img src=\"https://clan.akamai.steamstatic.com/images/45164767/256d6479251714acd1fa90b30b60a48b40e6352c.png\" loading=\"lazy\" alt=\"store.steampowered.com\" class=\"bbCodeBlockUnfurl-image\" data-onerror=\"hide-parent\"/>\n\t\t\t\t\t\n\t\t\t\t</div>\n\t\t\t\n\t\t\t<div class=\"contentRow-main\">\n\t\t\t\t<h3 class=\"contentRow-header js-unfurl-title\">\n\t\t\t\t\t<a href=\"https://store.steampowered.com/news/app/1422450/view/669466707009471267\"\n\t\t\t\t\t\tclass=\"link link--external fauxBlockLink-blockLink\"\n\t\t\t\t\t\ttarget=\"_blank\"\n\t\t\t\t\t\trel=\"noopener\"\n\t\t\t\t\t\tdata-proxy-href=\"\">\n\t\t\t\t\t\tDeadlock - Six New Heroes - Steam News\n\t\t\t\t\t</a>\n\t\t\t\t</h3>\n\n\t\t\t\t<div class=\"contentRow-snippet js-unfurl-desc\">... coming to the streets of the Cursed Apple</div>\n\n\t\t\t\t<div class=\"contentRow-minor contentRow-minor--hideLinks\">\n\t\t\t\t\t<span class=\"js-unfurl-favicon\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t<img src=\"https://store.steampowered.com/favicon.ico\" loading=\"lazy\" alt=\"store.steampowered.com\" class=\"bbCodeBlockUnfurl-icon\"\n\t\t\t\t\t\t\t\tdata-onerror=\"hide-parent\"/>\n\t\t\t\t\t\t\n\t\t\t\t\t</span>\n\t\t\t\t\tstore.steampowered.com\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div></div>",
+  "slash_comments": "3"
+ },
+ {
+  "title": "07-29-2025 Update",
+  "pub_date": "2025-08-08T19:07:41Z",
+  "link": "https://forums.playdeadlock.com/threads/07-29-2025-update.72760/",
+  "guid": {
+   "is_perma_link": false,
+   "text": "urn:xenforo:thread:72760"
+  },
+  "author": "invalid@example.com (Yoshi)",
+  "category": {
+   "domain": "https://forums.playdeadlock.com/forums/changelog.10/",
+   "text": "Changelog"
+  },
+  "dc_creator": "Yoshi",
+  "content_encoded": "<div class=\"bbWrapper\"><b>[ General ]</b><br />\n<br />\n- Mid Boss HP is now fixed at the spawn time. Base HP increased from 6725 to 12500 and growth reduced from 470 to 200.<br />\n- Reworked Rejuv reward from Mid Boss. No longer buffs troopers, reduces respawn time and buffs various stats. Upon death, 3 rejuv crystals fall to the ground (4 for subsequent midboss kills). Claiming one now grants you in place revive after 3s. If you already claimed one and claim another, it&#039;ll go to an ally (priority is closest allies first, then most...<br />\n<br />\n<a href=\"https://forums.playdeadlock.com/threads/07-29-2025-update.72760/\" class=\"link link--internal\">Read more</a></div>",
+  "slash_comments": "2"
+ }
+]

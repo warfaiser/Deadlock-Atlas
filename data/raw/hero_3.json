@@ -1,0 +1,1467 @@
+[
+ {
+  "id": 1619999260,
+  "class_name": "citadel_ability_melee_hornet",
+  "name": "Ближний бой",
+  "start_trained": true,
+  "image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/melee_damage.png",
+  "image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/melee_damage.webp",
+  "hero": 3,
+  "heroes": [
+   3
+  ],
+  "properties": {
+   "AbilityCooldown": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "cooldown",
+    "disable_value": "0",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "AbilityCooldown_scale_function",
+     "specific_stat_scale_type": "ETechCooldown"
+    },
+    "label": "Перезарядка",
+    "postfix": " с.",
+    "postvalue_label": "Перезарядка",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/cooldown.svg"
+   },
+   "AbilityDuration": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "duration",
+    "disable_value": "0",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "AbilityDuration_scale_function",
+     "specific_stat_scale_type": "ETechDuration"
+    },
+    "label": "Длительность",
+    "postfix": " с.",
+    "postvalue_label": "Длительность",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/duration.svg"
+   },
+   "AbilityCastRange": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "range",
+    "display_units": "EDisplayUnit_Meters",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "AbilityCastRange_scale_function",
+     "specific_stat_scale_type": "ETechRange"
+    },
+    "label": "Дальность применения",
+    "postfix": " м",
+    "postvalue_label": "Дальность применения",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/upgrades/property_range.svg"
+   },
+   "AbilityUnitTargetLimit": {
+    "value": "1",
+    "can_set_token_override": true
+   },
+   "AbilityCastDelay": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "0",
+    "label": "Задержка применения",
+    "postfix": " с.",
+    "postvalue_label": "Задержка применения",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "AbilityChannelTime": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "0",
+    "scale_function": {
+     "class_name": "scale_function_multi_stats",
+     "subclass_name": "scale_duration",
+     "scaling_stats": [
+      "EChannelDuration",
+      "ETechDuration"
+     ]
+    },
+    "label": "Длительность применения",
+    "postfix": " с.",
+    "postvalue_label": "Длительность применения",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "AbilityPostCastDuration": {
+    "value": "0",
+    "disable_value": "0"
+   },
+   "AbilityCharges": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "0",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "AbilityCharges_scale_function",
+     "specific_stat_scale_type": "EMaxChargesIncrease"
+    },
+    "label": "Заряды",
+    "postvalue_label": "Заряды",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "AbilityCooldownBetweenCharge": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "charge_cooldown",
+    "disable_value": "0",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "AbilityCooldownBetweenCharge_scale_function",
+     "specific_stat_scale_type": "ETechCooldownBetweenChargeUses"
+    },
+    "label": "Интервал зарядов",
+    "postfix": " с.",
+    "postvalue_label": "Интервал зарядов",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/recharge.svg"
+   },
+   "ChannelMoveSpeed": {
+    "value": "1.3m",
+    "can_set_token_override": true,
+    "css_class": "move_speed",
+    "display_units": "EDisplayUnit_MetersPerSecond",
+    "postfix": " м/c",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/move_speed.svg"
+   },
+   "AbilityResourceCost": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "0",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "TechPower": {
+    "value": "0",
+    "can_set_token_override": true,
+    "provided_property_type": "MODIFIER_VALUE_TECH_POWER",
+    "disable_value": "0",
+    "prefix": "{s:sign}",
+    "label": "Спиритическая мощь",
+    "postfix": "",
+    "postvalue_label": "ед. к спиритической мощи"
+   },
+   "WeaponPower": {
+    "value": "0",
+    "can_set_token_override": true,
+    "provided_property_type": "MODIFIER_VALUE_WEAPON_POWER",
+    "disable_value": "0",
+    "prefix": "{s:sign}",
+    "label": "Урон от оружия",
+    "postfix": "%",
+    "postvalue_label": "Урон от оружия"
+   },
+   "MeleeHalfAngle": {
+    "value": "30"
+   },
+   "MeleeAttackLength": {
+    "value": "5m",
+    "css_class": "distance",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "MeleeAttackLength_scale_function",
+     "specific_stat_scale_type": "EMeleeRange"
+    },
+    "postfix": " м",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/range.svg"
+   }
+  },
+  "weapon_info": {},
+  "type": "ability",
+  "behaviours": [
+   "CITADEL_ABILITY_BEHAVIOR_HIDDEN",
+   "CITADEL_ABILITY_BEHAVIOR_SILENT_CAST_FAILURE_FEEDBACK",
+   "CITADEL_ABILITY_BEHAVIOR_NOT_SILENCABLE",
+   "CITADEL_ABILITY_BEHAVIOR_NO_TARGET",
+   "CITADEL_ABILITY_BEHAVIOR_CASTABLE_WHILE_HIDDEN"
+  ],
+  "description": {},
+  "ability_type": "melee"
+ },
+ {
+  "id": 537527508,
+  "class_name": "citadel_ability_hornet_chain",
+  "name": "Кол",
+  "start_trained": false,
+  "image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_stake.png",
+  "image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_stake.webp",
+  "hero": 3,
+  "heroes": [
+   3
+  ],
+  "update_time": 1685732973,
+  "properties": {
+   "AbilityCooldown": {
+    "value": 40.0,
+    "can_set_token_override": true,
+    "css_class": "cooldown",
+    "disable_value": "0",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "AbilityCooldown_scale_function",
+     "specific_stat_scale_type": "ETechCooldown"
+    },
+    "label": "Перезарядка",
+    "postfix": " с.",
+    "postvalue_label": "Перезарядка",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/cooldown.svg"
+   },
+   "AbilityDuration": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "duration",
+    "disable_value": "0",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "AbilityDuration_scale_function",
+     "specific_stat_scale_type": "ETechDuration"
+    },
+    "label": "Длительность",
+    "postfix": " с.",
+    "postvalue_label": "Длительность",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/duration.svg"
+   },
+   "AbilityCastRange": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "range",
+    "display_units": "EDisplayUnit_Meters",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "AbilityCastRange_scale_function",
+     "specific_stat_scale_type": "ETechRange"
+    },
+    "label": "Дальность применения",
+    "postfix": " м",
+    "postvalue_label": "Дальность применения",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/upgrades/property_range.svg"
+   },
+   "AbilityUnitTargetLimit": {
+    "value": "1",
+    "can_set_token_override": true
+   },
+   "AbilityCastDelay": {
+    "value": "0.2",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "0",
+    "label": "Задержка применения",
+    "postfix": " с.",
+    "postvalue_label": "Задержка применения",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "AbilityChannelTime": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "0",
+    "scale_function": {
+     "class_name": "scale_function_multi_stats",
+     "subclass_name": "scale_duration",
+     "scaling_stats": [
+      "EChannelDuration",
+      "ETechDuration"
+     ]
+    },
+    "label": "Длительность применения",
+    "postfix": " с.",
+    "postvalue_label": "Длительность применения",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "AbilityPostCastDuration": {
+    "value": "0",
+    "disable_value": "0"
+   },
+   "AbilityCharges": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "-1",
+    "scale_function": {
+     "class_name": "scale_function_ability_charges",
+     "subclass_name": "AbilityCharges_scale_function"
+    },
+    "label": "Заряды",
+    "postvalue_label": "Заряды",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "AbilityCooldownBetweenCharge": {
+    "value": "-1.0",
+    "can_set_token_override": true,
+    "css_class": "charge_cooldown",
+    "disable_value": "-2",
+    "scale_function": {
+     "class_name": "scale_function_ability_recharge_time",
+     "subclass_name": "scale_function_ability_recharge_time"
+    },
+    "label": "Интервал зарядов",
+    "postfix": " с.",
+    "postvalue_label": "Интервал зарядов",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/recharge.svg"
+   },
+   "ChannelMoveSpeed": {
+    "value": "-1",
+    "can_set_token_override": true,
+    "css_class": "move_speed",
+    "display_units": "EDisplayUnit_MetersPerSecond",
+    "postfix": " м/c",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/move_speed.svg"
+   },
+   "AbilityResourceCost": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "0",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "TechPower": {
+    "value": "0",
+    "can_set_token_override": true,
+    "provided_property_type": "MODIFIER_VALUE_TECH_POWER",
+    "disable_value": "0",
+    "prefix": "{s:sign}",
+    "label": "Спиритическая мощь",
+    "postfix": "",
+    "postvalue_label": "ед. к спиритической мощи"
+   },
+   "WeaponPower": {
+    "value": "0",
+    "can_set_token_override": true,
+    "provided_property_type": "MODIFIER_VALUE_WEAPON_POWER",
+    "disable_value": "0",
+    "prefix": "{s:sign}",
+    "label": "Урон от оружия",
+    "postfix": "%",
+    "postvalue_label": "Урон от оружия"
+   },
+   "Damage": {
+    "value": 40.0,
+    "css_class": "tech_damage",
+    "scale_function": {
+     "class_name": "scale_function_tech_damage",
+     "subclass_name": "ExplosionDamage_scale_function",
+     "specific_stat_scale_type": "ETechPower",
+     "stat_scale": 0.5
+    },
+    "label": "Урон",
+    "postvalue_label": "Урон",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/damage_magic_color.svg"
+   },
+   "SlowPercent": {
+    "value": "40",
+    "css_class": "slow",
+    "prefix": "-",
+    "label": "Скорость передвижения",
+    "postfix": "%",
+    "postvalue_label": "Скорость передвижения",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/condition_slow.svg"
+   },
+   "ChainLength": {
+    "value": "9m",
+    "css_class": "distance",
+    "label": "Длина привязи",
+    "postfix": " м",
+    "postvalue_label": "Длина привязи",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/range.svg"
+   },
+   "CaptureRadius": {
+    "value": "9m",
+    "css_class": "distance",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "CaptureRadius_scale_function",
+     "specific_stat_scale_type": "ETechRange"
+    },
+    "label": "Радиус приковывания",
+    "postfix": " м",
+    "postvalue_label": "Радиус приковывания",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/range.svg"
+   },
+   "ChainDuration": {
+    "value": "1.75",
+    "css_class": "duration",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "ChainDuration_scale_function",
+     "specific_stat_scale_type": "ETechDuration"
+    },
+    "label": "Длительность приковывания",
+    "postfix": " с.",
+    "postvalue_label": "Длительность приковывания",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/duration.svg"
+   },
+   "HasDisarm": {
+    "value": "0"
+   },
+   "EnemyDragSpeed": {
+    "value": "1000",
+    "display_units": "EDisplayUnit_MetersPerSecond"
+   },
+   "FireRateSlow": {
+    "value": "0",
+    "provided_property_type": "MODIFIER_VALUE_FIRE_RATE_SLOW",
+    "css_class": "bullet_damage",
+    "usage_flags": [
+     "ConditionallyApplied"
+    ],
+    "prefix": "-",
+    "label": "Скорострельность",
+    "postfix": "%",
+    "postvalue_label": "Скорострельность",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/damage_bullet_color.svg"
+   }
+  },
+  "weapon_info": {},
+  "type": "ability",
+  "behaviours": [
+   "CITADEL_ABILITY_BEHAVIOR_PROJECTILE",
+   "CITADEL_ABILITY_BEHAVIOR_DISPLAYS_DAMAGE_IMPACT",
+   "CITADEL_ABILITY_BEHAVIOR_PROJECTILE_FIRED_AS_BULLET",
+   "CITADEL_ABILITY_BEHAVIOR_CAN_SET_QUICK_CAST",
+   "CITADEL_ABILITY_BEHAVIOR_DONT_INTERRUPT_SLIDE_ON_CAST"
+  ],
+  "description": {
+   "desc": "Виндикта бросает кол, который <span class=\"highlight\">приковывает</span> врагов к месту приземления. Враги могут перемещаться только на длину привязи.",
+   "quip": "Бросок кола, приковывающего врагов",
+   "t3_desc": "<span class=\"highlight\">+0.75 сек.</span> приковывания и <span class=\"highlight\">+2 м</span> к радиусу"
+  },
+  "tooltip_details": {
+   "info_sections": [
+    {
+     "loc_string": "Виндикта бросает кол, который <span class=\"highlight\">приковывает</span> врагов к месту приземления. Враги могут перемещаться только на длину привязи.",
+     "properties_block": [
+      {
+       "properties": [
+        {
+         "important_property": "ChainDuration"
+        },
+        {
+         "important_property": "Damage"
+        },
+        {
+         "important_property": "CaptureRadius"
+        }
+       ]
+      }
+     ],
+     "basic_properties": [
+      "ChainLength",
+      "SlowPercent"
+     ]
+    }
+   ]
+  },
+  "upgrades": [
+   {
+    "property_upgrades": [
+     {
+      "name": "Damage",
+      "bonus": "45"
+     }
+    ]
+   },
+   {
+    "property_upgrades": [
+     {
+      "name": "AbilityCooldown",
+      "bonus": -22.0
+     }
+    ]
+   },
+   {
+    "property_upgrades": [
+     {
+      "name": "ChainDuration",
+      "bonus": "0.75"
+     },
+     {
+      "name": "CaptureRadius",
+      "bonus": "2m"
+     }
+    ]
+   }
+  ],
+  "ability_type": "signature",
+  "boss_damage_scale": 1.0
+ },
+ {
+  "id": 1796564033,
+  "class_name": "citadel_ability_hornet_leap",
+  "name": "Полёт",
+  "start_trained": false,
+  "image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_flight.png",
+  "image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_flight.webp",
+  "hero": 3,
+  "heroes": [
+   3
+  ],
+  "update_time": 1707519913,
+  "properties": {
+   "AbilityCooldown": {
+    "value": 42.0,
+    "can_set_token_override": true,
+    "css_class": "cooldown",
+    "disable_value": "0",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "AbilityCooldown_scale_function",
+     "specific_stat_scale_type": "ETechCooldown"
+    },
+    "label": "Перезарядка",
+    "postfix": " с.",
+    "postvalue_label": "Перезарядка",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/cooldown.svg"
+   },
+   "AbilityDuration": {
+    "value": "13",
+    "can_set_token_override": true,
+    "css_class": "duration",
+    "disable_value": "0",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "AbilityDuration_scale_function",
+     "specific_stat_scale_type": "ETechDuration"
+    },
+    "label": "Длительность",
+    "postfix": " с.",
+    "postvalue_label": "Длительность",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/duration.svg"
+   },
+   "AbilityCastRange": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "range",
+    "display_units": "EDisplayUnit_Meters",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "AbilityCastRange_scale_function",
+     "specific_stat_scale_type": "ETechRange"
+    },
+    "label": "Дальность применения",
+    "postfix": " м",
+    "postvalue_label": "Дальность применения",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/upgrades/property_range.svg"
+   },
+   "AbilityUnitTargetLimit": {
+    "value": "1",
+    "can_set_token_override": true
+   },
+   "AbilityCastDelay": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "0",
+    "label": "Задержка применения",
+    "postfix": " с.",
+    "postvalue_label": "Задержка применения",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "AbilityChannelTime": {
+    "value": "0.2",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "0",
+    "scale_function": {
+     "class_name": "scale_function_multi_stats",
+     "subclass_name": "scale_duration",
+     "scaling_stats": [
+      "EChannelDuration",
+      "ETechDuration"
+     ]
+    },
+    "label": "Длительность применения",
+    "postfix": " с.",
+    "postvalue_label": "Длительность применения",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "AbilityPostCastDuration": {
+    "value": "0",
+    "disable_value": "0"
+   },
+   "AbilityCharges": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "-1",
+    "scale_function": {
+     "class_name": "scale_function_ability_charges",
+     "subclass_name": "AbilityCharges_scale_function"
+    },
+    "label": "Заряды",
+    "postvalue_label": "Заряды",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "AbilityCooldownBetweenCharge": {
+    "value": "-1.0",
+    "can_set_token_override": true,
+    "css_class": "charge_cooldown",
+    "disable_value": "-2",
+    "scale_function": {
+     "class_name": "scale_function_ability_recharge_time",
+     "subclass_name": "scale_function_ability_recharge_time"
+    },
+    "label": "Интервал зарядов",
+    "postfix": " с.",
+    "postvalue_label": "Интервал зарядов",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/recharge.svg"
+   },
+   "ChannelMoveSpeed": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "move_speed",
+    "display_units": "EDisplayUnit_MetersPerSecond",
+    "postfix": " м/c",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/move_speed.svg"
+   },
+   "AbilityResourceCost": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "0",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "TechPower": {
+    "value": "0",
+    "can_set_token_override": true,
+    "provided_property_type": "MODIFIER_VALUE_TECH_POWER",
+    "disable_value": "0",
+    "prefix": "{s:sign}",
+    "label": "Спиритическая мощь",
+    "postfix": "",
+    "postvalue_label": "ед. к спиритической мощи"
+   },
+   "WeaponPower": {
+    "value": "0",
+    "can_set_token_override": true,
+    "provided_property_type": "MODIFIER_VALUE_WEAPON_POWER",
+    "disable_value": "0",
+    "prefix": "{s:sign}",
+    "label": "Урон от оружия",
+    "postfix": "%",
+    "postvalue_label": "Урон от оружия"
+   },
+   "FlyingItemCastRange": {
+    "value": "50",
+    "css_class": "distance",
+    "prefix": "+",
+    "label": "Дальность действия предметов",
+    "postfix": "%",
+    "postvalue_label": "Дальность действия предметов",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/range.svg"
+   },
+   "GravityScale": {
+    "value": "0",
+    "label": "Модификатор гравитации",
+    "postfix": "%",
+    "postvalue_label": "Модификатор гравитации"
+   },
+   "MaxFallSpeed": {
+    "value": "0"
+   },
+   "MaxFlyHeight": {
+    "value": "1720"
+   },
+   "JumpVelocity": {
+    "value": "1000",
+    "label": "Скорость прыжка",
+    "postfix": " м/c",
+    "postvalue_label": "Скорость прыжка"
+   },
+   "AirSpeedBonus": {
+    "value": "0m",
+    "display_units": "EDisplayUnit_MetersPerSecond",
+    "prefix": "{s:sign}",
+    "label": "Доп. скорость в воздухе",
+    "postfix": " м/c",
+    "postvalue_label": "Доп. скорость в воздухе"
+   },
+   "AirSideMoveSpeedPercentage": {
+    "value": "-35"
+   },
+   "MinVelocityZ": {
+    "value": "-20.0"
+   },
+   "WeaponRecoilReduction": {
+    "value": "40",
+    "provided_property_type": "MODIFIER_VALUE_WEAPON_RECOIL_REDUCTION_PERCENT",
+    "usage_flags": [
+     "ConditionallyApplied"
+    ],
+    "postfix": "%"
+   },
+   "MagicDamagePerBullet": {
+    "value": 10.0,
+    "css_class": "tech_damage",
+    "scale_function": {
+     "class_name": "scale_function_tech_damage",
+     "subclass_name": "DPS_scale_function",
+     "stat_scale": 0.18
+    },
+    "label": "Спиритический урон пули",
+    "postvalue_label": "Спиритический урон пули",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/damage_magic_color.svg"
+   },
+   "BonusClipSizePercent": {
+    "value": "0",
+    "provided_property_type": "MODIFIER_VALUE_AMMO_CLIP_SIZE_PERCENT",
+    "usage_flags": [
+     "ConditionallyApplied"
+    ],
+    "prefix": "{s:sign}",
+    "label": "Макс. боезапас",
+    "postfix": "%",
+    "postvalue_label": "Макс. боезапас"
+   },
+   "RefreshOnKill": {
+    "value": "0"
+   }
+  },
+  "weapon_info": {},
+  "type": "ability",
+  "behaviours": [
+   "CITADEL_ABILITY_BEHAVIOR_CHANNELLED",
+   "CITADEL_ABILITY_BEHAVIOR_NO_TARGET",
+   "CITADEL_ABILITY_BEHAVIOR_MOVEMENT",
+   "CITADEL_ABILITY_BEHAVIOR_REQUIRE_ABILITY_BUTTON_TO_CANCEL",
+   "CITADEL_ABILITY_BEHAVIOR_DEACTIVATE_CROUCH_TOGGLE_ON_CAST"
+  ],
+  "description": {
+   "desc": "Виндикта взмывает в воздух и <span class=\"highlight\">летит</span>. Во время полёта её оружие наносит <span class=\"highlight\">дополнительный спиритический урон</span>, а предметы имеют повышенную <span class=\"highlight\">дальность действия</span>.",
+   "quip": "Усиление оружия в полёте",
+   "t1_desc": "<span class=\"highlight\">+50%</span> к базовому боезапасу на время полёта",
+   "t3_desc": "Убийство героя <span class=\"highlight\">продлевает</span> действие. <br><span class=\"highlight\">+10.0</span> ед. к спиритическому урону с увеличенным масштабированием от спиритической мощи"
+  },
+  "tooltip_details": {
+   "info_sections": [
+    {
+     "loc_string": "Виндикта взмывает в воздух и <span class=\"highlight\">летит</span>. Во время полёта её оружие наносит <span class=\"highlight\">дополнительный спиритический урон</span>, а предметы имеют повышенную <span class=\"highlight\">дальность действия</span>.",
+     "properties_block": [
+      {
+       "properties": [
+        {
+         "important_property": "MagicDamagePerBullet"
+        },
+        {
+         "important_property": "FlyingItemCastRange"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "upgrades": [
+   {
+    "property_upgrades": [
+     {
+      "name": "BonusClipSizePercent",
+      "bonus": "50"
+     }
+    ]
+   },
+   {
+    "property_upgrades": [
+     {
+      "name": "AbilityDuration",
+      "bonus": "10"
+     }
+    ]
+   },
+   {
+    "property_upgrades": [
+     {
+      "name": "MagicDamagePerBullet",
+      "bonus": 10.0
+     },
+     {
+      "name": "MagicDamagePerBullet",
+      "bonus": 0.1,
+      "scale_stat_filter": "ETechPower",
+      "upgrade_type": "EAddToScale"
+     },
+     {
+      "name": "RefreshOnKill",
+      "bonus": 1.0
+     }
+    ]
+   }
+  ],
+  "ability_type": "signature",
+  "boss_damage_scale": 1.0
+ },
+ {
+  "id": 2048438176,
+  "class_name": "citadel_ability_hornet_sting",
+  "name": "Ворон-фамильяр",
+  "start_trained": false,
+  "image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_crow.png",
+  "image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_crow.webp",
+  "hero": 3,
+  "heroes": [
+   3
+  ],
+  "update_time": 1707519913,
+  "properties": {
+   "AbilityCooldown": {
+    "value": 32.0,
+    "can_set_token_override": true,
+    "css_class": "cooldown",
+    "disable_value": "0",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "AbilityCooldown_scale_function",
+     "specific_stat_scale_type": "ETechCooldown"
+    },
+    "label": "Перезарядка",
+    "postfix": " с.",
+    "postvalue_label": "Перезарядка",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/cooldown.svg"
+   },
+   "AbilityDuration": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "duration",
+    "disable_value": "0",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "AbilityDuration_scale_function",
+     "specific_stat_scale_type": "ETechDuration"
+    },
+    "label": "Длительность",
+    "postfix": " с.",
+    "postvalue_label": "Длительность",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/duration.svg"
+   },
+   "AbilityCastRange": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "range",
+    "display_units": "EDisplayUnit_Meters",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "AbilityCastRange_scale_function",
+     "specific_stat_scale_type": "ETechRange"
+    },
+    "label": "Дальность применения",
+    "postfix": " м",
+    "postvalue_label": "Дальность применения",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/upgrades/property_range.svg"
+   },
+   "AbilityUnitTargetLimit": {
+    "value": "1",
+    "can_set_token_override": true
+   },
+   "AbilityCastDelay": {
+    "value": "0.0",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "0",
+    "label": "Задержка применения",
+    "postfix": " с.",
+    "postvalue_label": "Задержка применения",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "AbilityChannelTime": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "0",
+    "scale_function": {
+     "class_name": "scale_function_multi_stats",
+     "subclass_name": "scale_duration",
+     "scaling_stats": [
+      "EChannelDuration",
+      "ETechDuration"
+     ]
+    },
+    "label": "Длительность применения",
+    "postfix": " с.",
+    "postvalue_label": "Длительность применения",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "AbilityPostCastDuration": {
+    "value": "0.2",
+    "disable_value": "0"
+   },
+   "AbilityCharges": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "-1",
+    "scale_function": {
+     "class_name": "scale_function_ability_charges",
+     "subclass_name": "AbilityCharges_scale_function"
+    },
+    "label": "Заряды",
+    "postvalue_label": "Заряды",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "AbilityCooldownBetweenCharge": {
+    "value": "-1.0",
+    "can_set_token_override": true,
+    "css_class": "charge_cooldown",
+    "disable_value": "-2",
+    "scale_function": {
+     "class_name": "scale_function_ability_recharge_time",
+     "subclass_name": "scale_function_ability_recharge_time"
+    },
+    "label": "Интервал зарядов",
+    "postfix": " с.",
+    "postvalue_label": "Интервал зарядов",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/recharge.svg"
+   },
+   "ChannelMoveSpeed": {
+    "value": "-1",
+    "can_set_token_override": true,
+    "css_class": "move_speed",
+    "display_units": "EDisplayUnit_MetersPerSecond",
+    "postfix": " м/c",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/move_speed.svg"
+   },
+   "AbilityResourceCost": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "0",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "TechPower": {
+    "value": "0",
+    "can_set_token_override": true,
+    "provided_property_type": "MODIFIER_VALUE_TECH_POWER",
+    "disable_value": "0",
+    "prefix": "{s:sign}",
+    "label": "Спиритическая мощь",
+    "postfix": "",
+    "postvalue_label": "ед. к спиритической мощи"
+   },
+   "WeaponPower": {
+    "value": "0",
+    "can_set_token_override": true,
+    "provided_property_type": "MODIFIER_VALUE_WEAPON_POWER",
+    "disable_value": "0",
+    "prefix": "{s:sign}",
+    "label": "Урон от оружия",
+    "postfix": "%",
+    "postvalue_label": "Урон от оружия"
+   },
+   "DotHealthPercent": {
+    "value": 2.2,
+    "css_class": "tech_damage",
+    "label": "Урон от кровотечения",
+    "postfix": "% урона в секунду",
+    "postvalue_label": "Урон от кровотечения",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/damage_magic_color.svg"
+   },
+   "TickRate": {
+    "value": "1.0"
+   },
+   "ImpactDamage": {
+    "value": 40.0,
+    "css_class": "tech_damage",
+    "scale_function": {
+     "class_name": "scale_function_tech_damage",
+     "subclass_name": "Damage_scale_function",
+     "stat_scale": 0.744
+    },
+    "label": "Урон от удара",
+    "postvalue_label": "Урон от удара",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/damage_magic_color.svg"
+   },
+   "DebuffDuration": {
+    "value": "5",
+    "css_class": "duration",
+    "scale_function": {
+     "class_name": "scale_function_tech_duration",
+     "subclass_name": "DebuffDuration_scale_function"
+    },
+    "label": "Длительность эффекта",
+    "postfix": " с.",
+    "postvalue_label": "Длительность эффекта",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/duration.svg"
+   },
+   "VisualSplashRadius": {
+    "value": "4m"
+   },
+   "TargetBounceRange": {
+    "value": "0m",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "Radius_scale_function",
+     "specific_stat_scale_type": "ETechRange"
+    }
+   },
+   "TargetBounceCount": {
+    "value": "0"
+   },
+   "HealAmpReceivePenaltyPercent": {
+    "value": "0",
+    "provided_property_type": "MODIFIER_VALUE_HEAL_AMP_RECEIVE_PERCENT",
+    "usage_flags": [
+     "ConditionallyApplied"
+    ],
+    "prefix": "",
+    "label": "Получаемое лечение",
+    "postfix": "%",
+    "postvalue_label": "к получаемому лечению"
+   },
+   "HealAmpRegenPenaltyPercent": {
+    "value": "0",
+    "provided_property_type": "MODIFIER_VALUE_HEAL_AMP_REGEN_PERCENT",
+    "usage_flags": [
+     "ConditionallyApplied"
+    ],
+    "label": "Получаемое лечение",
+    "postfix": "%",
+    "postvalue_label": "к получаемому лечению"
+   },
+   "BulletResistReduction": {
+    "value": "-6",
+    "provided_property_type": "MODIFIER_VALUE_BULLET_AND_MELEE_RESIST_REDUCTION",
+    "css_class": "bullet_armor_down",
+    "usage_flags": [
+     "ConditionallyApplied"
+    ],
+    "label": "Сопр. пулям",
+    "postfix": "%",
+    "postvalue_label": "Сопр. пулям",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/armor_bullet_color.svg"
+   },
+   "TechArmorDamageReduction": {
+    "value": "-6",
+    "provided_property_type": "MODIFIER_VALUE_TECH_RESIST_REDUCTION",
+    "css_class": "tech_armor_down",
+    "usage_flags": [
+     "ConditionallyApplied"
+    ],
+    "loc_token_override": "MagicResistReduction",
+    "label": "Сопр. спиритизму",
+    "postfix": "%",
+    "postvalue_label": "Сопр. спиритизму",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/armor_spirit_color.svg"
+   },
+   "FireRateSlow": {
+    "value": "0",
+    "provided_property_type": "MODIFIER_VALUE_FIRE_RATE_SLOW",
+    "css_class": "bullet_damage",
+    "usage_flags": [
+     "ConditionallyApplied"
+    ],
+    "prefix": "-",
+    "label": "Скорострельность",
+    "postfix": "%",
+    "postvalue_label": "Скорострельность",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/damage_bullet_color.svg"
+   }
+  },
+  "weapon_info": {},
+  "type": "ability",
+  "behaviours": [
+   "CITADEL_ABILITY_BEHAVIOR_CLEAVE_DISABLED",
+   "CITADEL_ABILITY_BEHAVIOR_PROJECTILE",
+   "CITADEL_ABILITY_BEHAVIOR_NO_TARGET",
+   "CITADEL_ABILITY_BEHAVIOR_DISPLAYS_DAMAGE_IMPACT",
+   "CITADEL_ABILITY_BEHAVIOR_DONT_INTERRUPT_SLIDE_ON_CAST"
+  ],
+  "description": {
+   "desc": "Ворон-фамильяр <span class=\"highlight\">наносит урон при ударе</span>, уменьшает сопротивляемость цели пулям и вызывает <span class=\"highlight\">кровотечение</span>, урон которого пропорционален <span class=\"highlight\">текущему здоровью цели</span>.",
+   "quip": "Цель будет долго истекать кровью",
+   "t1_desc": "Снижает <span class=\"highlight\">получаемое лечение</span> на <span class=\"highlight\">-35%.</span>",
+   "t2_desc": "<span class=\"highlight\">+0.5%</span> к урону от кровотечения <br><span class=\"highlight\">-16.0 сек.</span> от времени перезарядки",
+   "t3_desc": "<span class=\"highlight\">+2 сек.</span> к длительности <br><span class=\"highlight\">-8% к сопротивляемости пулям</span> <br><span class=\"highlight\">-8% к сопротивляемости спиритизму</span>"
+  },
+  "tooltip_details": {
+   "info_sections": [
+    {
+     "loc_string": "Ворон-фамильяр <span class=\"highlight\">наносит урон при ударе</span>, уменьшает сопротивляемость цели пулям и вызывает <span class=\"highlight\">кровотечение</span>, урон которого пропорционален <span class=\"highlight\">текущему здоровью цели</span>.",
+     "properties_block": [
+      {
+       "properties": [
+        {
+         "important_property": "ImpactDamage"
+        },
+        {
+         "important_property": "DotHealthPercent"
+        },
+        {
+         "important_property": "DebuffDuration"
+        }
+       ]
+      }
+     ],
+     "basic_properties": [
+      "HealAmpReceivePenaltyPercent",
+      "BulletResistReduction",
+      "TechArmorDamageReduction"
+     ]
+    }
+   ]
+  },
+  "upgrades": [
+   {
+    "property_upgrades": [
+     {
+      "name": "HealAmpReceivePenaltyPercent",
+      "bonus": "-35"
+     },
+     {
+      "name": "HealAmpRegenPenaltyPercent",
+      "bonus": "-35"
+     }
+    ]
+   },
+   {
+    "property_upgrades": [
+     {
+      "name": "AbilityCooldown",
+      "bonus": -16.0
+     },
+     {
+      "name": "DotHealthPercent",
+      "bonus": 0.5
+     }
+    ]
+   },
+   {
+    "property_upgrades": [
+     {
+      "name": "BulletResistReduction",
+      "bonus": "-8"
+     },
+     {
+      "name": "TechArmorDamageReduction",
+      "bonus": "-8"
+     },
+     {
+      "name": "DebuffDuration",
+      "bonus": "2"
+     }
+    ]
+   }
+  ],
+  "ability_type": "signature",
+  "boss_damage_scale": 1.0
+ },
+ {
+  "id": 775377419,
+  "class_name": "citadel_ability_hornet_snipe",
+  "name": "Контрольный выстрел",
+  "start_trained": false,
+  "image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_assassinate.png",
+  "image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_assassinate.webp",
+  "hero": 3,
+  "heroes": [
+   3
+  ],
+  "update_time": 1647302636,
+  "properties": {
+   "AbilityCooldown": {
+    "value": 55.0,
+    "can_set_token_override": true,
+    "css_class": "cooldown",
+    "disable_value": "0",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "AbilityCooldown_scale_function",
+     "specific_stat_scale_type": "ETechCooldown"
+    },
+    "label": "Перезарядка",
+    "postfix": " с.",
+    "postvalue_label": "Перезарядка",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/cooldown.svg"
+   },
+   "AbilityDuration": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "duration",
+    "disable_value": "0",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "AbilityDuration_scale_function",
+     "specific_stat_scale_type": "ETechDuration"
+    },
+    "label": "Длительность",
+    "postfix": " с.",
+    "postvalue_label": "Длительность",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/duration.svg"
+   },
+   "AbilityCastRange": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "range",
+    "display_units": "EDisplayUnit_Meters",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "AbilityCastRange_scale_function",
+     "specific_stat_scale_type": "ETechRange"
+    },
+    "label": "Дальность применения",
+    "postfix": " м",
+    "postvalue_label": "Дальность применения",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/upgrades/property_range.svg"
+   },
+   "AbilityUnitTargetLimit": {
+    "value": "1",
+    "can_set_token_override": true
+   },
+   "AbilityCastDelay": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "0",
+    "label": "Задержка применения",
+    "postfix": " с.",
+    "postvalue_label": "Задержка применения",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "AbilityChannelTime": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "0",
+    "scale_function": {
+     "class_name": "scale_function_multi_stats",
+     "subclass_name": "scale_duration",
+     "scaling_stats": [
+      "EChannelDuration",
+      "ETechDuration"
+     ]
+    },
+    "label": "Длительность применения",
+    "postfix": " с.",
+    "postvalue_label": "Длительность применения",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "AbilityPostCastDuration": {
+    "value": "0",
+    "disable_value": "0"
+   },
+   "AbilityCharges": {
+    "value": "2",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "-1",
+    "scale_function": {
+     "class_name": "scale_function_ability_charges",
+     "subclass_name": "AbilityCharges_scale_function"
+    },
+    "label": "Заряды",
+    "postvalue_label": "Заряды",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "AbilityCooldownBetweenCharge": {
+    "value": "2.5",
+    "can_set_token_override": true,
+    "css_class": "charge_cooldown",
+    "disable_value": "-2",
+    "scale_function": {
+     "class_name": "scale_function_ability_recharge_time",
+     "subclass_name": "scale_function_ability_recharge_time"
+    },
+    "label": "Интервал зарядов",
+    "postfix": " с.",
+    "postvalue_label": "Интервал зарядов",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/recharge.svg"
+   },
+   "ChannelMoveSpeed": {
+    "value": "-1",
+    "can_set_token_override": true,
+    "css_class": "move_speed",
+    "display_units": "EDisplayUnit_MetersPerSecond",
+    "postfix": " м/c",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/move_speed.svg"
+   },
+   "AbilityResourceCost": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "0",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "TechPower": {
+    "value": "0",
+    "can_set_token_override": true,
+    "provided_property_type": "MODIFIER_VALUE_TECH_POWER",
+    "disable_value": "0",
+    "prefix": "{s:sign}",
+    "label": "Спиритическая мощь",
+    "postfix": "",
+    "postvalue_label": "ед. к спиритической мощи"
+   },
+   "WeaponPower": {
+    "value": "0",
+    "can_set_token_override": true,
+    "provided_property_type": "MODIFIER_VALUE_WEAPON_POWER",
+    "disable_value": "0",
+    "prefix": "{s:sign}",
+    "label": "Урон от оружия",
+    "postfix": "%",
+    "postvalue_label": "Урон от оружия"
+   },
+   "Range": {
+    "value": "1000m",
+    "css_class": "distance",
+    "label": "Дальность",
+    "postfix": " м",
+    "postvalue_label": "Дальность",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/range.svg"
+   },
+   "Damage": {
+    "value": 90.0,
+    "css_class": "tech_damage",
+    "scale_function": {
+     "class_name": "scale_function_tech_damage",
+     "subclass_name": "Damage_scale_function",
+     "specific_stat_scale_type": "ETechPower",
+     "stat_scale": 0.93
+    },
+    "label": "Урон",
+    "postvalue_label": "Урон",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/damage_magic_color.svg"
+   },
+   "ShotRadius": {
+    "value": "4.0"
+   },
+   "LowHealthEnemyDamageBonus": {
+    "value": 90.0,
+    "css_class": "tech_damage",
+    "scale_function": {
+     "class_name": "scale_function_tech_damage",
+     "subclass_name": "LowHealthEnemyDamageBonus_scale_function",
+     "specific_stat_scale_type": "ETechPower",
+     "stat_scale": 2.3
+    },
+    "label": "Макс. доп. урон",
+    "postvalue_label": "Макс. доп. урон",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/damage_magic_color.svg"
+   },
+   "LowHealthEnemyThresholdPct": {
+    "value": "50",
+    "label": "Порог низкого здоровья",
+    "postfix": "%",
+    "postvalue_label": "Порог низкого здоровья"
+   },
+   "ViewPunch": {
+    "value": "2.5"
+   },
+   "MoveSpeed": {
+    "value": "4m",
+    "postfix": "м"
+   },
+   "MaxSoundDistance": {
+    "value": "2000"
+   },
+   "WeaponDamageBonusPerKill": {
+    "value": "6",
+    "provided_property_type": "MODIFIER_VALUE_WEAPON_DAMAGE_INCREASE",
+    "css_class": "bullet_damage",
+    "usage_flags": [
+     "IntrinsicallyProvidedInAbility"
+    ],
+    "prefix": "{s:sign}",
+    "label": "Урон от оружия за убийство",
+    "postfix": "%",
+    "postvalue_label": "Урон от оружия за убийство",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/damage_bullet_color.svg"
+   },
+   "BonusGoldOnKill": {
+    "value": "250",
+    "label": "Бонусных душ за убийство",
+    "postvalue_label": "Бонусных душ за убийство"
+   },
+   "HeadshotBonus": {
+    "value": "20",
+    "css_class": "bullet_damage",
+    "prefix": "+",
+    "label": "Урон при попадании в голову",
+    "postfix": "%",
+    "postvalue_label": "Урон при попадании в голову",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/damage_bullet_color.svg"
+   },
+   "MinChargeDamagePercent": {
+    "value": "50",
+    "label": "Урон без полного заряда",
+    "postfix": "%",
+    "postvalue_label": "Урон без полного заряда"
+   },
+   "TimeToFullCharge": {
+    "value": "1.0",
+    "css_class": "duration",
+    "label": "Достижение полного заряда",
+    "postfix": " сек.",
+    "postvalue_label": "Достижение полного заряда",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/duration.svg"
+   }
+  },
+  "weapon_info": {},
+  "type": "ability",
+  "behaviours": [
+   "CITADEL_ABILITY_BEHAVIOR_NO_TARGET",
+   "CITADEL_ABILITY_BEHAVIOR_DISPLAYS_DAMAGE_IMPACT"
+  ],
+  "description": {
+   "desc": "Виндикта совершает из своей винтовки мощный дальний выстрел. Если он производится до накопления полного заряда (раньше чем через 1.0 сек. после взгляда в прицел), урона наносится меньше. Врагам, у которых <span class=\"highlight\">меньше 50% здоровья</span>, наносится <span class=\"highlight\">дополнительный урон</span>. Если выстрел оказывается смертельным, Виндикта <span class=\"highlight\">получает бонус к урону от оружия</span>.",
+   "quip": "Снайперский выстрел по раненым целям с нанесением большого урона"
+  },
+  "tooltip_details": {
+   "info_sections": [
+    {
+     "loc_string": "Виндикта совершает из своей винтовки мощный дальний выстрел. Если он производится до накопления полного заряда (раньше чем через 1.0 сек. после взгляда в прицел), урона наносится меньше. Врагам, у которых <span class=\"highlight\">меньше 50% здоровья</span>, наносится <span class=\"highlight\">дополнительный урон</span>. Если выстрел оказывается смертельным, Виндикта <span class=\"highlight\">получает бонус к урону от оружия</span>.",
+     "properties_block": [
+      {
+       "properties": [
+        {
+         "important_property": "Damage"
+        },
+        {
+         "important_property": "LowHealthEnemyDamageBonus"
+        },
+        {
+         "important_property": "WeaponDamageBonusPerKill"
+        }
+       ]
+      }
+     ],
+     "basic_properties": [
+      "TimeToFullCharge",
+      "MinChargeDamagePercent",
+      "HeadshotBonus"
+     ]
+    }
+   ]
+  },
+  "upgrades": [
+   {
+    "property_upgrades": [
+     {
+      "name": "AbilityCooldown",
+      "bonus": -15.0
+     }
+    ]
+   },
+   {
+    "property_upgrades": [
+     {
+      "name": "LowHealthEnemyDamageBonus",
+      "bonus": 80.0
+     }
+    ]
+   },
+   {
+    "property_upgrades": [
+     {
+      "name": "WeaponDamageBonusPerKill",
+      "bonus": "4"
+     }
+    ]
+   }
+  ],
+  "ability_type": "ultimate",
+  "boss_damage_scale": 1.0
+ }
+]

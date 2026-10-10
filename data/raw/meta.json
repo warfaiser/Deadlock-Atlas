@@ -1,0 +1,15 @@
+{
+ "fetched_at": "2026-10-10T21:24:42+00:00",
+ "language": "russian",
+ "builds_distinct": 10,
+ "source": "Deadlock API (https://deadlock-api.com/)",
+ "counts": {
+  "heroes_all": 65,
+  "heroes": 41,
+  "items": 757,
+  "heroes_with_details": 41,
+  "hero_details": 207,
+  "heroes_with_builds": 41,
+  "builds": 410
+ }
+}

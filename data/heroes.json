@@ -1,5 +1,5 @@
 {
- "snapshot": "2026-10-07",
+ "snapshot": "2026-10-10",
  "source": "Deadlock API (https://deadlock-api.com/)",
  "heroes": [
   {
@@ -279,15 +279,15 @@
        "value": "3.25 с."
       },
       {
-       "label": "Длительность оглушения",
-       "value": "1.25 с."
+       "label": "длительность оглушения",
+       "value": "1.25 сек."
       },
       {
        "label": "Урон",
        "value": "125"
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "12 м"
       }
      ],
@@ -904,8 +904,8 @@
        "value": "3.5 с."
       },
       {
-       "label": "Длительность оглушения",
-       "value": "0.9 с."
+       "label": "длительность оглушения",
+       "value": "0.9 сек."
       }
      ],
      "image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_static.webp",
@@ -943,7 +943,7 @@
        "value": "7 с."
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "30 м"
       },
       {
@@ -2324,7 +2324,7 @@
        "value": "90"
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "7 м"
       },
       {
@@ -3040,8 +3040,8 @@
        "value": "30"
       },
       {
-       "label": "Длительность оглушения",
-       "value": "0.3 с."
+       "label": "длительность оглушения",
+       "value": "0.3 сек."
       }
      ],
      "image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_charge.webp",
@@ -3071,7 +3071,7 @@
        "value": "4 с."
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "8 м"
       },
       {
@@ -3118,8 +3118,8 @@
        "value": "100"
       },
       {
-       "label": "Длительность оглушения",
-       "value": "1.6 с."
+       "label": "длительность оглушения",
+       "value": "1.6 сек."
       }
      ],
      "image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_jump.webp",
@@ -3697,7 +3697,7 @@
        "value": "5 с."
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "0 м"
       },
       {
@@ -3748,7 +3748,7 @@
        "value": "45"
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "4 м"
       },
       {
@@ -4509,7 +4509,7 @@
        "value": "35%"
       },
       {
-       "label": "Сопротивление ближнему бою",
+       "label": "сопротивляемости в ближнем бою",
        "value": "35%"
       }
      ],
@@ -5173,7 +5173,7 @@
        "value": "0.2 с."
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "5.5 м"
       },
       {
@@ -6670,7 +6670,7 @@
        "value": "7 с."
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "6.5 м"
       },
       {
@@ -6855,7 +6855,7 @@
        "value": "0.2 с."
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "10 м"
       },
       {
@@ -7571,7 +7571,7 @@
        "value": "4 м/c"
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "16 м"
       },
       {
@@ -8144,7 +8144,7 @@
        "value": "7.5 с."
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "6 м"
       },
       {
@@ -8223,7 +8223,7 @@
        "value": "50%"
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "9 м"
       },
       {
@@ -8958,7 +8958,7 @@
        "value": "6 м"
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "8 м"
       },
       {
@@ -9781,7 +9781,7 @@
        "value": "45"
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "3.0 м"
       },
       {
@@ -9824,7 +9824,7 @@
        "value": "3 с."
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "7.5 м"
       },
       {
@@ -10287,7 +10287,7 @@
        "value": "34 с."
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "6.5 м"
       },
       {
@@ -10448,8 +10448,8 @@
        "value": "230"
       },
       {
-       "label": "Длительность оглушения",
-       "value": "0.75 с."
+       "label": "длительность оглушения",
+       "value": "0.75 сек."
       },
       {
        "label": "Спиритическая мощь за убийство",
@@ -10947,7 +10947,7 @@
        "value": "0.2 с."
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "9 м"
       },
       {
@@ -11053,7 +11053,7 @@
        "value": "75"
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "5 м"
       },
       {
@@ -11655,7 +11655,7 @@
        "value": "75"
       },
       {
-       "label": "Spirit Resist",
+       "label": "Сопр. спиритизму",
        "value": "-6%"
       },
       {
@@ -12407,11 +12407,11 @@
        "value": "75"
       },
       {
-       "label": "Длительность оглушения",
-       "value": "0.75 с."
+       "label": "длительность оглушения",
+       "value": "0.75 сек."
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "5.75 м"
       }
      ],
@@ -12458,7 +12458,7 @@
        "value": "5 с."
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "6 м"
       },
       {
@@ -13199,7 +13199,7 @@
        "value": "0.1 с."
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "5.5 м"
       },
       {
@@ -13305,7 +13305,7 @@
        "value": "70"
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "12 м"
       },
       {
@@ -13880,7 +13880,7 @@
        "value": "55"
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "13 м"
       },
       {
@@ -14716,7 +14716,7 @@
        "value": "0.15 с."
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "10 м"
       },
       {
@@ -14751,11 +14751,11 @@
      ],
      "stats": [
       {
-       "label": "Время прицеливания на голубя",
-       "value": "0.7s"
+       "label": "к захвату цели за каждого голубя",
+       "value": "0.7 сек."
       },
       {
-       "label": "Максимум голубей на цель",
+       "label": "макс. голубей на цель",
        "value": "1"
       },
       {
@@ -15302,7 +15302,7 @@
        "value": "20"
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "4 м"
       },
       {
@@ -15357,7 +15357,7 @@
        "value": "55"
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "5 м"
       },
       {
@@ -15467,8 +15467,8 @@
        "value": "7 м/с"
       },
       {
-       "label": "Длительность оглушения",
-       "value": "0.5 с."
+       "label": "длительность оглушения",
+       "value": "0.5 сек."
       },
       {
        "label": "Сопр. спиритизму",
@@ -16110,7 +16110,7 @@
        "value": "4"
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "4.5 м"
       },
       {
@@ -16161,7 +16161,7 @@
        "value": "0.2 с."
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "5 м"
       },
       {
@@ -16204,7 +16204,7 @@
        "value": "1.5 сек."
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "12 м"
       },
       {
@@ -16243,7 +16243,7 @@
        "value": "0.6 с."
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "9 м"
       },
       {
@@ -16772,7 +16772,7 @@
        "value": "0.1 с."
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "4 м"
       },
       {
@@ -17559,7 +17559,7 @@
        "value": "180"
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "12 м"
       },
       {
@@ -18197,7 +18197,7 @@
        "value": "15%"
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "6 м"
       },
       {
@@ -18209,8 +18209,8 @@
        "value": "36%"
       },
       {
-       "label": "Hex Duration",
-       "value": "2s"
+       "label": "Длительность сглаза",
+       "value": "2 с."
       }
      ],
      "image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_animalcurse.webp",
@@ -18260,7 +18260,7 @@
        "value": "120"
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "3.25 м"
       },
       {
@@ -19011,11 +19011,11 @@
      ],
      "stats": [
       {
-       "label": "Время прицеливания на голубя",
-       "value": "0.01s"
+       "label": "к захвату цели за каждого голубя",
+       "value": "0.01 сек."
       },
       {
-       "label": "Максимум голубей на цель",
+       "label": "макс. голубей на цель",
        "value": "1"
       },
       {
@@ -20316,7 +20316,7 @@
        "value": "8 с."
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "2 м"
       },
       {
@@ -20375,7 +20375,7 @@
        "value": "0.03 с."
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "4.5 м"
       },
       {
@@ -20446,8 +20446,8 @@
        "value": "30"
       },
       {
-       "label": "Длительность оглушения",
-       "value": "0.6 с."
+       "label": "длительность оглушения",
+       "value": "0.6 сек."
       },
       {
        "label": "Угол атаки",
@@ -21070,7 +21070,7 @@
        "value": "8 с."
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "8 м"
       },
       {
@@ -21223,7 +21223,7 @@
        "value": "200"
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "18 м"
       },
       {
@@ -21239,8 +21239,8 @@
        "value": "3 с."
       },
       {
-       "label": "Длительность оглушения",
-       "value": "1.5 с."
+       "label": "длительность оглушения",
+       "value": "1.5 сек."
       }
      ],
      "image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_shocking_reanimation.webp",
@@ -21820,7 +21820,7 @@
        "value": "60"
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "4 м"
       },
       {
@@ -21863,7 +21863,7 @@
        "value": "90"
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "7.5 м"
       },
       {
@@ -21993,8 +21993,8 @@
        "value": "9 с."
       },
       {
-       "label": "Длительность оглушения",
-       "value": "1.0 с."
+       "label": "длительность оглушения",
+       "value": "1.0 сек."
       },
       {
        "label": "Лечение",
@@ -22598,7 +22598,7 @@
        "value": "7 с."
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "5.5 м"
       },
       {
@@ -24086,8 +24086,8 @@
        "value": "4 сек."
       },
       {
-       "label": "Time Between Hits",
-       "value": "0.15s"
+       "label": "интервала между ударами",
+       "value": "0.15 сек."
       },
       {
        "label": "Порог кражи сопр. спиритизму",
@@ -24137,7 +24137,7 @@
        "value": "14 м"
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "0.75 м"
       },
       {
@@ -24287,7 +24287,7 @@
        "value": "100"
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "8 м"
       },
       {
@@ -25034,8 +25034,8 @@
        "value": "50%"
       },
       {
-       "label": "Длительность оглушения",
-       "value": "0.8 с."
+       "label": "длительность оглушения",
+       "value": "0.8 сек."
       }
      ],
      "image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/fencer/fencer_riposte.webp",
@@ -25648,7 +25648,7 @@
        "value": "0.1 с."
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "10 м"
       },
       {
@@ -25790,7 +25790,7 @@
        "value": "75"
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "5 м"
       },
       {
@@ -25857,7 +25857,7 @@
        "value": "4 сек."
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "19.0 м"
       },
       {
@@ -28047,11 +28047,11 @@
        "value": "7"
       },
       {
-       "label": "Барьер от максимального здоровья",
+       "label": "от макс. здоровья в виде барьера",
        "value": "15%"
       },
       {
-       "label": "Шанс отражения пули",
+       "label": "шанс отражения пули",
        "value": "15%"
       },
       {
@@ -28082,7 +28082,7 @@
        "value": "26 с."
       },
       {
-       "label": "Урон от взрыва",
+       "label": "ед. урона от взрыва",
        "value": "70"
       },
       {
@@ -28090,7 +28090,7 @@
        "value": "20%"
       },
       {
-       "label": "Скорость передвижения после большого взрыва",
+       "label": "от скорости передвижения после большого взрыва",
        "value": "40%"
       },
       {
@@ -28149,7 +28149,7 @@
        "value": "8 с."
       },
       {
-       "label": "Урон за укус",
+       "label": "ед. урона за укус",
        "value": "8"
       },
       {
@@ -28157,7 +28157,7 @@
        "value": "1 сек."
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "10 м"
       },
       {
@@ -28216,7 +28216,7 @@
        "value": "200"
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "20 м"
       },
       {
@@ -28232,7 +28232,7 @@
        "value": "3 м/c"
       },
       {
-       "label": "Уменьшение урона",
+       "label": "уменьшения урона",
        "value": "15%"
       },
       {
@@ -28708,6 +28708,826 @@
    }
   },
   {
+   "id": 85,
+   "class_name": "hero_chessmaster",
+   "name": "Соломон",
+   "name_en": "Solomon",
+   "search_name": "Соломон Solomon",
+   "type": "Мистик",
+   "hero_type": "mystic",
+   "complexity": 1,
+   "role": null,
+   "playstyle": null,
+   "lore": "In a world that moves too fast, Соломон is content to stop and listen. Offering a friendly ear and good counsel, Соломон has found himself sitting across the chess table from tourists, criminals, and titans of industry.  But no matter his opponent, Соломон remains un-phased… because to him, chess is so much more than a game.  It's an equalizer.  A way for him to connect to people from all walks of life on an even playing field.",
+   "tags": [
+    "Стратег",
+    "Сосредоточенный",
+    "Вдумчивый"
+   ],
+   "gun_tag": "Стрельба снарядами",
+   "released": true,
+   "release": null,
+   "images": {
+    "icon_hero_card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chessmaster_card.png",
+    "icon_hero_card_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chessmaster_card.webp",
+    "icon_image_small": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chessmaster_sm.png",
+    "icon_image_small_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chessmaster_sm.webp",
+    "minimap_image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chessmaster_mm.png",
+    "minimap_image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chessmaster_mm.webp",
+    "hero_card_critical": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chessmaster_card_critical.png",
+    "hero_card_critical_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chessmaster_card_critical.webp",
+    "hero_card_gloat": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chessmaster_card_gloat.png",
+    "hero_card_gloat_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chessmaster_card_gloat.webp",
+    "top_bar_vertical_image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chessmaster_vertical.png",
+    "top_bar_vertical_image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chessmaster_vertical.webp",
+    "background_image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/backgrounds/chessmaster_bg.png",
+    "background_image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/backgrounds/chessmaster_bg.webp",
+    "name_image": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/heroes/hero_names/solomon.svg",
+    "vote_sticker": "https://assets-bucket.deadlock-api.com/assets-api-res/images/events/voting_sept2026/sticker_chessmaster.png",
+    "vote_sticker_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/events/voting_sept2026/sticker_chessmaster.webp"
+   },
+   "colors": {
+    "ui": [
+     156,
+     205,
+     236
+    ],
+    "style": [
+     170,
+     158,
+     126
+    ],
+    "style_hex": "#AA9E7E"
+   },
+   "stats": {
+    "health": 780,
+    "health_regen": 2.0,
+    "move_speed": 6.7,
+    "sprint_speed": 3.25,
+    "stamina": 2,
+    "light_melee": 50.0,
+    "heavy_melee": 116
+   },
+   "weapon": {
+    "class_name": "citadel_weapon_chessmaster_shotgun",
+    "name": "Alekhine's Gun",
+    "image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/weapon_damage.webp",
+    "bullet_damage": 30.0,
+    "pellets": 1,
+    "shots_per_second": 1.74,
+    "dps": 52.2,
+    "clip_size": 8,
+    "reload_time": 3.0,
+    "bullet_speed": 356
+   },
+   "abilities": [
+    {
+     "id": 2424652896,
+     "class_name": "ability_chessmaster_forkpiece",
+     "name": "Rook Battery",
+     "name_en": "Rook Battery",
+     "type": "signature",
+     "description": "Release a pair of rooks that travel forward, dealing спиритический урон and applying обездвиживание. If the rooks hit a wall, they reflect back in the opposite direction. Re-Activate: Split the rooks perpendicularly.",
+     "description_source": "official",
+     "upgrades": [
+      {
+       "tier": 1,
+       "text": "On Hit: Reduce 25% Fire Rate for 5s"
+      },
+      {
+       "tier": 2,
+       "text": "On Hit: 5% Current Health as Damage"
+      },
+      {
+       "tier": 3,
+       "text": "+1 Wall Reflects\n-12s Cooldown\n+0.5s Immobilize Duration"
+      }
+     ],
+     "stats": [
+      {
+       "label": "Перезарядка",
+       "value": "33 с."
+      },
+      {
+       "label": "Задержка применения",
+       "value": "0.25 с."
+      },
+      {
+       "label": "Move Distance",
+       "value": "12m"
+      },
+      {
+       "label": "Урон",
+       "value": "50"
+      },
+      {
+       "label": "Длительность",
+       "value": "1 с."
+      },
+      {
+       "label": "Здоровье гуля",
+       "value": "100"
+      },
+      {
+       "label": "Aura Linger Duration",
+       "value": "0.5s"
+      },
+      {
+       "label": "Дальность скольжения",
+       "value": "100%"
+      },
+      {
+       "label": "Длительность обездвиживания",
+       "value": "1 с."
+      },
+      {
+       "label": "Барьер",
+       "value": "100"
+      },
+      {
+       "label": "Wall Reflects",
+       "value": "1"
+      }
+     ],
+     "image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chess/chessmaster_rook.webp",
+     "start_trained": false
+    },
+    {
+     "id": 4011110259,
+     "class_name": "ability_chessmaster_throwbishop",
+     "name": "Setup Bishop",
+     "name_en": "Setup Bishop",
+     "type": "signature",
+     "description": "Create a bishop that remains in place indefinitely. Move : Moves the bishop, applying a fading замедление and dealing спиритический урон to enemies it passes through. After a delay, activates diagonal squares that deal additional спиритический урон when stepped on. Re-activate to recall all bishops, ending the ability.",
+     "description_source": "official",
+     "upgrades": [
+      {
+       "tier": 1,
+       "text": "+5m Move Distance\n+15% Fading Slow"
+      },
+      {
+       "tier": 2,
+       "text": "+1 Max Pieces\nCan Recast within 8s"
+      },
+      {
+       "tier": 3,
+       "text": "+1 Square Range\nSquares reduce Spirit Resist by -2.5%, stacking 10 times"
+      }
+     ],
+     "stats": [
+      {
+       "label": "Перезарядка",
+       "value": "12 с."
+      },
+      {
+       "label": "Дальность применения",
+       "value": "20 м"
+      },
+      {
+       "label": "Задержка применения",
+       "value": "0.2 с."
+      },
+      {
+       "label": "радиус",
+       "value": "3.5 м"
+      },
+      {
+       "label": "Recall Distance",
+       "value": "80m"
+      },
+      {
+       "label": "Move Distance",
+       "value": "12m"
+      },
+      {
+       "label": "Max Deployed Pieces",
+       "value": "1"
+      },
+      {
+       "label": "Сопр. пулям",
+       "value": "25%"
+      },
+      {
+       "label": "Сопр. спиритизму",
+       "value": "50%"
+      },
+      {
+       "label": "интервала между ударами",
+       "value": "0.15 сек."
+      },
+      {
+       "label": "Затухающее замедление",
+       "value": "30%"
+      },
+      {
+       "label": "Длительность замедления",
+       "value": "3 с."
+      }
+     ],
+     "image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chess/chessmaster_bishop.webp",
+     "start_trained": false
+    },
+    {
+     "id": 4180486641,
+     "class_name": "ability_chessmaster_knightbuff",
+     "name": "Kingside Knight",
+     "name_en": "Kingside Knight",
+     "type": "signature",
+     "description": "Promote an ally to be a knight, granting bonus stamina and барьер for a duration. If self-cast you develop yourself as king instead, granting double the барьер but no stamina. Move : Moves the piece, making it invulnerable during the duration before landing.",
+     "description_source": "official",
+     "upgrades": [
+      {
+       "tier": 2,
+       "text": "+80 Barrier\n+1 Stamina"
+      },
+      {
+       "tier": 3,
+       "text": "Can target two allies within radius.\nOn Self: Remove all debuffs after a move"
+      }
+     ],
+     "stats": [
+      {
+       "label": "Перезарядка",
+       "value": "25 с."
+      },
+      {
+       "label": "Дальность применения",
+       "value": "28 м"
+      },
+      {
+       "label": "Move Distance",
+       "value": "13m"
+      },
+      {
+       "label": "Длительность эффекта",
+       "value": "7 с."
+      },
+      {
+       "label": "Барьер",
+       "value": "80"
+      },
+      {
+       "label": "Выносливость",
+       "value": "1"
+      },
+      {
+       "label": "Move Cooldown",
+       "value": "10s"
+      },
+      {
+       "label": "Угол атаки",
+       "value": "30°"
+      },
+      {
+       "label": "Max Deployed Pieces",
+       "value": "1"
+      },
+      {
+       "label": "King Move Distance",
+       "value": "7m"
+      }
+     ],
+     "image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chess/chessmaster_knight.webp",
+     "start_trained": false
+    },
+    {
+     "id": 1389230689,
+     "class_name": "ability_chessmaster_queen",
+     "name": "Develop Queen",
+     "name_en": "Develop Queen",
+     "type": "ultimate",
+     "description": "",
+     "description_source": "",
+     "upgrades": [
+      {
+       "tier": 2,
+       "text": "+15% Slow. Checkmates heroes below 200 health, executing them."
+      },
+      {
+       "tier": 3,
+       "text": "+2 Moves\n+1 Square Range"
+      }
+     ],
+     "stats": [
+      {
+       "label": "Перезарядка",
+       "value": "210 с."
+      },
+      {
+       "label": "Дальность применения",
+       "value": "30 м"
+      },
+      {
+       "label": "Задержка применения",
+       "value": "0.75 с."
+      },
+      {
+       "label": "длительность оглушения",
+       "value": "1.25 сек."
+      },
+      {
+       "label": "Move Distance",
+       "value": "16m"
+      },
+      {
+       "label": "Урон",
+       "value": "120"
+      },
+      {
+       "label": "Max Deployed Pieces",
+       "value": "1"
+      },
+      {
+       "label": "Additional Moves",
+       "value": "2"
+      },
+      {
+       "label": "Скорость передвижения",
+       "value": "15%"
+      },
+      {
+       "label": "Move Cooldown",
+       "value": "5s"
+      },
+      {
+       "label": "Максимум ед. эффекта",
+       "value": "3"
+      },
+      {
+       "label": "Recall Distance",
+       "value": "80m"
+      }
+     ],
+     "image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chess/chessmaster_queen.webp",
+     "start_trained": false
+    }
+   ],
+   "popular_items": {
+    "early_game": [
+     {
+      "id": 2829638276,
+      "name": "Добавочное восстановление",
+      "pick_pct": 38.3,
+      "winrate_pct": 66.7
+     },
+     {
+      "id": 1672893796,
+      "name": "Крепость",
+      "pick_pct": 8.5,
+      "winrate_pct": 75.0
+     },
+     {
+      "id": 857669956,
+      "name": "Заслон стража",
+      "pick_pct": 6.4,
+      "winrate_pct": 66.7
+     },
+     {
+      "id": 2603935618,
+      "name": "Гроза целителей",
+      "pick_pct": 6.4,
+      "winrate_pct": 66.7
+     },
+     {
+      "id": 3077079169,
+      "name": "Скоростные патроны",
+      "pick_pct": 40.4,
+      "winrate_pct": 57.9
+     },
+     {
+      "id": 968099481,
+      "name": "Добавочный спиритизм",
+      "pick_pct": 53.2,
+      "winrate_pct": 60.0
+     },
+     {
+      "id": 4139877411,
+      "name": "Добавочная выносливость",
+      "pick_pct": 19.1,
+      "winrate_pct": 66.7
+     },
+     {
+      "id": 1998374645,
+      "name": "Мистический импульс",
+      "pick_pct": 44.7,
+      "winrate_pct": 71.4
+     },
+     {
+      "id": 754480263,
+      "name": "Мистическое расширение",
+      "pick_pct": 53.2,
+      "winrate_pct": 56.0
+     },
+     {
+      "id": 1102081447,
+      "name": "Мистическое замедление",
+      "pick_pct": 8.5,
+      "winrate_pct": 25.0
+     },
+     {
+      "id": 380806748,
+      "name": "Сжатая перезарядка умения",
+      "pick_pct": 8.5,
+      "winrate_pct": 50.0
+     },
+     {
+      "id": 1009965641,
+      "name": "Чудовищные патроны",
+      "pick_pct": 6.4,
+      "winrate_pct": 66.7
+     },
+     {
+      "id": 2064029594,
+      "name": "Вскрывающие патроны",
+      "pick_pct": 38.3,
+      "winrate_pct": 50.0
+     },
+     {
+      "id": 668299740,
+      "name": "Спешная стрельба",
+      "pick_pct": 8.5,
+      "winrate_pct": 50.0
+     },
+     {
+      "id": 7409189,
+      "name": "Улучшенный спиритизм",
+      "pick_pct": 21.3,
+      "winrate_pct": 60.0
+     }
+    ],
+    "mid_game": [
+     {
+      "id": 1150006784,
+      "name": "Колдовской порыв",
+      "pick_pct": 10.6,
+      "winrate_pct": 80.0
+     },
+     {
+      "id": 4104549924,
+      "name": "Быстрый стрелок",
+      "pick_pct": 10.6,
+      "winrate_pct": 20.0
+     },
+     {
+      "id": 2519598785,
+      "name": "Безграничный спиритизм",
+      "pick_pct": 6.4,
+      "winrate_pct": 100.0
+     },
+     {
+      "id": 2447176615,
+      "name": "Скоростная стойкость",
+      "pick_pct": 6.4,
+      "winrate_pct": 100.0
+     },
+     {
+      "id": 1548066885,
+      "name": "Увеличенный магазин",
+      "pick_pct": 6.4,
+      "winrate_pct": 66.7
+     },
+     {
+      "id": 3261353684,
+      "name": "Превосходная перезарядка умений",
+      "pick_pct": 40.4,
+      "winrate_pct": 63.2
+     },
+     {
+      "id": 395867183,
+      "name": "Мистический выстрел",
+      "pick_pct": 8.5,
+      "winrate_pct": 100.0
+     },
+     {
+      "id": 690458959,
+      "name": "Экспресс-выстрел",
+      "pick_pct": 8.5,
+      "winrate_pct": 50.0
+     },
+     {
+      "id": 1672893796,
+      "name": "Крепость",
+      "pick_pct": 6.4,
+      "winrate_pct": 33.3
+     },
+     {
+      "id": 857669956,
+      "name": "Заслон стража",
+      "pick_pct": 17.0,
+      "winrate_pct": 50.0
+     },
+     {
+      "id": 2603935618,
+      "name": "Гроза целителей",
+      "pick_pct": 29.8,
+      "winrate_pct": 50.0
+     },
+     {
+      "id": 3633614685,
+      "name": "Добавочное здоровье",
+      "pick_pct": 10.6,
+      "winrate_pct": 100.0
+     },
+     {
+      "id": 968099481,
+      "name": "Добавочный спиритизм",
+      "pick_pct": 19.1,
+      "winrate_pct": 44.4
+     },
+     {
+      "id": 4139877411,
+      "name": "Добавочная выносливость",
+      "pick_pct": 53.2,
+      "winrate_pct": 60.0
+     },
+     {
+      "id": 3977876567,
+      "name": "Кинетический рывок",
+      "pick_pct": 6.4,
+      "winrate_pct": 66.7
+     },
+     {
+      "id": 1998374645,
+      "name": "Мистический импульс",
+      "pick_pct": 29.8,
+      "winrate_pct": 42.9
+     },
+     {
+      "id": 754480263,
+      "name": "Мистическое расширение",
+      "pick_pct": 31.9,
+      "winrate_pct": 53.3
+     },
+     {
+      "id": 3970837787,
+      "name": "Эмблема заклинателя",
+      "pick_pct": 38.3,
+      "winrate_pct": 55.6
+     },
+     {
+      "id": 2121044373,
+      "name": "Гроза танков",
+      "pick_pct": 40.4,
+      "winrate_pct": 57.9
+     },
+     {
+      "id": 1102081447,
+      "name": "Мистическое замедление",
+      "pick_pct": 12.8,
+      "winrate_pct": 33.3
+     },
+     {
+      "id": 380806748,
+      "name": "Сжатая перезарядка умения",
+      "pick_pct": 48.9,
+      "winrate_pct": 52.2
+     },
+     {
+      "id": 2081037738,
+      "name": "Мистическая уязвимость",
+      "pick_pct": 8.5,
+      "winrate_pct": 75.0
+     },
+     {
+      "id": 709540378,
+      "name": "Жертвенный ритуал",
+      "pick_pct": 8.5,
+      "winrate_pct": 50.0
+     },
+     {
+      "id": 2064029594,
+      "name": "Вскрывающие патроны",
+      "pick_pct": 8.5,
+      "winrate_pct": 50.0
+     },
+     {
+      "id": 3731635960,
+      "name": "Развеивание магии",
+      "pick_pct": 6.4,
+      "winrate_pct": 66.7
+     },
+     {
+      "id": 1235347618,
+      "name": "Боевой жилет",
+      "pick_pct": 10.6,
+      "winrate_pct": 20.0
+     },
+     {
+      "id": 7409189,
+      "name": "Улучшенный спиритизм",
+      "pick_pct": 46.8,
+      "winrate_pct": 59.1
+     },
+     {
+      "id": 112198670,
+      "name": "Спиритическая защита",
+      "pick_pct": 12.8,
+      "winrate_pct": 50.0
+     },
+     {
+      "id": 334300056,
+      "name": "Превосходная выносливость",
+      "pick_pct": 42.6,
+      "winrate_pct": 65.0
+     },
+     {
+      "id": 1254091416,
+      "name": "Нокдаун",
+      "pick_pct": 8.5,
+      "winrate_pct": 50.0
+     },
+     {
+      "id": 2163598980,
+      "name": "Спиритическая стойкость",
+      "pick_pct": 6.4,
+      "winrate_pct": 66.7
+     },
+     {
+      "id": 1193964439,
+      "name": "Усиленное расширение",
+      "pick_pct": 59.6,
+      "winrate_pct": 64.3
+     },
+     {
+      "id": 2356412290,
+      "name": "Титанический магазин",
+      "pick_pct": 10.6,
+      "winrate_pct": 40.0
+     },
+     {
+      "id": 3696726732,
+      "name": "Токсичные пули",
+      "pick_pct": 6.4,
+      "winrate_pct": 66.7
+     },
+     {
+      "id": 3074274290,
+      "name": "Собиратель трофеев",
+      "pick_pct": 6.4,
+      "winrate_pct": 33.3
+     }
+    ],
+    "late_game": [
+     {
+      "id": 1152158042,
+      "name": "Паутинный вихрь",
+      "pick_pct": 10.6,
+      "winrate_pct": 100.0
+     },
+     {
+      "id": 4104549924,
+      "name": "Быстрый стрелок",
+      "pick_pct": 6.4,
+      "winrate_pct": 33.3
+     },
+     {
+      "id": 2519598785,
+      "name": "Безграничный спиритизм",
+      "pick_pct": 61.7,
+      "winrate_pct": 51.7
+     },
+     {
+      "id": 3261353684,
+      "name": "Превосходная перезарядка умений",
+      "pick_pct": 38.3,
+      "winrate_pct": 50.0
+     },
+     {
+      "id": 1662311306,
+      "name": "Божественный барьер",
+      "pick_pct": 17.0,
+      "winrate_pct": 62.5
+     },
+     {
+      "id": 3005970438,
+      "name": "Растущее воздействие",
+      "pick_pct": 6.4,
+      "winrate_pct": 100.0
+     },
+     {
+      "id": 876563814,
+      "name": "Спиритическая кража здоровья",
+      "pick_pct": 8.5,
+      "winrate_pct": 50.0
+     },
+     {
+      "id": 2717651715,
+      "name": "Превосходная длительность",
+      "pick_pct": 8.5,
+      "winrate_pct": 25.0
+     },
+     {
+      "id": 2800629741,
+      "name": "Ковёр-самолёт",
+      "pick_pct": 8.5,
+      "winrate_pct": 50.0
+     },
+     {
+      "id": 2121044373,
+      "name": "Гроза танков",
+      "pick_pct": 36.2,
+      "winrate_pct": 52.9
+     },
+     {
+      "id": 1102081447,
+      "name": "Мистическое замедление",
+      "pick_pct": 14.9,
+      "winrate_pct": 85.7
+     },
+     {
+      "id": 380806748,
+      "name": "Сжатая перезарядка умения",
+      "pick_pct": 6.4,
+      "winrate_pct": 33.3
+     },
+     {
+      "id": 2081037738,
+      "name": "Мистическая уязвимость",
+      "pick_pct": 6.4,
+      "winrate_pct": 66.7
+     },
+     {
+      "id": 3731635960,
+      "name": "Развеивание магии",
+      "pick_pct": 14.9,
+      "winrate_pct": 57.1
+     },
+     {
+      "id": 2533252781,
+      "name": "Развоплощение",
+      "pick_pct": 6.4,
+      "winrate_pct": 100.0
+     },
+     {
+      "id": 7409189,
+      "name": "Улучшенный спиритизм",
+      "pick_pct": 14.9,
+      "winrate_pct": 57.1
+     },
+     {
+      "id": 343572757,
+      "name": "Спиритический ожог",
+      "pick_pct": 12.8,
+      "winrate_pct": 66.7
+     },
+     {
+      "id": 334300056,
+      "name": "Превосходная выносливость",
+      "pick_pct": 21.3,
+      "winrate_pct": 60.0
+     },
+     {
+      "id": 1254091416,
+      "name": "Нокдаун",
+      "pick_pct": 6.4,
+      "winrate_pct": 66.7
+     },
+     {
+      "id": 2226497419,
+      "name": "Спиритическое переполнение",
+      "pick_pct": 10.6,
+      "winrate_pct": 80.0
+     },
+     {
+      "id": 2163598980,
+      "name": "Спиритическая стойкость",
+      "pick_pct": 12.8,
+      "winrate_pct": 50.0
+     },
+     {
+      "id": 1193964439,
+      "name": "Усиленное расширение",
+      "pick_pct": 27.7,
+      "winrate_pct": 46.2
+     },
+     {
+      "id": 3696726732,
+      "name": "Токсичные пули",
+      "pick_pct": 6.4,
+      "winrate_pct": 33.3
+     },
+     {
+      "id": 915014646,
+      "name": "Трансцендентная перезарядка",
+      "pick_pct": 17.0,
+      "winrate_pct": 37.5
+     },
+     {
+      "id": 493591231,
+      "name": "Свиток молнии",
+      "pick_pct": 21.3,
+      "winrate_pct": 70.0
+     },
+     {
+      "id": 3270001687,
+      "name": "Камень переноса",
+      "pick_pct": 8.5,
+      "winrate_pct": 75.0
+     }
+    ]
+   }
+  },
+  {
    "id": 88,
    "class_name": "hero_baba",
    "name": "Буся",
@@ -28718,7 +29538,7 @@
    "complexity": 1,
    "role": null,
    "playstyle": null,
-   "lore": "There are a few things most denizens of The Cursed Apple hope to experience at some point in their lives.\n\nSee a Broadway show.\nIce Skate at Rockefeller Center during Christmas season.\nGet yelled at by the Central Park Pigeon Lady.\n\nBecause Буся is more than just an old woman that feeds spirit pigeons in the park... she's an institution.  A force of nature woven into the very lore of New York City.  Is it true that she's sat at the same bench every day for the past 50 years, rain or shine?  Maybe.  Is she REALLY the leader of The Soho Coven?  Who's to say.  One thing's for sure though... she's a New Yorker.  And she's not going to sit back and watch a bunch of tourists tear apart Manhattan in pursuit of power.",
+   "lore": "Каждый житель Проклятого яблока надеется хотя бы раз в жизни испытать незабываемый опыт:\n\nСходить на бродвейское шоу.\nПогонять на коньках у Рокфеллер-центра под Рожденство.\nПопасть под горячую руку Бусе в Центральном парке.\n\nВедь Буся — не просто старушка, которая кормит призрачных голубей в парке. Она культурный феномен.  Сила природы, вплетённая в канву нью-йоркских легенд.  Правда ли, что она безвылазно сидит на одной и той же скамье последние полвека, и в дождь, и в зной?  Возможно.  Правда ли, что она возглавляет ковен Сохо?  Кто знает.  Одно можно сказать наверняка: она жительница Нью-Йорка.  И она точно не станет сидеть сложа руки, пока заезжая шушера разносит Манхэттен в погоне за властью.",
    "tags": [
     "Ехидная",
     "Бусинка",
@@ -28773,7 +29593,7 @@
    },
    "weapon": {
     "class_name": "citadel_weapon_baba_set",
-    "name": "Bunko-Night Special",
+    "name": "Особое угощение",
     "image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/weapon_damage.webp",
     "bullet_damage": 8.8,
     "pellets": 3,
@@ -28824,11 +29644,11 @@
        "value": "6 с."
       },
       {
-       "label": "Задержка взрыва",
-       "value": "0.9s"
+       "label": "задержки взрыва",
+       "value": "0.9 сек."
       },
       {
-       "label": "Эффективность кражи духа",
+       "label": "к эффект. украденной спирит. мощи",
        "value": "175%"
       },
       {
@@ -28840,19 +29660,19 @@
        "value": "3.5 м"
       },
       {
-       "label": "Интервал взрывов",
-       "value": "0.05s"
+       "label": "интервала между взрывами",
+       "value": "0.05 сек."
       },
       {
        "label": "Длительность эффекта",
        "value": "22 с."
       },
       {
-       "label": "Кража духа за попадание",
+       "label": "ед. кражи спирит. мощи за удар",
        "value": "10"
       },
       {
-       "label": "Максимум украденного духа",
+       "label": "ед. макс. кражи спирит. мощи",
        "value": "45"
       }
      ],
@@ -28887,15 +29707,15 @@
        "value": "1.0 с."
       },
       {
-       "label": "Начальное время заваривания",
-       "value": "1.5s"
+       "label": "начального времени варки",
+       "value": "1.5 сек."
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "6 м"
       },
       {
-       "label": "Урон в секунду при горении",
+       "label": "ед. урона в сек. при горении",
        "value": "12"
       },
       {
@@ -28903,7 +29723,7 @@
        "value": "8 с."
       },
       {
-       "label": "Снижение сопр. спиритическому урону",
+       "label": "сопр. спиритизму при горении",
        "value": "-15%"
       },
       {
@@ -28954,7 +29774,7 @@
        "value": "10 с."
       },
       {
-       "label": "Радиус",
+       "label": "радиус",
        "value": "8 м"
       },
       {
@@ -28962,36 +29782,36 @@
        "value": "5 м/c"
       },
       {
-       "label": "Урон тяжёлого удара",
+       "label": "ед. урона тяжёлого удара",
        "value": "75"
       },
       {
-       "label": "Замедление тяжёлым ударом",
+       "label": "замедления от тяжёлого удара",
        "value": "50%"
       },
       {
-       "label": "Длительность замедления тяжёлым ударом",
-       "value": "4s"
+       "label": "длит. замедления от тяжёлого удара",
+       "value": "4 сек."
       },
       {
        "label": "Сопр. отриц. эффектам",
        "value": "30%"
       },
       {
-       "label": "Сопротивление ближнему бою",
+       "label": "сопротивляемости в ближнем бою",
        "value": "30%"
       },
       {
-       "label": "Light Melee Knockback",
-       "value": "10m"
+       "label": "отбрасывания при лёгкой атаке",
+       "value": "10 м"
       },
       {
-       "label": "Ground Pound Knock Up",
-       "value": "0.3s"
+       "label": "длит. подбрасывания при ударе о землю",
+       "value": "0.3 сек."
       },
       {
-       "label": "Melee Range",
-       "value": "2m"
+       "label": "дальности атак ближнего боя",
+       "value": "2 м"
       }
      ],
      "image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/baba/strafing_run.webp",
@@ -29021,16 +29841,16 @@
      ],
      "stats": [
       {
-       "label": "Время прицеливания на голубя",
-       "value": "0.7s"
+       "label": "к захвату цели за каждого голубя",
+       "value": "0.7 сек."
       },
       {
-       "label": "Максимум голубей на цель",
+       "label": "макс. голубей на цель",
        "value": "1"
       },
       {
-       "label": "Время до максимума стаков",
-       "value": "3.5s"
+       "label": "до макс. количества кусочков",
+       "value": "3.5 сек."
       },
       {
        "label": "Перезарядка",
@@ -29049,7 +29869,7 @@
        "value": "6.5 с."
       },
       {
-       "label": "Максимальное замедление",
+       "label": "макс. замедления",
        "value": "32%"
       },
       {
@@ -29057,16 +29877,16 @@
        "value": "450"
       },
       {
-       "label": "Damage Escalation",
+       "label": "увеличения урона",
        "value": "30%"
       },
       {
-       "label": "Time Between Hits",
-       "value": "0.15s"
+       "label": "интервала между ударами",
+       "value": "0.15 сек."
       },
       {
-       "label": "Max Pigeon Duration",
-       "value": "2.75s"
+       "label": "маск. длительность превращения",
+       "value": "2.75 сек."
       }
      ],
      "image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/baba/pigeon_launcher.webp",

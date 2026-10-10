@@ -1,0 +1,1983 @@
+[
+ {
+  "id": 406697186,
+  "class_name": "ability_melee_necro",
+  "name": "Ближний бой",
+  "start_trained": true,
+  "image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/melee_damage.png",
+  "image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/melee_damage.webp",
+  "hero": 76,
+  "heroes": [
+   76
+  ],
+  "properties": {
+   "AbilityCooldown": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "cooldown",
+    "disable_value": "0",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "AbilityCooldown_scale_function",
+     "specific_stat_scale_type": "ETechCooldown"
+    },
+    "label": "Перезарядка",
+    "postfix": " с.",
+    "postvalue_label": "Перезарядка",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/cooldown.svg"
+   },
+   "AbilityDuration": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "duration",
+    "disable_value": "0",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "AbilityDuration_scale_function",
+     "specific_stat_scale_type": "ETechDuration"
+    },
+    "label": "Длительность",
+    "postfix": " с.",
+    "postvalue_label": "Длительность",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/duration.svg"
+   },
+   "AbilityCastRange": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "range",
+    "display_units": "EDisplayUnit_Meters",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "AbilityCastRange_scale_function",
+     "specific_stat_scale_type": "ETechRange"
+    },
+    "label": "Дальность применения",
+    "postfix": " м",
+    "postvalue_label": "Дальность применения",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/upgrades/property_range.svg"
+   },
+   "AbilityUnitTargetLimit": {
+    "value": "1",
+    "can_set_token_override": true
+   },
+   "AbilityCastDelay": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "0",
+    "label": "Задержка применения",
+    "postfix": " с.",
+    "postvalue_label": "Задержка применения",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "AbilityChannelTime": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "0",
+    "scale_function": {
+     "class_name": "scale_function_multi_stats",
+     "subclass_name": "scale_duration",
+     "scaling_stats": [
+      "EChannelDuration",
+      "ETechDuration"
+     ]
+    },
+    "label": "Длительность применения",
+    "postfix": " с.",
+    "postvalue_label": "Длительность применения",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "AbilityPostCastDuration": {
+    "value": "0",
+    "disable_value": "0"
+   },
+   "AbilityCharges": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "0",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "AbilityCharges_scale_function",
+     "specific_stat_scale_type": "EMaxChargesIncrease"
+    },
+    "label": "Заряды",
+    "postvalue_label": "Заряды",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "AbilityCooldownBetweenCharge": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "charge_cooldown",
+    "disable_value": "0",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "AbilityCooldownBetweenCharge_scale_function",
+     "specific_stat_scale_type": "ETechCooldownBetweenChargeUses"
+    },
+    "label": "Интервал зарядов",
+    "postfix": " с.",
+    "postvalue_label": "Интервал зарядов",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/recharge.svg"
+   },
+   "ChannelMoveSpeed": {
+    "value": "1.3m",
+    "can_set_token_override": true,
+    "css_class": "move_speed",
+    "display_units": "EDisplayUnit_MetersPerSecond",
+    "postfix": " м/c",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/move_speed.svg"
+   },
+   "AbilityResourceCost": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "0",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "TechPower": {
+    "value": "0",
+    "can_set_token_override": true,
+    "provided_property_type": "MODIFIER_VALUE_TECH_POWER",
+    "disable_value": "0",
+    "prefix": "{s:sign}",
+    "label": "Спиритическая мощь",
+    "postfix": "",
+    "postvalue_label": "ед. к спиритической мощи"
+   },
+   "WeaponPower": {
+    "value": "0",
+    "can_set_token_override": true,
+    "provided_property_type": "MODIFIER_VALUE_WEAPON_POWER",
+    "disable_value": "0",
+    "prefix": "{s:sign}",
+    "label": "Урон от оружия",
+    "postfix": "%",
+    "postvalue_label": "Урон от оружия"
+   },
+   "MeleeHalfAngle": {
+    "value": "30"
+   },
+   "MeleeAttackLength": {
+    "value": "5m",
+    "css_class": "distance",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "MeleeAttackLength_scale_function",
+     "specific_stat_scale_type": "EMeleeRange"
+    },
+    "postfix": " м",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/range.svg"
+   }
+  },
+  "weapon_info": {},
+  "type": "ability",
+  "behaviours": [
+   "CITADEL_ABILITY_BEHAVIOR_HIDDEN",
+   "CITADEL_ABILITY_BEHAVIOR_SILENT_CAST_FAILURE_FEEDBACK",
+   "CITADEL_ABILITY_BEHAVIOR_NOT_SILENCABLE",
+   "CITADEL_ABILITY_BEHAVIOR_NO_TARGET",
+   "CITADEL_ABILITY_BEHAVIOR_CASTABLE_WHILE_HIDDEN"
+  ],
+  "description": {},
+  "ability_type": "melee"
+ },
+ {
+  "id": 2001589780,
+  "class_name": "ability_necro_zombiewall",
+  "name": "Хватка смерти",
+  "start_trained": false,
+  "image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/necro/necro_hands.png",
+  "image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/necro/necro_hands.webp",
+  "hero": 76,
+  "heroes": [
+   76
+  ],
+  "properties": {
+   "AbilityCooldown": {
+    "value": "34",
+    "can_set_token_override": true,
+    "css_class": "cooldown",
+    "disable_value": "0",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "AbilityCooldown_scale_function",
+     "specific_stat_scale_type": "ETechCooldown"
+    },
+    "label": "Перезарядка",
+    "postfix": " с.",
+    "postvalue_label": "Перезарядка",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/cooldown.svg"
+   },
+   "AbilityDuration": {
+    "value": "5",
+    "can_set_token_override": true,
+    "css_class": "duration",
+    "disable_value": "0",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "AbilityDuration_scale_function",
+     "specific_stat_scale_type": "ETechDuration"
+    },
+    "label": "Длительность",
+    "postfix": " с.",
+    "postvalue_label": "Длительность",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/duration.svg"
+   },
+   "AbilityCastRange": {
+    "value": "24m",
+    "can_set_token_override": true,
+    "css_class": "range",
+    "display_units": "EDisplayUnit_Meters",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "AbilityCastRange_scale_function",
+     "specific_stat_scale_type": "ETechRange"
+    },
+    "label": "Дальность применения",
+    "postfix": " м",
+    "postvalue_label": "Дальность применения",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/upgrades/property_range.svg"
+   },
+   "AbilityUnitTargetLimit": {
+    "value": "1",
+    "can_set_token_override": true
+   },
+   "AbilityCastDelay": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "0",
+    "label": "Задержка применения",
+    "postfix": " с.",
+    "postvalue_label": "Задержка применения",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "AbilityChannelTime": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "0",
+    "scale_function": {
+     "class_name": "scale_function_multi_stats",
+     "subclass_name": "scale_duration",
+     "scaling_stats": [
+      "EChannelDuration",
+      "ETechDuration"
+     ]
+    },
+    "label": "Длительность применения",
+    "postfix": " с.",
+    "postvalue_label": "Длительность применения",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "AbilityPostCastDuration": {
+    "value": "0",
+    "disable_value": "0"
+   },
+   "AbilityCharges": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "-1",
+    "scale_function": {
+     "class_name": "scale_function_ability_charges",
+     "subclass_name": "AbilityCharges_scale_function"
+    },
+    "label": "Заряды",
+    "postvalue_label": "Заряды",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "AbilityCooldownBetweenCharge": {
+    "value": "-1.0",
+    "can_set_token_override": true,
+    "css_class": "charge_cooldown",
+    "disable_value": "-2",
+    "scale_function": {
+     "class_name": "scale_function_ability_recharge_time",
+     "subclass_name": "scale_function_ability_recharge_time"
+    },
+    "label": "Интервал зарядов",
+    "postfix": " с.",
+    "postvalue_label": "Интервал зарядов",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/recharge.svg"
+   },
+   "ChannelMoveSpeed": {
+    "value": "-1",
+    "can_set_token_override": true,
+    "css_class": "move_speed",
+    "display_units": "EDisplayUnit_MetersPerSecond",
+    "postfix": " м/c",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/move_speed.svg"
+   },
+   "AbilityResourceCost": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "0",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "TechPower": {
+    "value": "0",
+    "can_set_token_override": true,
+    "provided_property_type": "MODIFIER_VALUE_TECH_POWER",
+    "disable_value": "0",
+    "prefix": "{s:sign}",
+    "label": "Спиритическая мощь",
+    "postfix": "",
+    "postvalue_label": "ед. к спиритической мощи"
+   },
+   "WeaponPower": {
+    "value": "0",
+    "can_set_token_override": true,
+    "provided_property_type": "MODIFIER_VALUE_WEAPON_POWER",
+    "disable_value": "0",
+    "prefix": "{s:sign}",
+    "label": "Урон от оружия",
+    "postfix": "%",
+    "postvalue_label": "Урон от оружия"
+   },
+   "ZombieWallLength": {
+    "value": "14m",
+    "scale_function": {
+     "class_name": "scale_function_multi_stats",
+     "subclass_name": "lengthsf",
+     "specific_stat_scale_type": "ETechPower",
+     "scaling_stats": [
+      "ETechPower",
+      "ETechRange"
+     ],
+     "stat_scale": 0.05
+    },
+    "label": "Длина стены",
+    "postfix": " м",
+    "postvalue_label": "Длина стены"
+   },
+   "AuraRadius": {
+    "value": "0.75m",
+    "label": "радиус",
+    "postfix": " м",
+    "postvalue_label": "Радиус"
+   },
+   "DebuffDuration": {
+    "value": "0.5",
+    "scale_function": {},
+    "label": "Длительность эффекта",
+    "postfix": " с.",
+    "postvalue_label": "Длительность эффекта"
+   },
+   "GroundAuraSpacing": {
+    "value": "1m"
+   },
+   "SlowPercent": {
+    "value": "40",
+    "css_class": "slow",
+    "scale_function": {},
+    "prefix": "-",
+    "label": "Скорость передвижения",
+    "postfix": "%",
+    "postvalue_label": "Скорость передвижения",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/condition_slow.svg"
+   },
+   "ZombieWallHeight": {
+    "value": "2.5m",
+    "scale_function": {},
+    "label": "Высота стены",
+    "postfix": " м",
+    "postvalue_label": "Высота стены"
+   },
+   "Damage": {
+    "value": "90",
+    "css_class": "tech_damage",
+    "scale_function": {
+     "class_name": "scale_function_tech_damage",
+     "subclass_name": "damagesf",
+     "stat_scale": 1.6
+    },
+    "label": "Урон",
+    "postvalue_label": "Урон",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/damage_magic_color.svg"
+   },
+   "HealAmount": {
+    "value": "0",
+    "css_class": "healing",
+    "scale_function": {},
+    "label": "Лечение",
+    "postvalue_label": "Лечение",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/heal.svg"
+   },
+   "BuffDuration": {
+    "value": "0",
+    "scale_function": {},
+    "label": "Длительность эффекта",
+    "postfix": " с.",
+    "postvalue_label": "Длительность эффекта"
+   },
+   "BonusMoveSpeedPercent": {
+    "value": "0",
+    "provided_property_type": "MODIFIER_VALUE_MOVEMENT_SPEED_MAX_PERCENT",
+    "css_class": "move_speed",
+    "scale_function": {},
+    "prefix": "{s:sign}",
+    "label": "Скорость передвижения",
+    "postfix": "%",
+    "postvalue_label": "Скорость передвижения",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/move_speed.svg"
+   },
+   "TickRate": {
+    "value": "0.1"
+   },
+   "CombatBarrier": {
+    "value": "0",
+    "provided_property_type": "MODIFIER_VALUE_BARRIER_HEALTH",
+    "css_class": "health",
+    "scale_function": {},
+    "label": "Барьер",
+    "postvalue_label": "Барьер",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/health.svg"
+   },
+   "ImmobilizeDuration": {
+    "value": "1.0",
+    "scale_function": {
+     "class_name": "scale_function_tech_duration",
+     "subclass_name": "immobsf"
+    },
+    "label": "Длительность обездвиживания",
+    "postfix": " с.",
+    "postvalue_label": "Длительность обездвиживания"
+   },
+   "GroundAuraPopDelay": {
+    "value": "1.1"
+   },
+   "ZombieWallDeployTime": {
+    "value": "0.6"
+   },
+   "DamagePctPerWallHit": {
+    "value": "0",
+    "css_class": "tech_damage",
+    "label": "Урон от макс. здоровья",
+    "postfix": "%",
+    "postvalue_label": "Урон от макс. здоровья",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/damage_magic_color.svg"
+   },
+   "TetherDuration": {
+    "value": "1",
+    "label": "Длительность приковывания",
+    "postfix": " с.",
+    "postvalue_label": "Длительность приковывания"
+   },
+   "TetherRadius": {
+    "value": "0.1m",
+    "postfix": " м"
+   },
+   "SummonCount": {
+    "value": "1",
+    "loc_token_override": "GhoulCount",
+    "label": "Число гулей",
+    "postvalue_label": "Число гулей"
+   }
+  },
+  "weapon_info": {},
+  "type": "ability",
+  "behaviours": [
+   "CITADEL_ABILITY_BEHAVIOR_NO_TARGET",
+   "CITADEL_ABILITY_BEHAVIOR_DISPLAYS_DAMAGE_IMPACT",
+   "CITADEL_ABILITY_BEHAVIOR_ALLOW_ALT_CAST",
+   "CITADEL_ABILITY_BEHAVIOR_CAN_SET_QUICK_CAST",
+   "CITADEL_ABILITY_BEHAVIOR_SUPPRESS_ALT_CAST_ONCE_SELECTED"
+  ],
+  "description": {
+   "desc": "Грейвс вырывает из земли полосу хватающих рук, которая призывает <span class=\"highlight\">гуля</span> и оставляет разлом. Руки наносят <svg width=\"128\" height=\"128\" viewBox=\"0 0 128 128\" fill=\"white\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M53.7875 20.0238C48.6533 13.3022 40.8042 9 32.0027 9C16.5345 9 4 22.2789 4 38.6558C4 38.7707 4.00052 38.8854 4.00155 39H91.8416L94.7229 33.1618C97.2906 27.9591 104.71 27.9591 107.277 33.1618L110.159 39H115.998C115.999 38.8854 116 38.7707 116 38.6558C116 22.2789 103.466 9 87.9973 9C79.1958 9 71.3467 13.3022 66.2125 20.0238C65.7565 20.6214 65.336 21.1783 64.9462 21.6946C62.4734 24.9699 61.2367 26.6078 59.9993 26.6084C58.7614 26.609 57.5227 24.9711 55.0449 21.6946C54.6545 21.1783 54.2333 20.6214 53.7766 20.0238H53.7875Z\" fill=\"white\"/>\n<path d=\"M79.7015 79L79.5588 79.8323C78.7516 84.5386 82.6742 88.3253 86.9508 88.0132C86.8571 88.1111 86.7634 88.209 86.6696 88.3069C78.1991 97.1552 69.4174 106.328 62.6218 116.742C61.1111 119.051 58.8889 119.051 57.3782 116.742C50.5788 106.325 41.7966 97.1509 33.3264 88.303C30.3317 85.1748 27.3761 82.0873 24.5608 79H79.7015Z\" fill=\"white\"/>\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M101.901 35.5496C101.512 34.8168 100.488 34.8168 100.099 35.5497L93.0406 48.845C92.8929 49.123 92.6315 49.3183 92.3283 49.3766L77.8385 52.1641C77.0398 52.3178 76.7233 53.3185 77.2815 53.9252L87.4091 64.9295C87.6209 65.1597 87.7208 65.4756 87.6812 65.7898L85.7842 80.8078C85.6796 81.6357 86.5083 82.2542 87.2424 81.8963L100.56 75.402C100.838 75.2662 101.162 75.2662 101.44 75.402L114.758 81.8963C115.492 82.2542 116.32 81.6357 116.216 80.8078L114.319 65.7898C114.279 65.4756 114.379 65.1597 114.591 64.9295L124.718 53.9252C125.277 53.3185 124.96 52.3178 124.161 52.1641L109.672 49.3766C109.369 49.3183 109.107 49.123 108.959 48.845L101.901 35.5496ZM100.036 43.0789C100.366 42.1579 101.634 42.1579 101.964 43.0789L105.019 51.6179C105.01 51.6983 105.017 51.7822 105.041 51.8662L107.687 61.1634C107.817 61.6217 108.371 61.7807 108.714 61.4584L111.336 58.9947C111.498 58.8428 111.571 58.6153 111.528 58.3944L110.687 53.9877H117.422C118.389 53.9877 118.82 55.2373 118.067 55.8622L110.702 61.9792C110.601 61.9949 110.502 62.0365 110.413 62.1066L102.948 68.0247C102.581 68.3164 102.638 68.9036 103.055 69.1143L106.244 70.7259C106.44 70.8252 106.673 70.8121 106.858 70.6913L110.254 68.4723L112.085 75.0776C112.35 76.0329 111.299 76.8003 110.508 76.2296L101.591 69.8003C101.471 69.7136 101.337 69.6563 101.199 69.6285L95.0376 65.3393C94.6474 65.0677 94.116 65.3179 94.0614 65.7987L93.6534 69.3978C93.6281 69.6213 93.718 69.8423 93.8907 69.9808L96.868 72.3692L91.5448 76.2279C90.7554 76.8001 89.7037 76.0372 89.9645 75.0816L92.6557 65.2197C92.6717 65.1902 92.6845 65.1581 92.6935 65.1237L95.058 56.0862C95.1347 55.7934 94.8946 55.5156 94.6024 55.5592L90.6768 56.1448C90.5236 56.1678 90.3959 56.2773 90.3466 56.428L89.0988 60.2424L83.9931 56.1163C83.2355 55.5041 83.6428 54.2537 84.6065 54.2331L94.8405 54.0152C94.8711 54.0191 94.9023 54.0206 94.934 54.0198L103.141 53.8011C103.588 53.7892 103.88 53.3157 103.7 52.8958L102.212 49.4285C102.111 49.1944 101.886 49.0435 101.637 49.0435H97.9024L100.036 43.0789Z\" fill=\"white\"/>\n<path d=\"M67 57C68.1046 57 69 57.8954 69 59C69 60.1046 68.1046 61 67 61H7C5.89543 61 5 60.1046 5 59C5 57.8954 5.89543 57 7 57H67Z\" fill=\"white\"/>\n</svg>\n<span class=\"inline-attribute-label SpiritDamage\">спиритический урон</span> и <panel class=\"InlineAttributeIcon Immobilize\" replacechar=\"_\"><span class=\"InlineAttributeName Immobilize\">обездвиживают</span> пересекающих полосу врагов. <br><br><span class=\"diminish\">Альтернативное применение <svg width=\"128\" height=\"128\" viewBox=\"0 0 128 128\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M106 74.5C106 102.39 97.196 125 64 125C30.804 125 22 102.39 22 74.5C22 74.2499 22.0048 74.0002 22.0078 73.751C31.2634 78.1321 44.7654 81 64 81C83.234 81 96.7357 78.1319 105.991 73.751C105.994 74.0002 106 74.2499 106 74.5Z\" fill=\"black\" fill-opacity=\"0.6\"/>\n<path d=\"M58 22.9204C58.0001 19.6507 60.6863 17 63.9999 17C67.3135 17.0003 69.9999 19.6509 70 22.9204V51.0796C70 54.3492 67.3135 56.9997 63.9999 57C60.6862 57 58 54.3494 58 51.0796V22.9204Z\" fill=\"black\" fill-opacity=\"0.6\"/>\n<path d=\"M63.6125 17.008C61.6841 17.0899 59.8918 17.7814 58.5226 18.9327C57.0626 20.1605 56.0002 22.0028 56 24.1999V49.8001C56.0002 51.9973 57.0626 53.8395 58.5226 55.0673C59.8918 56.2186 61.6841 56.9101 63.6125 56.992L64 57C66.075 56.9998 68.0169 56.2945 69.4774 55.0664C70.9372 53.8386 71.9998 51.9972 72 49.8001V24.1999L71.9969 23.9957C71.9332 21.8888 70.8918 20.1232 69.4774 18.9336C68.017 17.7055 66.075 17.0002 64 17L63.6125 17.008Z\" fill=\"black\"/>\n<path d=\"M69 12.9755C73.4305 14.5801 76.598 18.8335 76.598 23.8299V50.7515C76.598 55.7478 73.4304 60.0003 69 61.605V73.4277C84.4336 72.9935 96.282 69.6691 104.368 66.3811C104.93 66.1525 105.474 65.9235 106 65.6961C105.868 63.8985 105.711 62.0149 105.527 60.0406L103.581 44.5956C102.213 35.6269 100.295 26.7201 97.1331 20.6114C89.7895 6.41635 75.6511 4.72025 69 4.42773V12.9755Z\" fill=\"black\" fill-opacity=\"0.6\"/>\n<path d=\"M59 12.9755C54.5695 14.5801 51.402 18.8335 51.402 23.8299V50.7515C51.402 55.7478 54.5696 60.0003 59 61.605V73.4277C43.5664 72.9935 31.718 69.6691 23.6324 66.3811C23.0701 66.1525 22.526 65.9235 22 65.6961C22.1325 63.8985 22.2887 62.0149 22.4731 60.0406L24.4194 44.5956C25.7871 35.6269 27.7049 26.7201 30.8669 20.6114C38.2105 6.41635 52.3489 4.72025 59 4.42773V12.9755Z\" fill=\"black\" fill-opacity=\"0.6\"/>\n</svg>\n меняет ориентацию стены.",
+   "t2_desc": "<span class=\"highlight\">+90</span> ед. к урону и <span class=\"highlight\">+10 м</span> к длине стены",
+   "t3_desc": "<span class=\"highlight\">+1</span> к числу гулей <br><span class=\"highlight\">-14 с.</span> от времени перезарядки<br><span class=\"highlight\">+0.75 с.</span> к длительности обездвиживания"
+  },
+  "tooltip_details": {
+   "info_sections": [
+    {
+     "loc_string": "Грейвс вырывает из земли полосу хватающих рук, которая призывает <span class=\"highlight\">гуля</span> и оставляет разлом. Руки наносят <svg width=\"128\" height=\"128\" viewBox=\"0 0 128 128\" fill=\"white\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M53.7875 20.0238C48.6533 13.3022 40.8042 9 32.0027 9C16.5345 9 4 22.2789 4 38.6558C4 38.7707 4.00052 38.8854 4.00155 39H91.8416L94.7229 33.1618C97.2906 27.9591 104.71 27.9591 107.277 33.1618L110.159 39H115.998C115.999 38.8854 116 38.7707 116 38.6558C116 22.2789 103.466 9 87.9973 9C79.1958 9 71.3467 13.3022 66.2125 20.0238C65.7565 20.6214 65.336 21.1783 64.9462 21.6946C62.4734 24.9699 61.2367 26.6078 59.9993 26.6084C58.7614 26.609 57.5227 24.9711 55.0449 21.6946C54.6545 21.1783 54.2333 20.6214 53.7766 20.0238H53.7875Z\" fill=\"white\"/>\n<path d=\"M79.7015 79L79.5588 79.8323C78.7516 84.5386 82.6742 88.3253 86.9508 88.0132C86.8571 88.1111 86.7634 88.209 86.6696 88.3069C78.1991 97.1552 69.4174 106.328 62.6218 116.742C61.1111 119.051 58.8889 119.051 57.3782 116.742C50.5788 106.325 41.7966 97.1509 33.3264 88.303C30.3317 85.1748 27.3761 82.0873 24.5608 79H79.7015Z\" fill=\"white\"/>\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M101.901 35.5496C101.512 34.8168 100.488 34.8168 100.099 35.5497L93.0406 48.845C92.8929 49.123 92.6315 49.3183 92.3283 49.3766L77.8385 52.1641C77.0398 52.3178 76.7233 53.3185 77.2815 53.9252L87.4091 64.9295C87.6209 65.1597 87.7208 65.4756 87.6812 65.7898L85.7842 80.8078C85.6796 81.6357 86.5083 82.2542 87.2424 81.8963L100.56 75.402C100.838 75.2662 101.162 75.2662 101.44 75.402L114.758 81.8963C115.492 82.2542 116.32 81.6357 116.216 80.8078L114.319 65.7898C114.279 65.4756 114.379 65.1597 114.591 64.9295L124.718 53.9252C125.277 53.3185 124.96 52.3178 124.161 52.1641L109.672 49.3766C109.369 49.3183 109.107 49.123 108.959 48.845L101.901 35.5496ZM100.036 43.0789C100.366 42.1579 101.634 42.1579 101.964 43.0789L105.019 51.6179C105.01 51.6983 105.017 51.7822 105.041 51.8662L107.687 61.1634C107.817 61.6217 108.371 61.7807 108.714 61.4584L111.336 58.9947C111.498 58.8428 111.571 58.6153 111.528 58.3944L110.687 53.9877H117.422C118.389 53.9877 118.82 55.2373 118.067 55.8622L110.702 61.9792C110.601 61.9949 110.502 62.0365 110.413 62.1066L102.948 68.0247C102.581 68.3164 102.638 68.9036 103.055 69.1143L106.244 70.7259C106.44 70.8252 106.673 70.8121 106.858 70.6913L110.254 68.4723L112.085 75.0776C112.35 76.0329 111.299 76.8003 110.508 76.2296L101.591 69.8003C101.471 69.7136 101.337 69.6563 101.199 69.6285L95.0376 65.3393C94.6474 65.0677 94.116 65.3179 94.0614 65.7987L93.6534 69.3978C93.6281 69.6213 93.718 69.8423 93.8907 69.9808L96.868 72.3692L91.5448 76.2279C90.7554 76.8001 89.7037 76.0372 89.9645 75.0816L92.6557 65.2197C92.6717 65.1902 92.6845 65.1581 92.6935 65.1237L95.058 56.0862C95.1347 55.7934 94.8946 55.5156 94.6024 55.5592L90.6768 56.1448C90.5236 56.1678 90.3959 56.2773 90.3466 56.428L89.0988 60.2424L83.9931 56.1163C83.2355 55.5041 83.6428 54.2537 84.6065 54.2331L94.8405 54.0152C94.8711 54.0191 94.9023 54.0206 94.934 54.0198L103.141 53.8011C103.588 53.7892 103.88 53.3157 103.7 52.8958L102.212 49.4285C102.111 49.1944 101.886 49.0435 101.637 49.0435H97.9024L100.036 43.0789Z\" fill=\"white\"/>\n<path d=\"M67 57C68.1046 57 69 57.8954 69 59C69 60.1046 68.1046 61 67 61H7C5.89543 61 5 60.1046 5 59C5 57.8954 5.89543 57 7 57H67Z\" fill=\"white\"/>\n</svg>\n<span class=\"inline-attribute-label SpiritDamage\">спиритический урон</span> и <panel class=\"InlineAttributeIcon Immobilize\" replacechar=\"_\"><span class=\"InlineAttributeName Immobilize\">обездвиживают</span> пересекающих полосу врагов. <br><br><span class=\"diminish\">Альтернативное применение <svg width=\"128\" height=\"128\" viewBox=\"0 0 128 128\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M106 74.5C106 102.39 97.196 125 64 125C30.804 125 22 102.39 22 74.5C22 74.2499 22.0048 74.0002 22.0078 73.751C31.2634 78.1321 44.7654 81 64 81C83.234 81 96.7357 78.1319 105.991 73.751C105.994 74.0002 106 74.2499 106 74.5Z\" fill=\"black\" fill-opacity=\"0.6\"/>\n<path d=\"M58 22.9204C58.0001 19.6507 60.6863 17 63.9999 17C67.3135 17.0003 69.9999 19.6509 70 22.9204V51.0796C70 54.3492 67.3135 56.9997 63.9999 57C60.6862 57 58 54.3494 58 51.0796V22.9204Z\" fill=\"black\" fill-opacity=\"0.6\"/>\n<path d=\"M63.6125 17.008C61.6841 17.0899 59.8918 17.7814 58.5226 18.9327C57.0626 20.1605 56.0002 22.0028 56 24.1999V49.8001C56.0002 51.9973 57.0626 53.8395 58.5226 55.0673C59.8918 56.2186 61.6841 56.9101 63.6125 56.992L64 57C66.075 56.9998 68.0169 56.2945 69.4774 55.0664C70.9372 53.8386 71.9998 51.9972 72 49.8001V24.1999L71.9969 23.9957C71.9332 21.8888 70.8918 20.1232 69.4774 18.9336C68.017 17.7055 66.075 17.0002 64 17L63.6125 17.008Z\" fill=\"black\"/>\n<path d=\"M69 12.9755C73.4305 14.5801 76.598 18.8335 76.598 23.8299V50.7515C76.598 55.7478 73.4304 60.0003 69 61.605V73.4277C84.4336 72.9935 96.282 69.6691 104.368 66.3811C104.93 66.1525 105.474 65.9235 106 65.6961C105.868 63.8985 105.711 62.0149 105.527 60.0406L103.581 44.5956C102.213 35.6269 100.295 26.7201 97.1331 20.6114C89.7895 6.41635 75.6511 4.72025 69 4.42773V12.9755Z\" fill=\"black\" fill-opacity=\"0.6\"/>\n<path d=\"M59 12.9755C54.5695 14.5801 51.402 18.8335 51.402 23.8299V50.7515C51.402 55.7478 54.5696 60.0003 59 61.605V73.4277C43.5664 72.9935 31.718 69.6691 23.6324 66.3811C23.0701 66.1525 22.526 65.9235 22 65.6961C22.1325 63.8985 22.2887 62.0149 22.4731 60.0406L24.4194 44.5956C25.7871 35.6269 27.7049 26.7201 30.8669 20.6114C38.2105 6.41635 52.3489 4.72025 59 4.42773V12.9755Z\" fill=\"black\" fill-opacity=\"0.6\"/>\n</svg>\n меняет ориентацию стены.",
+     "properties_block": [
+      {
+       "properties": [
+        {
+         "important_property": "SummonCount"
+        },
+        {
+         "important_property": "Damage"
+        },
+        {
+         "important_property": "DamagePctPerWallHit"
+        },
+        {
+         "show_property_value": true,
+         "important_property": "StatusEffectImmobilize",
+         "status_effect_value": "ImmobilizeDuration",
+         "status_effect_name": "Обездвиживание",
+         "important_property_icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/condition_immobilize.svg"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "additional_header_properties": [
+    "ZombieWallLength"
+   ]
+  },
+  "upgrades": [
+   {
+    "property_upgrades": [
+     {
+      "name": "AbilityDuration",
+      "bonus": "2"
+     }
+    ]
+   },
+   {
+    "property_upgrades": [
+     {
+      "name": "Damage",
+      "bonus": "90"
+     },
+     {
+      "name": "ZombieWallLength",
+      "bonus": "10m"
+     }
+    ]
+   },
+   {
+    "property_upgrades": [
+     {
+      "name": "ImmobilizeDuration",
+      "bonus": "0.75"
+     },
+     {
+      "name": "SummonCount",
+      "bonus": "1"
+     },
+     {
+      "name": "AbilityCooldown",
+      "bonus": "-14"
+     }
+    ]
+   }
+  ],
+  "ability_type": "signature",
+  "boss_damage_scale": 1.0
+ },
+ {
+  "id": 3214055642,
+  "class_name": "ability_necro_hauntingskull",
+  "name": "Банка мёртвых",
+  "start_trained": false,
+  "image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/necro/necro_skull.png",
+  "image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/necro/necro_skull.webp",
+  "hero": 76,
+  "heroes": [
+   76
+  ],
+  "update_time": 0,
+  "properties": {
+   "AbilityCooldown": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "cooldown",
+    "disable_value": "0",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "AbilityCooldown_scale_function",
+     "specific_stat_scale_type": "ETechCooldown"
+    },
+    "label": "Перезарядка",
+    "postfix": " с.",
+    "postvalue_label": "Перезарядка",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/cooldown.svg"
+   },
+   "AbilityDuration": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "duration",
+    "disable_value": "0",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "AbilityDuration_scale_function",
+     "specific_stat_scale_type": "ETechDuration"
+    },
+    "label": "Длительность",
+    "postfix": " с.",
+    "postvalue_label": "Длительность",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/duration.svg"
+   },
+   "AbilityCastRange": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "range",
+    "display_units": "EDisplayUnit_Meters",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "AbilityCastRange_scale_function",
+     "specific_stat_scale_type": "ETechRange"
+    },
+    "label": "Дальность применения",
+    "postfix": " м",
+    "postvalue_label": "Дальность применения",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/upgrades/property_range.svg"
+   },
+   "AbilityUnitTargetLimit": {
+    "value": "1",
+    "can_set_token_override": true
+   },
+   "AbilityCastDelay": {
+    "value": "0.15",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "0",
+    "label": "Задержка применения",
+    "postfix": " с.",
+    "postvalue_label": "Задержка применения",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "AbilityChannelTime": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "0",
+    "scale_function": {
+     "class_name": "scale_function_multi_stats",
+     "subclass_name": "scale_duration",
+     "scaling_stats": [
+      "EChannelDuration",
+      "ETechDuration"
+     ]
+    },
+    "label": "Длительность применения",
+    "postfix": " с.",
+    "postvalue_label": "Длительность применения",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "AbilityPostCastDuration": {
+    "value": "0",
+    "disable_value": "0"
+   },
+   "AbilityCharges": {
+    "value": "4",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "-1",
+    "scale_function": {
+     "class_name": "scale_function_ability_charges",
+     "subclass_name": "AbilityCharges_scale_function"
+    },
+    "label": "Заряды",
+    "postvalue_label": "Заряды",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "AbilityCooldownBetweenCharge": {
+    "value": "13",
+    "street_brawl_value": "16",
+    "can_set_token_override": true,
+    "css_class": "charge_cooldown",
+    "disable_value": "-2",
+    "scale_function": {
+     "class_name": "scale_function_ability_recharge_time",
+     "subclass_name": "scale_function_ability_recharge_time"
+    },
+    "label": "Интервал зарядов",
+    "postfix": " с.",
+    "postvalue_label": "Интервал зарядов",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/recharge.svg"
+   },
+   "ChannelMoveSpeed": {
+    "value": "-1",
+    "can_set_token_override": true,
+    "css_class": "move_speed",
+    "display_units": "EDisplayUnit_MetersPerSecond",
+    "postfix": " м/c",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/move_speed.svg"
+   },
+   "AbilityResourceCost": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "0",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "TechPower": {
+    "value": "0",
+    "can_set_token_override": true,
+    "provided_property_type": "MODIFIER_VALUE_TECH_POWER",
+    "disable_value": "0",
+    "prefix": "{s:sign}",
+    "label": "Спиритическая мощь",
+    "postfix": "",
+    "postvalue_label": "ед. к спиритической мощи"
+   },
+   "WeaponPower": {
+    "value": "0",
+    "can_set_token_override": true,
+    "provided_property_type": "MODIFIER_VALUE_WEAPON_POWER",
+    "disable_value": "0",
+    "prefix": "{s:sign}",
+    "label": "Урон от оружия",
+    "postfix": "%",
+    "postvalue_label": "Урон от оружия"
+   },
+   "SkullCount": {
+    "value": "4",
+    "css_class": "cast",
+    "label": "Число голов",
+    "postvalue_label": "Число голов",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "SkullLifetime": {
+    "value": "10",
+    "css_class": "duration",
+    "scale_function": {
+     "class_name": "scale_function_tech_duration",
+     "subclass_name": "durationsf"
+    },
+    "label": "Время жизни головы",
+    "postfix": " с.",
+    "postvalue_label": "Время жизни головы",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/duration.svg"
+   },
+   "TickRate": {
+    "value": "0.2"
+   },
+   "TargetSearchRadius": {
+    "value": "7m",
+    "css_class": "distance",
+    "scale_function": {
+     "class_name": "scale_function_tech_range",
+     "subclass_name": "rangesf"
+    },
+    "label": "Радиус поиска",
+    "postfix": " м",
+    "postvalue_label": "Радиус поиска",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/range.svg"
+   },
+   "TargetSearchDelayMax": {
+    "value": "1.25"
+   },
+   "Damage": {
+    "value": "16",
+    "css_class": "tech_damage",
+    "scale_function": {
+     "class_name": "scale_function_tech_damage",
+     "subclass_name": "damagesf",
+     "stat_scale": 0.25
+    },
+    "label": "Урон",
+    "postvalue_label": "Урон",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/damage_magic_color.svg"
+   },
+   "TargetSearchDelayMin": {
+    "value": "1.5"
+   },
+   "MaxHits": {
+    "value": "-1",
+    "label": "Макс. попаданий",
+    "postvalue_label": "Макс. попаданий"
+   },
+   "SummonHealth": {
+    "value": "20",
+    "css_class": "health",
+    "loc_token_override": "HauntingSkullHealth",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "healthsf",
+     "specific_stat_scale_type": "ELevelUpBoons",
+     "stat_scale": 1.3
+    },
+    "label": "Здоровье головы",
+    "postvalue_label": "Здоровье головы",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/health.svg"
+   },
+   "SummonBuffDuration": {
+    "value": "0",
+    "scale_function": {
+     "class_name": "scale_function_tech_duration",
+     "subclass_name": "summonbuffdurationsf"
+    }
+   },
+   "SkullImmuneDuration": {
+    "value": "0.15"
+   },
+   "SpawnRadius": {
+    "value": "2m",
+    "scale_function": {
+     "class_name": "scale_function_tech_range",
+     "subclass_name": "spawnradiussf"
+    }
+   },
+   "SkullRevives": {
+    "value": "0",
+    "css_class": "cast",
+    "label": "Возрождения голов",
+    "postvalue_label": "Возрождения голов",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "DelayBeforeRespawning": {
+    "value": "1"
+   },
+   "TargetDashRadius": {
+    "value": "15m",
+    "css_class": "distance",
+    "scale_function": {
+     "class_name": "scale_function_tech_range",
+     "subclass_name": "dashrangesf",
+     "stat_scale": 1.0
+    },
+    "label": "Дальность рывка",
+    "postfix": " м",
+    "postvalue_label": "Дальность рывка",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/range.svg"
+   },
+   "SummonTakesDamage": {
+    "value": "1"
+   },
+   "SkullsOnKill": {
+    "value": "0",
+    "label": "Число голов за убийство",
+    "postvalue_label": "Число голов за убийство"
+   },
+   "SkullsOnPlayerKill": {
+    "value": "0",
+    "label": "Число голов за убийство героя",
+    "postvalue_label": "Число голов за убийство героя"
+   },
+   "SkullsOnDeath": {
+    "value": "0"
+   },
+   "SkullsOnHeroDeath": {
+    "value": "0"
+   },
+   "ResourceCost": {
+    "value": "120",
+    "css_class": "cast",
+    "loc_token_override": "PartCollectionRequired",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "costsf",
+     "specific_stat_scale_type": "ETechCooldown",
+     "stat_scale": 1.0
+    },
+    "label": "Требуется экстракта",
+    "postvalue_label": "Требуется экстракта",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "ResourceGenerationPercent": {
+    "value": "100"
+   },
+   "ResourceRadius": {
+    "value": "40m",
+    "loc_token_override": "PartCollectionRadius",
+    "label": "Радиус сбора",
+    "postfix": " м",
+    "postvalue_label": "Радиус сбора"
+   },
+   "PickupsPerDeath": {
+    "value": "1"
+   },
+   "PickupsPerHeroDeath": {
+    "value": "5"
+   },
+   "AbilityChargesConditionally": {
+    "value": "1"
+   },
+   "HealPerPickup": {
+    "value": "0",
+    "css_class": "healing",
+    "scale_function": {
+     "class_name": "scale_function_healing_spirit_scale",
+     "subclass_name": "healingsf",
+     "stat_scale": 0.0
+    },
+    "label": "Лечение при подбирании",
+    "postvalue_label": "Лечение при подбирании",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/heal.svg"
+   },
+   "BulletArmorDamageReductionPerStack": {
+    "value": "0",
+    "prefix": "{s:sign}",
+    "label": "Сопр. пулям за ед. эффекта",
+    "postfix": "%",
+    "postvalue_label": "Сопр. пулям за ед. эффекта"
+   },
+   "MaxStacks": {
+    "value": "0",
+    "label": "Максимум ед. эффекта",
+    "postvalue_label": "Максимум ед. эффекта"
+   },
+   "StackDuration": {
+    "value": "0",
+    "scale_function": {
+     "class_name": "scale_function_tech_duration",
+     "subclass_name": "stackdurationsf"
+    },
+    "label": "Длительность ед. эффекта",
+    "postfix": " с.",
+    "postvalue_label": "Длительность ед. эффекта"
+   },
+   "SummonFireRate": {
+    "value": "0",
+    "provided_property_type": "MODIFIER_VALUE_FIRE_RATE"
+   },
+   "KillTime": {
+    "value": "0.2"
+   },
+   "SkullsOnZombieDeath": {
+    "value": "0"
+   },
+   "ResourcePerPickup": {
+    "value": "10"
+   },
+   "SlowPercent": {
+    "value": "0",
+    "provided_property_type": "MODIFIER_VALUE_MOVEMENT_SPEED_SLOW_PERCENT",
+    "css_class": "slow",
+    "prefix": "-",
+    "label": "Скорость передвижения",
+    "postfix": "%",
+    "postvalue_label": "Скорость передвижения",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/condition_slow.svg"
+   },
+   "SlowDuration": {
+    "value": "0",
+    "label": "Длительность замедления",
+    "postfix": " с.",
+    "postvalue_label": "Длительность замедления"
+   },
+   "HealOnHit": {
+    "value": "0",
+    "label": "Лечение при попадании",
+    "postvalue_label": "Лечение при попадании"
+   },
+   "PickupsPerBossDeath": {
+    "value": "5"
+   },
+   "PickupsPerNeutralTrooperDeath": {
+    "value": "3"
+   },
+   "SkullKillGold": {
+    "value": "7",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "killgoldsf",
+     "specific_stat_scale_type": "ELevelUpBoons",
+     "stat_scale": 0.5
+    }
+   },
+   "SkullsApplyPassive": {
+    "value": "0"
+   },
+   "TargetSearchInitialDelayMin": {
+    "value": "0.15"
+   },
+   "TargetSearchInitialDelayMax": {
+    "value": "0.2"
+   },
+   "TargetSearchInitialStagger": {
+    "value": "0.125"
+   },
+   "SkullsFireRateOnCasterDeath": {
+    "value": "0"
+   },
+   "SkullsOnCasterDeath": {
+    "value": "0"
+   }
+  },
+  "weapon_info": {},
+  "type": "ability",
+  "behaviours": [
+   "CITADEL_ABILITY_BEHAVIOR_PROJECTILE",
+   "CITADEL_ABILITY_BEHAVIOR_DISPLAYS_DAMAGE_IMPACT",
+   "CITADEL_ABILITY_BEHAVIOR_PROJECTILE_FIRED_AS_BULLET",
+   "CITADEL_ABILITY_BEHAVIOR_CAN_SET_QUICK_CAST",
+   "CITADEL_ABILITY_BEHAVIOR_DONT_INTERRUPT_SLIDE_ON_CAST"
+  ],
+  "description": {
+   "desc": "<span class=\"diminish\">Пассивное:</span> Грейвс собирает в банку мёртвых <span class=\"highlight\">экстракт смерти</span>, когда кто-то умирает поблизости.<br><br><span class=\"diminish\">Активное:</span> Грейвс бросает банку, чтобы призвать <span class=\"highlight\">головы мёртвых</span>, которые многократно наносят <svg width=\"128\" height=\"128\" viewBox=\"0 0 128 128\" fill=\"white\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M53.7875 20.0238C48.6533 13.3022 40.8042 9 32.0027 9C16.5345 9 4 22.2789 4 38.6558C4 38.7707 4.00052 38.8854 4.00155 39H91.8416L94.7229 33.1618C97.2906 27.9591 104.71 27.9591 107.277 33.1618L110.159 39H115.998C115.999 38.8854 116 38.7707 116 38.6558C116 22.2789 103.466 9 87.9973 9C79.1958 9 71.3467 13.3022 66.2125 20.0238C65.7565 20.6214 65.336 21.1783 64.9462 21.6946C62.4734 24.9699 61.2367 26.6078 59.9993 26.6084C58.7614 26.609 57.5227 24.9711 55.0449 21.6946C54.6545 21.1783 54.2333 20.6214 53.7766 20.0238H53.7875Z\" fill=\"white\"/>\n<path d=\"M79.7015 79L79.5588 79.8323C78.7516 84.5386 82.6742 88.3253 86.9508 88.0132C86.8571 88.1111 86.7634 88.209 86.6696 88.3069C78.1991 97.1552 69.4174 106.328 62.6218 116.742C61.1111 119.051 58.8889 119.051 57.3782 116.742C50.5788 106.325 41.7966 97.1509 33.3264 88.303C30.3317 85.1748 27.3761 82.0873 24.5608 79H79.7015Z\" fill=\"white\"/>\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M101.901 35.5496C101.512 34.8168 100.488 34.8168 100.099 35.5497L93.0406 48.845C92.8929 49.123 92.6315 49.3183 92.3283 49.3766L77.8385 52.1641C77.0398 52.3178 76.7233 53.3185 77.2815 53.9252L87.4091 64.9295C87.6209 65.1597 87.7208 65.4756 87.6812 65.7898L85.7842 80.8078C85.6796 81.6357 86.5083 82.2542 87.2424 81.8963L100.56 75.402C100.838 75.2662 101.162 75.2662 101.44 75.402L114.758 81.8963C115.492 82.2542 116.32 81.6357 116.216 80.8078L114.319 65.7898C114.279 65.4756 114.379 65.1597 114.591 64.9295L124.718 53.9252C125.277 53.3185 124.96 52.3178 124.161 52.1641L109.672 49.3766C109.369 49.3183 109.107 49.123 108.959 48.845L101.901 35.5496ZM100.036 43.0789C100.366 42.1579 101.634 42.1579 101.964 43.0789L105.019 51.6179C105.01 51.6983 105.017 51.7822 105.041 51.8662L107.687 61.1634C107.817 61.6217 108.371 61.7807 108.714 61.4584L111.336 58.9947C111.498 58.8428 111.571 58.6153 111.528 58.3944L110.687 53.9877H117.422C118.389 53.9877 118.82 55.2373 118.067 55.8622L110.702 61.9792C110.601 61.9949 110.502 62.0365 110.413 62.1066L102.948 68.0247C102.581 68.3164 102.638 68.9036 103.055 69.1143L106.244 70.7259C106.44 70.8252 106.673 70.8121 106.858 70.6913L110.254 68.4723L112.085 75.0776C112.35 76.0329 111.299 76.8003 110.508 76.2296L101.591 69.8003C101.471 69.7136 101.337 69.6563 101.199 69.6285L95.0376 65.3393C94.6474 65.0677 94.116 65.3179 94.0614 65.7987L93.6534 69.3978C93.6281 69.6213 93.718 69.8423 93.8907 69.9808L96.868 72.3692L91.5448 76.2279C90.7554 76.8001 89.7037 76.0372 89.9645 75.0816L92.6557 65.2197C92.6717 65.1902 92.6845 65.1581 92.6935 65.1237L95.058 56.0862C95.1347 55.7934 94.8946 55.5156 94.6024 55.5592L90.6768 56.1448C90.5236 56.1678 90.3959 56.2773 90.3466 56.428L89.0988 60.2424L83.9931 56.1163C83.2355 55.5041 83.6428 54.2537 84.6065 54.2331L94.8405 54.0152C94.8711 54.0191 94.9023 54.0206 94.934 54.0198L103.141 53.8011C103.588 53.7892 103.88 53.3157 103.7 52.8958L102.212 49.4285C102.111 49.1944 101.886 49.0435 101.637 49.0435H97.9024L100.036 43.0789Z\" fill=\"white\"/>\n<path d=\"M67 57C68.1046 57 69 57.8954 69 59C69 60.1046 68.1046 61 67 61H7C5.89543 61 5 60.1046 5 59C5 57.8954 5.89543 57 7 57H67Z\" fill=\"white\"/>\n</svg>\n<span class=\"inline-attribute-label SpiritDamage\">спиритический урон</span> врагам. <br><br>Если поблизости нет врагов, головы следуют за вами и отдают приоритет целям, на которые направлено ваше оружие.",
+   "t1_desc": "При подбирании экстракта восстанавливается <span class=\"highlight\">5</span> ед. здоровья",
+   "t2_desc": "При попадании: накладывается замедление в <span class=\"highlight\">24%</span> на 1 с.",
+   "t3_desc": "<span class=\"highlight\">+2</span> мёртвые головы<br><span class=\"highlight\">+4 с.</span> ко времени их жизни"
+  },
+  "tooltip_details": {
+   "info_sections": [
+    {
+     "loc_string": "<span class=\"diminish\">Пассивное:</span> Грейвс собирает в банку мёртвых <span class=\"highlight\">экстракт смерти</span>, когда кто-то умирает поблизости.<br><br><span class=\"diminish\">Активное:</span> Грейвс бросает банку, чтобы призвать <span class=\"highlight\">головы мёртвых</span>, которые многократно наносят <svg width=\"128\" height=\"128\" viewBox=\"0 0 128 128\" fill=\"white\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M53.7875 20.0238C48.6533 13.3022 40.8042 9 32.0027 9C16.5345 9 4 22.2789 4 38.6558C4 38.7707 4.00052 38.8854 4.00155 39H91.8416L94.7229 33.1618C97.2906 27.9591 104.71 27.9591 107.277 33.1618L110.159 39H115.998C115.999 38.8854 116 38.7707 116 38.6558C116 22.2789 103.466 9 87.9973 9C79.1958 9 71.3467 13.3022 66.2125 20.0238C65.7565 20.6214 65.336 21.1783 64.9462 21.6946C62.4734 24.9699 61.2367 26.6078 59.9993 26.6084C58.7614 26.609 57.5227 24.9711 55.0449 21.6946C54.6545 21.1783 54.2333 20.6214 53.7766 20.0238H53.7875Z\" fill=\"white\"/>\n<path d=\"M79.7015 79L79.5588 79.8323C78.7516 84.5386 82.6742 88.3253 86.9508 88.0132C86.8571 88.1111 86.7634 88.209 86.6696 88.3069C78.1991 97.1552 69.4174 106.328 62.6218 116.742C61.1111 119.051 58.8889 119.051 57.3782 116.742C50.5788 106.325 41.7966 97.1509 33.3264 88.303C30.3317 85.1748 27.3761 82.0873 24.5608 79H79.7015Z\" fill=\"white\"/>\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M101.901 35.5496C101.512 34.8168 100.488 34.8168 100.099 35.5497L93.0406 48.845C92.8929 49.123 92.6315 49.3183 92.3283 49.3766L77.8385 52.1641C77.0398 52.3178 76.7233 53.3185 77.2815 53.9252L87.4091 64.9295C87.6209 65.1597 87.7208 65.4756 87.6812 65.7898L85.7842 80.8078C85.6796 81.6357 86.5083 82.2542 87.2424 81.8963L100.56 75.402C100.838 75.2662 101.162 75.2662 101.44 75.402L114.758 81.8963C115.492 82.2542 116.32 81.6357 116.216 80.8078L114.319 65.7898C114.279 65.4756 114.379 65.1597 114.591 64.9295L124.718 53.9252C125.277 53.3185 124.96 52.3178 124.161 52.1641L109.672 49.3766C109.369 49.3183 109.107 49.123 108.959 48.845L101.901 35.5496ZM100.036 43.0789C100.366 42.1579 101.634 42.1579 101.964 43.0789L105.019 51.6179C105.01 51.6983 105.017 51.7822 105.041 51.8662L107.687 61.1634C107.817 61.6217 108.371 61.7807 108.714 61.4584L111.336 58.9947C111.498 58.8428 111.571 58.6153 111.528 58.3944L110.687 53.9877H117.422C118.389 53.9877 118.82 55.2373 118.067 55.8622L110.702 61.9792C110.601 61.9949 110.502 62.0365 110.413 62.1066L102.948 68.0247C102.581 68.3164 102.638 68.9036 103.055 69.1143L106.244 70.7259C106.44 70.8252 106.673 70.8121 106.858 70.6913L110.254 68.4723L112.085 75.0776C112.35 76.0329 111.299 76.8003 110.508 76.2296L101.591 69.8003C101.471 69.7136 101.337 69.6563 101.199 69.6285L95.0376 65.3393C94.6474 65.0677 94.116 65.3179 94.0614 65.7987L93.6534 69.3978C93.6281 69.6213 93.718 69.8423 93.8907 69.9808L96.868 72.3692L91.5448 76.2279C90.7554 76.8001 89.7037 76.0372 89.9645 75.0816L92.6557 65.2197C92.6717 65.1902 92.6845 65.1581 92.6935 65.1237L95.058 56.0862C95.1347 55.7934 94.8946 55.5156 94.6024 55.5592L90.6768 56.1448C90.5236 56.1678 90.3959 56.2773 90.3466 56.428L89.0988 60.2424L83.9931 56.1163C83.2355 55.5041 83.6428 54.2537 84.6065 54.2331L94.8405 54.0152C94.8711 54.0191 94.9023 54.0206 94.934 54.0198L103.141 53.8011C103.588 53.7892 103.88 53.3157 103.7 52.8958L102.212 49.4285C102.111 49.1944 101.886 49.0435 101.637 49.0435H97.9024L100.036 43.0789Z\" fill=\"white\"/>\n<path d=\"M67 57C68.1046 57 69 57.8954 69 59C69 60.1046 68.1046 61 67 61H7C5.89543 61 5 60.1046 5 59C5 57.8954 5.89543 57 7 57H67Z\" fill=\"white\"/>\n</svg>\n<span class=\"inline-attribute-label SpiritDamage\">спиритический урон</span> врагам. <br><br>Если поблизости нет врагов, головы следуют за вами и отдают приоритет целям, на которые направлено ваше оружие.",
+     "properties_block": [
+      {
+       "properties": [
+        {
+         "important_property": "SkullCount"
+        },
+        {
+         "important_property": "Damage"
+        }
+       ]
+      }
+     ],
+     "basic_properties": [
+      "HealOnHit",
+      "TargetSearchRadius",
+      "TargetDashRadius",
+      "SlowPercent",
+      "SlowDuration",
+      "HealPerPickup"
+     ]
+    }
+   ],
+   "additional_header_properties": [
+    "SkullLifetime"
+   ]
+  },
+  "upgrades": [
+   {
+    "property_upgrades": [
+     {
+      "name": "HealPerPickup",
+      "bonus": "5"
+     },
+     {
+      "name": "HealPerPickup",
+      "bonus": "0.16",
+      "scale_stat_filter": "ETechPower",
+      "upgrade_type": "EAddToScale"
+     }
+    ]
+   },
+   {
+    "property_upgrades": [
+     {
+      "name": "SlowPercent",
+      "bonus": "24"
+     },
+     {
+      "name": "SlowDuration",
+      "bonus": "1"
+     }
+    ]
+   },
+   {
+    "property_upgrades": [
+     {
+      "name": "SkullCount",
+      "bonus": "2"
+     },
+     {
+      "name": "SkullLifetime",
+      "bonus": "4"
+     }
+    ]
+   }
+  ],
+  "ability_type": "signature",
+  "boss_damage_scale": 1.0
+ },
+ {
+  "id": 4110547059,
+  "class_name": "ability_necro_gravestone",
+  "name": "Загробный договор",
+  "start_trained": false,
+  "image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/necro/necro_gravestone.png",
+  "image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/necro/necro_gravestone.webp",
+  "hero": 76,
+  "heroes": [
+   76
+  ],
+  "update_time": 0,
+  "properties": {
+   "AbilityCooldown": {
+    "value": "140",
+    "can_set_token_override": true,
+    "css_class": "cooldown",
+    "disable_value": "0",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "AbilityCooldown_scale_function",
+     "specific_stat_scale_type": "ETechCooldown"
+    },
+    "label": "Перезарядка",
+    "postfix": " с.",
+    "postvalue_label": "Перезарядка",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/cooldown.svg"
+   },
+   "AbilityDuration": {
+    "value": "16",
+    "street_brawl_value": "12",
+    "can_set_token_override": true,
+    "css_class": "duration",
+    "disable_value": "0",
+    "scale_function": {
+     "class_name": "scale_function_multi_stats",
+     "subclass_name": "AbilityDuration_scale_function",
+     "specific_stat_scale_type": "ETechPower",
+     "scaling_stats": [
+      "ETechPower",
+      "ETechDuration"
+     ],
+     "stat_scale": 0.04,
+     "street_brawl_stat_scale": 0.028
+    },
+    "label": "Длительность",
+    "postfix": " с.",
+    "postvalue_label": "Длительность",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/duration.svg"
+   },
+   "AbilityCastRange": {
+    "value": "20m",
+    "can_set_token_override": true,
+    "css_class": "range",
+    "display_units": "EDisplayUnit_Meters",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "AbilityCastRange_scale_function",
+     "specific_stat_scale_type": "ETechRange"
+    },
+    "label": "Дальность применения",
+    "postfix": " м",
+    "postvalue_label": "Дальность применения",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/upgrades/property_range.svg"
+   },
+   "AbilityUnitTargetLimit": {
+    "value": "1",
+    "can_set_token_override": true
+   },
+   "AbilityCastDelay": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "0",
+    "label": "Задержка применения",
+    "postfix": " с.",
+    "postvalue_label": "Задержка применения",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "AbilityChannelTime": {
+    "value": "0.66",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "0",
+    "scale_function": {
+     "class_name": "",
+     "subclass_name": "scale_duration",
+     "scaling_stats": [
+      "EChannelDuration",
+      "ETechDuration"
+     ]
+    },
+    "label": "Длительность применения",
+    "postfix": " с.",
+    "postvalue_label": "Длительность применения",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "AbilityPostCastDuration": {
+    "value": "0",
+    "disable_value": "0"
+   },
+   "AbilityCharges": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "-1",
+    "scale_function": {
+     "class_name": "scale_function_ability_charges",
+     "subclass_name": "AbilityCharges_scale_function"
+    },
+    "label": "Заряды",
+    "postvalue_label": "Заряды",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "AbilityCooldownBetweenCharge": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "charge_cooldown",
+    "disable_value": "-1",
+    "scale_function": {
+     "class_name": "scale_function_ability_recharge_time",
+     "subclass_name": "scale_function_ability_recharge_time"
+    },
+    "label": "Интервал зарядов",
+    "postfix": " с.",
+    "postvalue_label": "Интервал зарядов",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/recharge.svg"
+   },
+   "ChannelMoveSpeed": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "move_speed",
+    "display_units": "EDisplayUnit_MetersPerSecond",
+    "postfix": " м/c",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/move_speed.svg"
+   },
+   "AbilityResourceCost": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "0",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "TechPower": {
+    "value": "0",
+    "can_set_token_override": true,
+    "provided_property_type": "MODIFIER_VALUE_TECH_POWER",
+    "css_class": "tech_damage",
+    "disable_value": "0",
+    "scale_function": {
+     "specific_stat_scale_type": "ELevelUpBoons",
+     "stat_scale": 1.0
+    },
+    "prefix": "{s:sign}",
+    "label": "Спиритическая мощь",
+    "postfix": "",
+    "postvalue_label": "ед. к спиритической мощи",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/damage_magic_color.svg"
+   },
+   "WeaponPower": {
+    "value": "0",
+    "can_set_token_override": true,
+    "provided_property_type": "MODIFIER_VALUE_WEAPON_POWER",
+    "disable_value": "0",
+    "prefix": "{s:sign}",
+    "label": "Урон от оружия",
+    "postfix": "%",
+    "postvalue_label": "Урон от оружия"
+   },
+   "GrowTime": {
+    "value": "0.1"
+   },
+   "BlockerScaleFactor": {
+    "value": "1"
+   },
+   "KnockupSpeed": {
+    "value": "240"
+   },
+   "KnockupRadius": {
+    "value": "4m"
+   },
+   "KnockupSideRatio": {
+    "value": "1"
+   },
+   "GravestoneHealth": {
+    "value": "100",
+    "css_class": "health",
+    "scale_function": {},
+    "label": "Прочность надгробия",
+    "postvalue_label": "Прочность надгробия",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/health.svg"
+   },
+   "AuraRadius": {
+    "value": "8m",
+    "css_class": "distance",
+    "scale_function": {
+     "class_name": "scale_function_tech_range",
+     "subclass_name": "auraradiussf"
+    },
+    "label": "радиус",
+    "postfix": " м",
+    "postvalue_label": "Радиус",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/range.svg"
+   },
+   "TickRate": {
+    "value": "0.4"
+   },
+   "SlowPercent": {
+    "value": "64",
+    "provided_property_type": "MODIFIER_VALUE_MOVEMENT_SPEED_SLOW_PERCENT",
+    "css_class": "slow",
+    "prefix": "-",
+    "label": "Скорость передвижения",
+    "postfix": "%",
+    "postvalue_label": "Скорость передвижения",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/condition_slow.svg"
+   },
+   "SlowDuration": {
+    "value": "1.25",
+    "css_class": "duration",
+    "scale_function": {
+     "class_name": "scale_function_tech_duration",
+     "subclass_name": "slowdurationsf"
+    },
+    "label": "Длительность замедления",
+    "postfix": " с.",
+    "postvalue_label": "Длительность замедления",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/duration.svg"
+   },
+   "PushForce": {
+    "value": "300"
+   },
+   "MaxGravestones": {
+    "value": "3",
+    "label": "Макс. число надгробий",
+    "postvalue_label": "Макс. число надгробий"
+   },
+   "SummonInitialDelay": {
+    "value": "0.3"
+   },
+   "SummonFrequency": {
+    "value": "4",
+    "css_class": "duration",
+    "label": "Интервал призыва",
+    "postfix": " с.",
+    "postvalue_label": "Интервал призыва",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/duration.svg"
+   },
+   "ZombieChargeOnCast": {
+    "value": "0"
+   },
+   "BuffDuration": {
+    "value": "-1",
+    "label": "Длительность эффекта",
+    "postfix": " с.",
+    "postvalue_label": "Длительность эффекта"
+   },
+   "BonusHealthRegen": {
+    "value": "0",
+    "provided_property_type": "MODIFIER_VALUE_HEALTH_REGEN_PER_SECOND",
+    "css_class": "healing",
+    "scale_function": {
+     "class_name": "scale_function_healing_spirit_scale",
+     "subclass_name": "healsf",
+     "stat_scale": 0.0
+    },
+    "prefix": "{s:sign}",
+    "label": "Восстановление здоровья",
+    "postfix": "",
+    "postvalue_label": "Восстановление здоровья",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/heal.svg"
+   },
+   "CooldownRefundPercent": {
+    "value": "0",
+    "label": "Сокращение времени перезарядки",
+    "postfix": "%",
+    "postvalue_label": "Сокращение времени перезарядки"
+   },
+   "StackingDebuffTickRate": {
+    "value": "0.25"
+   },
+   "MaxHealthRegen": {
+    "value": "0",
+    "label": "Лечение от макс. здоровья",
+    "postfix": "%",
+    "postvalue_label": "к лечению от макс. здоровья"
+   },
+   "Damage": {
+    "value": "115",
+    "street_brawl_value": "70",
+    "css_class": "tech_damage",
+    "scale_function": {
+     "class_name": "scale_function_tech_damage",
+     "subclass_name": "damagesf",
+     "stat_scale": 1.27,
+     "street_brawl_stat_scale": 0.89
+    },
+    "label": "Урон",
+    "postvalue_label": "Урон",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/damage_magic_color.svg"
+   },
+   "GravestoneTakesDamage": {
+    "value": "1"
+   },
+   "MaxStacks": {
+    "value": "40",
+    "label": "Максимум ед. эффекта",
+    "postvalue_label": "Максимум ед. эффекта"
+   },
+   "StackDuration": {
+    "value": "5",
+    "label": "Длительность ед. эффекта",
+    "postfix": " с.",
+    "postvalue_label": "Длительность ед. эффекта"
+   },
+   "SlowPercentPerStack": {
+    "value": "0.5",
+    "prefix": "-",
+    "label": "Скор. передв. за ед. эффекта",
+    "postfix": "%",
+    "postvalue_label": "Скор. передв. за ед. эффекта"
+   },
+   "TechArmorDamageReductionPerStack": {
+    "value": "-0.5",
+    "label": "Сопр. спиритизму за накопление",
+    "postfix": "%",
+    "postvalue_label": "Сопр. спиритизму за накопление"
+   },
+   "IncomingDamagePercentFromCasterPerStack": {
+    "value": "0",
+    "prefix": "{s:sign}",
+    "label": "Получаемый урон за накопление",
+    "postfix": "%",
+    "postvalue_label": "Получаемый урон за накопление"
+   },
+   "OutgoingDamagePercentPerStack": {
+    "value": "0",
+    "prefix": "{s:sign}",
+    "label": "Наносимый урон за накопление",
+    "postfix": "%",
+    "postvalue_label": "Наносимый урон за накопление"
+   },
+   "ReplicateZombieCast": {
+    "value": "1"
+   },
+   "SpiritPerStack": {
+    "value": "0",
+    "label": "Спирит. мощь за накопление",
+    "postvalue_label": "Спирит. мощь за накопление"
+   },
+   "SummonLifetime": {
+    "value": "20",
+    "css_class": "duration",
+    "scale_function": {
+     "class_name": "scale_function_tech_duration",
+     "subclass_name": "summonlifetimesf"
+    },
+    "label": "Время жизни гуля",
+    "postfix": " с.",
+    "postvalue_label": "Время жизни гуля",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/duration.svg"
+   },
+   "DecayTickRate": {
+    "value": "0.1"
+   },
+   "DecayDuration": {
+    "value": "1"
+   },
+   "SummonMeleeDamage": {
+    "value": "40",
+    "street_brawl_value": "28",
+    "provided_property_type": "MODIFIER_VALUE_INVALID",
+    "css_class": "bullet_damage",
+    "scale_function": {
+     "class_name": "scale_function_tech_damage",
+     "subclass_name": "meleedamagesf",
+     "stat_scale": 0.5,
+     "street_brawl_stat_scale": 0.35
+    },
+    "label": "Урон в ближнем бою",
+    "postvalue_label": "Урон в ближнем бою",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/damage_bullet_color.svg"
+   },
+   "SummonHealth": {
+    "value": "180",
+    "css_class": "health",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "healthscalingsf",
+     "specific_stat_scale_type": "ELevelUpBoons",
+     "stat_scale": 8.0
+    },
+    "label": "Здоровье гуля",
+    "postvalue_label": "Здоровье гуля",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/health.svg"
+   },
+   "BonusSpiritDamagePercentage": {
+    "value": "15",
+    "css_class": "tech_damage",
+    "scale_function": {},
+    "label": "Доп. спиритический урон",
+    "postfix": "%",
+    "postvalue_label": "Доп. спиритический урон",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/damage_magic_color.svg"
+   },
+   "CombatBarrier": {
+    "value": "0",
+    "provided_property_type": "MODIFIER_VALUE_BARRIER_HEALTH",
+    "label": "Барьер",
+    "postvalue_label": "Барьер"
+   },
+   "SummonSearchRadius": {
+    "value": "4m"
+   },
+   "SummonMaxCount": {
+    "value": "32"
+   },
+   "StunDuration": {
+    "value": "0",
+    "scale_function": {
+     "class_name": "scale_function_tech_duration",
+     "subclass_name": "stundurationsf"
+    },
+    "label": "длительность оглушения",
+    "postfix": " сек.",
+    "postvalue_label": "Длительность оглушения"
+   },
+   "ExplodeDelay": {
+    "value": "0.23",
+    "label": "Задержка до взрыва",
+    "postfix": " с.",
+    "postvalue_label": "Задержка до взрыва"
+   },
+   "SpawnDuration": {
+    "value": "1.5"
+   },
+   "ExplosionRadius": {
+    "value": "6.5m",
+    "scale_function": {
+     "class_name": "scale_function_tech_range",
+     "subclass_name": "explosionradiusf"
+    },
+    "label": "Радиус взрыва",
+    "postfix": " м",
+    "postvalue_label": "Радиус взрыва"
+   },
+   "MoveSpeedPercent": {
+    "value": "0",
+    "provided_property_type": "MODIFIER_VALUE_MOVEMENT_SPEED_MAX_PERCENT"
+   },
+   "BulletResist": {
+    "value": "12.5",
+    "prefix": "{s:sign}",
+    "label": "Сопр. пулям",
+    "postfix": "%",
+    "postvalue_label": "Сопр. пулям"
+   },
+   "CurrentHealthDamagePercentage": {
+    "value": "0",
+    "label": "Урон от текущего здоровья",
+    "postfix": "%",
+    "postvalue_label": "Урон от текущего здоровья"
+   },
+   "SummonBurstCount": {
+    "value": "2"
+   },
+   "SummonBurstFrequency": {
+    "value": "0.1"
+   },
+   "DamageSlowPercent": {
+    "value": "20",
+    "provided_property_type": "MODIFIER_VALUE_MOVEMENT_SPEED_SLOW_PERCENT"
+   },
+   "DamageSlowDuration": {
+    "value": "0.5"
+   }
+  },
+  "weapon_info": {},
+  "type": "ability",
+  "behaviours": [
+   "CITADEL_ABILITY_BEHAVIOR_CHANNELLED",
+   "CITADEL_ABILITY_BEHAVIOR_NO_TARGET",
+   "CITADEL_ABILITY_BEHAVIOR_DISPLAYS_DAMAGE_IMPACT",
+   "CITADEL_ABILITY_BEHAVIOR_CANNOT_CANCEL_DURING_CHANNEL",
+   "CITADEL_ABILITY_BEHAVIOR_COOLDOWN_ON_CHANNEL_END",
+   "CITADEL_ABILITY_BEHAVIOR_CAN_SET_QUICK_CAST",
+   "CITADEL_ABILITY_BEHAVIOR_DONT_INTERRUPT_SLIDE_ON_CAST",
+   "CITADEL_ABILITY_BEHAVIOR_REFUND_FULL_COOLDOWN_ON_CHANNEL_INTERRUPT"
+  ],
+  "description": {
+   "t1_desc": "<span class=\"highlight\">+25%</span> к скорости гулей<br><span class=\"highlight\">-15 с.</span> от времени перезарядки",
+   "t2_desc": "<span class=\"highlight\">+10 с.</span> к длительности<br><span class=\"highlight\">-0.3 с.</span> от интервала призыва",
+   "t3_desc": "При взрыве: наносится <span class=\"highlight\">+5%</span> от текущего здоровья в виде урона"
+  },
+  "tooltip_details": {
+   "info_sections": [
+    {
+     "loc_string": "<span class=\"diminish\">Пассивное: </span>умения Грейвс могут призывать <span class=\"highlight\">гулей</span>, которые волочатся к вражеской базе и наносят <img src=\"https://assets-bucket.deadlock-api.com/assets-api-res/images/hud/core/icon_damage_melee.png\" class=\"inline-attribute MeleeDamage\" alt=\"урон ближнего боя\"/><span class=\"inline-attribute-label MeleeDamage\" style=\"color: #EC9719;\">урон ближнего боя</span>. Приблизившись к герою или ключевой цели, они взрываются, нанося <svg width=\"128\" height=\"128\" viewBox=\"0 0 128 128\" fill=\"white\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M53.7875 20.0238C48.6533 13.3022 40.8042 9 32.0027 9C16.5345 9 4 22.2789 4 38.6558C4 38.7707 4.00052 38.8854 4.00155 39H91.8416L94.7229 33.1618C97.2906 27.9591 104.71 27.9591 107.277 33.1618L110.159 39H115.998C115.999 38.8854 116 38.7707 116 38.6558C116 22.2789 103.466 9 87.9973 9C79.1958 9 71.3467 13.3022 66.2125 20.0238C65.7565 20.6214 65.336 21.1783 64.9462 21.6946C62.4734 24.9699 61.2367 26.6078 59.9993 26.6084C58.7614 26.609 57.5227 24.9711 55.0449 21.6946C54.6545 21.1783 54.2333 20.6214 53.7766 20.0238H53.7875Z\" fill=\"white\"/>\n<path d=\"M79.7015 79L79.5588 79.8323C78.7516 84.5386 82.6742 88.3253 86.9508 88.0132C86.8571 88.1111 86.7634 88.209 86.6696 88.3069C78.1991 97.1552 69.4174 106.328 62.6218 116.742C61.1111 119.051 58.8889 119.051 57.3782 116.742C50.5788 106.325 41.7966 97.1509 33.3264 88.303C30.3317 85.1748 27.3761 82.0873 24.5608 79H79.7015Z\" fill=\"white\"/>\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M101.901 35.5496C101.512 34.8168 100.488 34.8168 100.099 35.5497L93.0406 48.845C92.8929 49.123 92.6315 49.3183 92.3283 49.3766L77.8385 52.1641C77.0398 52.3178 76.7233 53.3185 77.2815 53.9252L87.4091 64.9295C87.6209 65.1597 87.7208 65.4756 87.6812 65.7898L85.7842 80.8078C85.6796 81.6357 86.5083 82.2542 87.2424 81.8963L100.56 75.402C100.838 75.2662 101.162 75.2662 101.44 75.402L114.758 81.8963C115.492 82.2542 116.32 81.6357 116.216 80.8078L114.319 65.7898C114.279 65.4756 114.379 65.1597 114.591 64.9295L124.718 53.9252C125.277 53.3185 124.96 52.3178 124.161 52.1641L109.672 49.3766C109.369 49.3183 109.107 49.123 108.959 48.845L101.901 35.5496ZM100.036 43.0789C100.366 42.1579 101.634 42.1579 101.964 43.0789L105.019 51.6179C105.01 51.6983 105.017 51.7822 105.041 51.8662L107.687 61.1634C107.817 61.6217 108.371 61.7807 108.714 61.4584L111.336 58.9947C111.498 58.8428 111.571 58.6153 111.528 58.3944L110.687 53.9877H117.422C118.389 53.9877 118.82 55.2373 118.067 55.8622L110.702 61.9792C110.601 61.9949 110.502 62.0365 110.413 62.1066L102.948 68.0247C102.581 68.3164 102.638 68.9036 103.055 69.1143L106.244 70.7259C106.44 70.8252 106.673 70.8121 106.858 70.6913L110.254 68.4723L112.085 75.0776C112.35 76.0329 111.299 76.8003 110.508 76.2296L101.591 69.8003C101.471 69.7136 101.337 69.6563 101.199 69.6285L95.0376 65.3393C94.6474 65.0677 94.116 65.3179 94.0614 65.7987L93.6534 69.3978C93.6281 69.6213 93.718 69.8423 93.8907 69.9808L96.868 72.3692L91.5448 76.2279C90.7554 76.8001 89.7037 76.0372 89.9645 75.0816L92.6557 65.2197C92.6717 65.1902 92.6845 65.1581 92.6935 65.1237L95.058 56.0862C95.1347 55.7934 94.8946 55.5156 94.6024 55.5592L90.6768 56.1448C90.5236 56.1678 90.3959 56.2773 90.3466 56.428L89.0988 60.2424L83.9931 56.1163C83.2355 55.5041 83.6428 54.2537 84.6065 54.2331L94.8405 54.0152C94.8711 54.0191 94.9023 54.0206 94.934 54.0198L103.141 53.8011C103.588 53.7892 103.88 53.3157 103.7 52.8958L102.212 49.4285C102.111 49.1944 101.886 49.0435 101.637 49.0435H97.9024L100.036 43.0789Z\" fill=\"white\"/>\n<path d=\"M67 57C68.1046 57 69 57.8954 69 59C69 60.1046 68.1046 61 67 61H7C5.89543 61 5 60.1046 5 59C5 57.8954 5.89543 57 7 57H67Z\" fill=\"white\"/>\n</svg>\n<span class=\"inline-attribute-label SpiritDamage\">спиритический урон</span> в области и ненадолго накладывая <img src=\"https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_slow_large.png\" class=\"inline-attribute Slow\" alt=\"замедление\"/><span class=\"inline-attribute-label Slow\">замедление</span>."
+    },
+    {
+     "loc_string": "<span class=\"diminish\">Активное: </span>Грейвс создаёт в указанном месте надгробие, которое постепенно призывает <span class=\"highlight\">гулей</span>. Враги могут разрушить надгробие двумя тяжёлыми ударами.",
+     "properties_block": [
+      {
+       "properties": [
+        {
+         "important_property": "Damage"
+        },
+        {
+         "show_property_value": true,
+         "important_property": "StatusEffectStun",
+         "status_effect_value": "StunDuration",
+         "status_effect_name": "Оглушение",
+         "important_property_icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/condition_stun.svg"
+        },
+        {
+         "important_property": "SlowPercent"
+        }
+       ]
+      }
+     ],
+     "basic_properties": [
+      "SummonHealth",
+      "SummonMeleeDamage",
+      "SummonLifetime",
+      "SlowDuration",
+      "ExplosionRadius",
+      "SummonFrequency"
+     ]
+    }
+   ]
+  },
+  "upgrades": [
+   {
+    "property_upgrades": [
+     {
+      "name": "AbilityCooldown",
+      "bonus": "-15"
+     },
+     {
+      "name": "MoveSpeedPercent",
+      "bonus": "25"
+     }
+    ]
+   },
+   {
+    "property_upgrades": [
+     {
+      "name": "AbilityDuration",
+      "bonus": "10"
+     },
+     {
+      "name": "SummonFrequency",
+      "bonus": "-0.3"
+     }
+    ]
+   },
+   {
+    "property_upgrades": [
+     {
+      "name": "CurrentHealthDamagePercentage",
+      "bonus": "5"
+     }
+    ]
+   }
+  ],
+  "ability_type": "ultimate",
+  "boss_damage_scale": 1.0
+ },
+ {
+  "id": 629925354,
+  "class_name": "ability_necro_fear",
+  "name": "Хищение эссенции",
+  "start_trained": false,
+  "image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/necro/necro_siphon.png",
+  "image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/necro/necro_siphon.webp",
+  "hero": 76,
+  "heroes": [
+   76
+  ],
+  "update_time": 0,
+  "properties": {
+   "AbilityCooldown": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "cooldown",
+    "disable_value": "0",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "AbilityCooldown_scale_function",
+     "specific_stat_scale_type": "ETechCooldown"
+    },
+    "label": "Перезарядка",
+    "postfix": " с.",
+    "postvalue_label": "Перезарядка",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/cooldown.svg"
+   },
+   "AbilityDuration": {
+    "value": "4",
+    "can_set_token_override": true,
+    "css_class": "duration",
+    "disable_value": "0",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "AbilityDuration_scale_function",
+     "specific_stat_scale_type": "ETechDuration"
+    },
+    "label": "Длительность",
+    "postfix": " с.",
+    "postvalue_label": "Длительность",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/duration.svg"
+   },
+   "AbilityCastRange": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "range",
+    "display_units": "EDisplayUnit_Meters",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "AbilityCastRange_scale_function",
+     "specific_stat_scale_type": "ETechRange"
+    },
+    "label": "Дальность применения",
+    "postfix": " м",
+    "postvalue_label": "Дальность применения",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/upgrades/property_range.svg"
+   },
+   "AbilityUnitTargetLimit": {
+    "value": "1",
+    "can_set_token_override": true
+   },
+   "AbilityCastDelay": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "0",
+    "label": "Задержка применения",
+    "postfix": " с.",
+    "postvalue_label": "Задержка применения",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "AbilityChannelTime": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "0",
+    "scale_function": {
+     "class_name": "scale_function_multi_stats",
+     "subclass_name": "scale_duration",
+     "scaling_stats": [
+      "EChannelDuration",
+      "ETechDuration"
+     ]
+    },
+    "label": "Длительность применения",
+    "postfix": " с.",
+    "postvalue_label": "Длительность применения",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "AbilityPostCastDuration": {
+    "value": "0",
+    "disable_value": "0"
+   },
+   "AbilityCharges": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "-1",
+    "scale_function": {
+     "class_name": "scale_function_ability_charges",
+     "subclass_name": "AbilityCharges_scale_function"
+    },
+    "label": "Заряды",
+    "postvalue_label": "Заряды",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "AbilityCooldownBetweenCharge": {
+    "value": "-1.0",
+    "can_set_token_override": true,
+    "css_class": "charge_cooldown",
+    "disable_value": "-2",
+    "scale_function": {
+     "class_name": "scale_function_ability_recharge_time",
+     "subclass_name": "scale_function_ability_recharge_time"
+    },
+    "label": "Интервал зарядов",
+    "postfix": " с.",
+    "postvalue_label": "Интервал зарядов",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/recharge.svg"
+   },
+   "ChannelMoveSpeed": {
+    "value": "-1",
+    "can_set_token_override": true,
+    "css_class": "move_speed",
+    "display_units": "EDisplayUnit_MetersPerSecond",
+    "postfix": " м/c",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/move_speed.svg"
+   },
+   "AbilityResourceCost": {
+    "value": "0",
+    "can_set_token_override": true,
+    "css_class": "cast",
+    "disable_value": "0",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+   },
+   "TechPower": {
+    "value": "0",
+    "can_set_token_override": true,
+    "provided_property_type": "MODIFIER_VALUE_TECH_POWER",
+    "disable_value": "0",
+    "prefix": "{s:sign}",
+    "label": "Спиритическая мощь",
+    "postfix": "",
+    "postvalue_label": "ед. к спиритической мощи"
+   },
+   "WeaponPower": {
+    "value": "0",
+    "can_set_token_override": true,
+    "provided_property_type": "MODIFIER_VALUE_WEAPON_POWER",
+    "disable_value": "0",
+    "prefix": "{s:sign}",
+    "label": "Урон от оружия",
+    "postfix": "%",
+    "postvalue_label": "Урон от оружия"
+   },
+   "MaxStolenAttackDamage": {
+    "value": "25",
+    "css_class": "bullet_damage",
+    "scale_function": {
+     "class_name": "scale_function_single_stat",
+     "subclass_name": "stolensf",
+     "specific_stat_scale_type": "ETechPower",
+     "stat_scale": 0.25
+    },
+    "label": "Макс. кража урона от оружия",
+    "postfix": "%",
+    "postvalue_label": "Порог кражи урона от оружия",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/damage_bullet_color.svg"
+   },
+   "ShootDurationForMax": {
+    "value": "4",
+    "css_class": "duration",
+    "label": "Время до макс. урона",
+    "postfix": " сек.",
+    "postvalue_label": "Время до макс. урона",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/duration.svg"
+   },
+   "BonusWeaponTethers": {
+    "value": "0"
+   },
+   "ProgressLossPerSecond": {
+    "value": "1"
+   },
+   "HealAmount": {
+    "value": "0",
+    "css_class": "healing",
+    "scale_function": {},
+    "label": "Лечение",
+    "postvalue_label": "Лечение",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/heal.svg"
+   },
+   "CooldownReductionOnKill": {
+    "value": "0",
+    "css_class": "duration",
+    "label": "Сокр. перезарядки умений",
+    "postfix": " с.",
+    "postvalue_label": "Сокр. перезарядки умений",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/duration.svg"
+   },
+   "TickInterval": {
+    "value": "0.15",
+    "label": "интервала между ударами",
+    "postfix": " сек.",
+    "postvalue_label": "Интервал между ударами"
+   },
+   "DelayBeforeLoss": {
+    "value": "0.5"
+   },
+   "HealPerSecond": {
+    "value": "0",
+    "css_class": "healing",
+    "scale_function": {},
+    "label": "Лечение в секунду",
+    "postvalue_label": "Лечение в секунду",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/heal.svg"
+   },
+   "ProgressLossMultiplier": {
+    "value": "2.3"
+   },
+   "MaxStolenSpiritResist": {
+    "value": "10",
+    "css_class": "tech_armor_down",
+    "label": "Порог кражи сопр. спиритизму",
+    "postfix": "%",
+    "postvalue_label": "Порог кражи сопр. спиритизму",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/armor_spirit_color.svg"
+   },
+   "ProcDamage": {
+    "value": "0",
+    "label": "Спиритический урон",
+    "postfix": "",
+    "postvalue_label": "Спиритический урон"
+   },
+   "MaxStolenFireRate": {
+    "value": "0",
+    "css_class": "fire_rate",
+    "label": "Порог кражи скорострельности",
+    "postfix": "%",
+    "postvalue_label": "Порог кражи скорострельности",
+    "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/fire_rate.svg"
+   },
+   "MaxStolenTargets": {
+    "value": "3",
+    "label": "Макс. число жертв кражи",
+    "postvalue_label": "Макс. число жертв кражи"
+   },
+   "SkullBuildUp": {
+    "value": "0"
+   },
+   "MeleeBuildUp": {
+    "value": "0.2"
+   },
+   "BonusWeaponAngle": {
+    "value": "0"
+   },
+   "ZombieMeleeBuildUp": {
+    "value": "0"
+   },
+   "ZombieExplosionBuildUp": {
+    "value": "0"
+   }
+  },
+  "weapon_info": {},
+  "type": "ability",
+  "description": {
+   "desc": "Оружие Грейвс постепенно крадёт <svg width=\"128\" height=\"128\" viewBox=\"0 0 128 128\" fill=\"white\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M32.0027 9C40.8042 9 48.6533 13.3022 53.7875 20.0238H53.7766C57.1324 24.4142 58.5664 26.6091 59.9993 26.6084C61.4318 26.6078 62.8632 24.4129 66.2125 20.0238C71.3467 13.3022 79.1958 9 87.9973 9C103.466 9 116 22.2789 116 38.6558C116 38.7707 115.999 38.8854 115.998 39H4.00155C4.00052 38.8854 4 38.7707 4 38.6558C4 22.2789 16.5345 9 32.0027 9Z\" fill=\"white\"/>\n<path d=\"M24.5608 79C27.3761 82.0873 30.3317 85.1748 33.3264 88.303C41.7966 97.1509 50.5788 106.325 57.3782 116.742C58.8889 119.051 61.1111 119.051 62.6218 116.742C69.4174 106.328 78.1987 97.1556 86.6692 88.3073C89.6652 85.1778 92.6222 82.0889 95.4388 79H24.5608Z\" fill=\"white\"/>\n<path d=\"M123 59.0055C123 59.0055 117.403 49 100.88 49H75V69H100.88C117.413 69 123 58.9945 123 58.9945V59.0055Z\" fill=\"white\"/>\n<path d=\"M67 57C68.1046 57 69 57.8954 69 59C69 60.1046 68.1046 61 67 61H7C5.89543 61 5 60.1046 5 59C5 57.8954 5.89543 57 7 57H67Z\" fill=\"white\"/>\n</svg>\n<span class=\"inline-attribute-label WeaponDamage\">урон от оружия</span> и <img src=\"https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_tech_armor.png\" class=\"inline-attribute SpiritResist\" alt=\"сопротивляемость спиритизму\"/><span class=\"inline-attribute-label SpiritResist\" style=\"color: #CE90FF;\">сопротивляемость спиритизму</span> — до порога для каждой цели.",
+   "t3_desc": "<span class=\"highlight\">+1</span> к макс. числу жертв кражи<br>Все <span class=\"highlight\">призываемые существа</span> теперь накладывают «Хищение эссенции»"
+  },
+  "tooltip_details": {
+   "info_sections": [
+    {
+     "loc_string": "Оружие Грейвс постепенно крадёт <svg width=\"128\" height=\"128\" viewBox=\"0 0 128 128\" fill=\"white\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M32.0027 9C40.8042 9 48.6533 13.3022 53.7875 20.0238H53.7766C57.1324 24.4142 58.5664 26.6091 59.9993 26.6084C61.4318 26.6078 62.8632 24.4129 66.2125 20.0238C71.3467 13.3022 79.1958 9 87.9973 9C103.466 9 116 22.2789 116 38.6558C116 38.7707 115.999 38.8854 115.998 39H4.00155C4.00052 38.8854 4 38.7707 4 38.6558C4 22.2789 16.5345 9 32.0027 9Z\" fill=\"white\"/>\n<path d=\"M24.5608 79C27.3761 82.0873 30.3317 85.1748 33.3264 88.303C41.7966 97.1509 50.5788 106.325 57.3782 116.742C58.8889 119.051 61.1111 119.051 62.6218 116.742C69.4174 106.328 78.1987 97.1556 86.6692 88.3073C89.6652 85.1778 92.6222 82.0889 95.4388 79H24.5608Z\" fill=\"white\"/>\n<path d=\"M123 59.0055C123 59.0055 117.403 49 100.88 49H75V69H100.88C117.413 69 123 58.9945 123 58.9945V59.0055Z\" fill=\"white\"/>\n<path d=\"M67 57C68.1046 57 69 57.8954 69 59C69 60.1046 68.1046 61 67 61H7C5.89543 61 5 60.1046 5 59C5 57.8954 5.89543 57 7 57H67Z\" fill=\"white\"/>\n</svg>\n<span class=\"inline-attribute-label WeaponDamage\">урон от оружия</span> и <img src=\"https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_tech_armor.png\" class=\"inline-attribute SpiritResist\" alt=\"сопротивляемость спиритизму\"/><span class=\"inline-attribute-label SpiritResist\" style=\"color: #CE90FF;\">сопротивляемость спиритизму</span> — до порога для каждой цели.",
+     "property_upgrade_required": "",
+     "properties_block": [
+      {
+       "properties": [
+        {
+         "important_property": "MaxStolenAttackDamage"
+        },
+        {
+         "important_property": "MaxStolenSpiritResist"
+        },
+        {
+         "important_property": "MaxStolenFireRate"
+        }
+       ]
+      }
+     ],
+     "basic_properties": [
+      "MaxStolenTargets",
+      "ShootDurationForMax"
+     ]
+    }
+   ]
+  },
+  "upgrades": [
+   {
+    "property_upgrades": [
+     {
+      "name": "MaxStolenSpiritResist",
+      "bonus": "5"
+     }
+    ]
+   },
+   {
+    "property_upgrades": [
+     {
+      "name": "MaxStolenAttackDamage",
+      "bonus": "20"
+     }
+    ]
+   },
+   {
+    "property_upgrades": [
+     {
+      "name": "SkullBuildUp",
+      "bonus": "0.15"
+     },
+     {
+      "name": "ZombieMeleeBuildUp",
+      "bonus": "0.15"
+     },
+     {
+      "name": "ZombieExplosionBuildUp",
+      "bonus": "1.0"
+     },
+     {
+      "name": "MaxStolenTargets",
+      "bonus": "1"
+     }
+    ]
+   }
+  ],
+  "ability_type": "signature",
+  "boss_damage_scale": 1.0
+ }
+]
