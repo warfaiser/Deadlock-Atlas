@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Velocity Atlas — гонки</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 <header class="top">
@@ -16,6 +16,7 @@
 <main>
   <section class="stage-wrap">
     <div id="stage">
+      <div id="errbox" style="display:none"></div>
       <canvas id="game"></canvas>
 
       <!-- HUD -->
@@ -88,9 +89,9 @@
 
 <footer class="foot">Velocity Atlas · демо-прототип · Godot-проект в <code>racing-game/</code></footer>
 
-<script src="vendor/three.min.js"></script>
-<script src="data.js"></script>
-<script src="sim.js"></script>
-<script src="game3d.js"></script>
+<script src="vendor/three.min.js?v=3"></script>
+<script src="data.js?v=3"></script>
+<script src="sim.js?v=3"></script>
+<script src="game3d.js?v=3"></script>
 </body>
 </html>

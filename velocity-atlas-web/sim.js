@@ -19,7 +19,9 @@ const SIM = {
 
 // --- Трасса: Catmull-Rom по контрольным точкам [x, y, z] --------------------
 function buildTrack(track) {
-  const pts = track.points, n = pts.length;
+  // нормализуем точки к [x, z(плоскость), h(высота)]; терпим и старый 2D-формат [x, z]
+  const pts = track.points.map(p => (p.length >= 3 ? [p[0], p[2], p[1]] : [p[0], p[1], 0]));
+  const n = pts.length;
   const SEG = 24;
   const cr = (a, b, c, d, t) => {
     const t2 = t * t, t3 = t2 * t;
@@ -32,7 +34,7 @@ function buildTrack(track) {
     const p0 = pts[(i - 1 + n) % n], p1 = pts[i], p2 = pts[(i + 1) % n], p3 = pts[(i + 2) % n];
     for (let s = 0; s < SEG; s++) {
       const q = cr(p0, p1, p2, p3, s / SEG);
-      samples.push([q[0], q[2], q[1]]); // x, z(плоскость), y(высота)
+      samples.push([q[0], q[1], q[2]]); // [x, z(плоскость), h(высота)]
     }
   }
   let total = 0; const cum = [0];

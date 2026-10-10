@@ -15,7 +15,28 @@ const canvas = document.getElementById('game');
 const mini = document.getElementById('minimap');
 const mctx = mini.getContext('2d');
 
+// --- Видимый отчёт об ошибках (чтобы диагностировать без консоли) -----------
+let _errShown = false;
+function showErr(msg) {
+  const el = document.getElementById('errbox');
+  if (!el) return;
+  el.style.display = 'block';
+  el.textContent = (el.textContent ? el.textContent + '\n' : '') + msg;
+  _errShown = true;
+}
+window.addEventListener('error', e => { if (!_errShown || e.message) showErr('⚠ ' + (e.message || e) + (e.lineno ? ' (стр.' + e.lineno + ')' : '')); });
+
+function webglSupported() {
+  try {
+    const c = document.createElement('canvas');
+    return !!(window.WebGLRenderingContext && (c.getContext('webgl') || c.getContext('experimental-webgl')));
+  } catch (e) { return false; }
+}
+
 function initThree() {
+  if (!webglSupported()) {
+    showErr('WebGL недоступен в этом окружении — 3D-рендер не запустится.');
+  }
   G.renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
   G.renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
   G.renderer.shadowMap.enabled = true;
@@ -334,7 +355,7 @@ function animate() {
   }
 
   if (G.race) { syncCars(dt); updateCamera(dt); updateHud(); }
-  G.renderer.render(G.scene, G.camera);
+  try { G.renderer.render(G.scene, G.camera); } catch (e) { showErr('⚠ render: ' + e.message); }
 }
 const SIM_STEP = 1 / 60;
 
@@ -363,6 +384,10 @@ function updateCamera(dt) {
   if (!G.camInit) { G.camera.position.copy(desired); G.camInit = true; }
   const k = 1 - Math.pow(0.0015, dt);
   G.camera.position.lerp(desired, k);
+  if (!isFinite(G.camera.position.x + G.camera.position.y + G.camera.position.z)) {
+    G.camera.position.set(p.x - fx * 9, p.h + 4, p.y - fz * 9);
+  }
+  G.camera.position.y = Math.max(G.camera.position.y, p.h + 1.2);
   G.camera.lookAt(p.x + fx * 7, p.h + 1.4, p.y + fz * 7);
   const targetFov = 68 + Math.min(22, speed * 0.6);
   G.camera.fov += (targetFov - G.camera.fov) * Math.min(1, dt * 3);
@@ -372,7 +397,8 @@ function updateCamera(dt) {
 // --- HUD --------------------------------------------------------------------
 function updateHud() {
   const p = G.race.player;
-  const kmh = Math.abs(Sim.forwardSpeed(p)) * 3.6;
+  const kmhRaw = Math.abs(Sim.forwardSpeed(p)) * 3.6;
+  const kmh = isFinite(kmhRaw) ? kmhRaw : 0;
   document.getElementById('h-speed').textContent = Math.round(kmh);
   document.getElementById('h-gear').textContent = Math.max(1, Math.min(6, Math.ceil(kmh / 22) || 1));
   document.getElementById('h-lap').textContent = `${Math.min(p.lap, G.race.track.laps)}/${G.race.track.laps}`;
